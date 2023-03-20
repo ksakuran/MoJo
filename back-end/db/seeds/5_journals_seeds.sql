@@ -1,6 +1,8 @@
--- INSERT INTO favourites
--- (user_id,map_id)
--- VALUES
--- (8,3),(8,2),
--- (10,1),(10,2),(10,3),(10,4),
--- (16,3),(8,4),(11,1),(12,4),(12,2);
+INSERT INTO journals
+(body, day_selection_id)
+VALUES
+("Today was a great day!", 1),
+("This morning was rough, but things turned around in the afternoon", 2),
+("I'm a little unsure about my new job", 3),
+("I feel really good in my skin", 4),
+("Today was ok - not good but not bad either", 5);

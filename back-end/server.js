@@ -1,0 +1,30 @@
+// load .env data into process.env
+require('dotenv').config();
+
+// Web server config
+const express = require('express');
+const morgan = require('morgan');
+
+const PORT = process.env.PORT || 8080;
+const app = express();
+
+app.use(morgan('dev'));
+app.use(express.urlencoded({ extended: true }));
+
+const checklistApiRoutes = require('./routes/checklist-router');
+const daySelectionApiRoutes = require('./routes/daySelection-router');
+const journalApiRoutes = require('./routes/journal-router');
+const moodApiRoutes = require('./routes/mood-router');
+const moodscapeApiRoutes = require('./routes/moodscape-router');
+const userApiRoutes = require('./routes/user-router');
+
+app.use('/api/checklist', checklistApiRoutes);
+app.use('/api/daySelection', daySelectionApiRoutes);
+app.use('/api/journal', journalApiRoutes);
+app.use('/api/mood', moodApiRoutes);
+app.use('/api/moodscape', moodscapeApiRoutes);
+app.use('/api/user', userApiRoutes);
+
+app.listen(PORT, () => {
+  console.log(`Example app listening on port ${PORT}`);
+});

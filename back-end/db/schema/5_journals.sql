@@ -1,4 +1,4 @@
--- Drop and recreate Users table
+
 DROP TABLE IF EXISTS journals CASCADE;
 CREATE TABLE journals (
   id SERIAL PRIMARY KEY NOT NULL,

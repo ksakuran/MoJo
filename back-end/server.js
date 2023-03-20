@@ -3,11 +3,13 @@ require('dotenv').config();
 
 // Web server config
 const express = require('express');
+const bodyParser = require('body-parser');
 const morgan = require('morgan');
 
 const PORT = process.env.PORT || 8000;
 const app = express();
 
+app.use(bodyParser.json());
 app.use(morgan('dev'));
 app.use(express.urlencoded({ extended: true }));
 

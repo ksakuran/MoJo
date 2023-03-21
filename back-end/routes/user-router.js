@@ -16,6 +16,20 @@ router.get(`/:userId`, (req, res) => {
     });
 });
 
+// Registers new user
+router.post(`/new`, (req, res) => {
+  const body = req.body;
+  userQueries.registerUser(body)
+    .then(results => {
+      return res.json(results);
+    })
+    .catch(err => {
+      res
+        .status(500)
+        .json({ error: err.message });
+    });
+  });
+
 
 // Updates user's information
 router.post(`/:userId`, (req, res) => {
@@ -30,24 +44,5 @@ router.post(`/:userId`, (req, res) => {
         .json({ error: err.message });
     });
   });
-
-
-// Registers new user
-router.post(`/new`, (req, res) => {
-  const body = req.body;
-  console.log('body', body);
-
-  userQueries.registerUser(body)
-    .then(results => {
-      console.log('results', results);
-      return res.json(results);
-    })
-    .catch(err => {
-      res
-        .status(500)
-        .json({ error: err.message });
-    });
-  });
-
 
 module.exports = router;

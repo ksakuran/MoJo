@@ -1,22 +1,39 @@
 import DaySelectionCalendar from "./DaySelectionCalendar";
 
 function MainContainer() {
+  //get viewMode from somewhere
+  const viewMode = 'CALENDAR';
+
   return (
     <>
       {/* Always display on the left */}
       <SideNav />
 
       {/* if no daySelectionId in session or default viewMode */}
-      <DaySelectionCalendar />
+      {
+        viewMode === 'CALENDAR' && (
+          <DaySelectionCalendar />
+        )
+      }
 
-      {/* if viewMode is Home */}
-      <Home />
+      {
+        viewMode === 'HOME' && (
+          <HomePage />
+        )
+      }
 
-      {/* if viewMode is Journal */}
-      <Journal />
+      {
+        viewMode === 'JOURNAL' && (
+          <JournalPage />
+        )
+      }
 
-      {/* ifviewMode is Moodscape */}
-      <Moodscape />
+      {
+        viewMode === 'MOODSCAPE' && (
+          <Moodscape />
+        )
+      }
+
     </>
   );
 }

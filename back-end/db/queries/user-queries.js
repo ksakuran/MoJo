@@ -38,6 +38,7 @@ const registerUser = (body) => {
   return db.query(`
   INSERT INTO users (first_name, last_name, city, profile_image, password, email)
   VALUES ($1, $2, $3, $4, $5, $6)
+  RETURNING *
   ;`, [body.first_name, body.last_name, body.city, body.profile_image, body.password, body.email])
     .then(data => {
       return data.rows[0];

@@ -25,15 +25,7 @@ const updateUserInfo = (body) => {
   email = $6
   WHERE users.id = $7
   RETURNING *
-  ;`, [
-    body.first_name,
-    body.last_name,
-    body.city,
-    body.profile_image,
-    body.password,
-    body.email,
-    body.id
-  ])
+  ;`, [body.first_name, body.last_name, body.city, body.profile_image, body.password, body.email, body.id])
   .then(data => {
     return data.rows[0];
   })
@@ -42,4 +34,17 @@ const updateUserInfo = (body) => {
   });
 };
 
-module.exports = { getUserInfo, updateUserInfo };
+const registerUser = (body) => {
+  return db.query(`
+  INSERT INTO users (first_name, last_name, city, profile_image, password, email)
+  VALUES ($1, $2, $3, $4, $5, $6)
+  ;`, [body.first_name, body.last_name, body.city, body.profile_image, body.password, body.email])
+    .then(data => {
+      return data.rows[0];
+    })
+    .catch(err => {
+      return console.error(err);
+    });
+}
+
+module.exports = { getUserInfo, updateUserInfo, registerUser };

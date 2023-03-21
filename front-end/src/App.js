@@ -1,7 +1,7 @@
 import './App.css';
-import { React } from 'react';
+import React from 'react';
 import TopNav from './components/TopNav';
-import LandingPage from './components/LandingPage';
+// import LandingPage from './components/LandingPage';
 import MainContainer from './components/MainContainer';
 
 function App() {
@@ -10,7 +10,7 @@ function App() {
       <TopNav />
 
       {/* if no userid in session */}
-      <LandingPage />
+      {/* <LandingPage /> */}
 
       {/* if userid exists in session */}
       <MainContainer />

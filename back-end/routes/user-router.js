@@ -34,7 +34,9 @@ router.post(`/:userId`, (req, res) => {
 
 // Registers new user
 router.post(`/new`, (req, res) => {
-  const body = req;
+  const body = req.body;
+  console.log('body', body);
+
   userQueries.registerUser(body)
     .then(results => {
       console.log('results', results);

@@ -7,7 +7,6 @@ router.get(`/:userId`, (req, res) => {
   const userId = req.params.userId;
   userQueries.getUserInfo(userId)
     .then(results => {
-      console.log('body: ', results);
       return res.json(results);
     })
     .catch(err => {
@@ -21,8 +20,22 @@ router.get(`/:userId`, (req, res) => {
 // Updates user's information
 router.post(`/:userId`, (req, res) => {
   const body = req.body
-
   userQueries.updateUserInfo(body)
+    .then(results => {
+      return res.json(results);
+    })
+    .catch(err => {
+      res
+        .status(500)
+        .json({ error: err.message });
+    });
+  });
+
+
+// Registers new user
+router.post(`/new`, (req, res) => {
+  const body = req;
+  userQueries.registerUser(body)
     .then(results => {
       console.log('results', results);
       return res.json(results);

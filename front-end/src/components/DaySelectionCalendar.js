@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import classNames from "classnames";
 import "../styles/DaySelectionCalendar.scss";
 
@@ -6,21 +6,24 @@ import FullCalendar from '@fullcalendar/react'; // must go before plugins
 import dayGridPlugin from '@fullcalendar/daygrid'; // a plugin!
 import interactionPlugin from "@fullcalendar/interaction"; // needed for dayClick
 import Icon from './Common/Icon';
+import CurrentWeather from './SideNav/CurrentWeather';
+import ChangeDate from './SideNav/ChangeDate';
 
 function DaySelectionCalendar() {
 
   //potential styles
   const calendarClass = classNames("day-selection-calendar");
 
-  const [daySelectionId, setDaySelectionId] = useState("");
+  // const [daySelectionId, setDaySelectionId] = useState(""); //move to context
+  // const { setDaySelectionId } = useContext();
   const [selectedDate, setSelectedDate] = useState("");
 
   useEffect(() => {
     //make axios call to create or retrieve selected date info
 
-    //set daySelectionId with result from axios
+    //set daySelectionId with result from axios 
+    //setDaySelectionId
 
-    //save daySelectionId to session?
     if (selectedDate) alert(`you clicked ${selectedDate}!`);
 
   }, [selectedDate]);

@@ -5,7 +5,7 @@ import "../../styles/Button.scss";
 function Button(props) {
   const { btnType, onClickHandler, children } = props;
 
-  const btnCLass = classNames("btn", {
+  const btnClass = classNames("btn", {
     'btn-small': btnType === 'small',
     'btn-medium': btnType === 'medium',
     'btn-nav': btnType === 'nav',
@@ -13,7 +13,7 @@ function Button(props) {
 
   return (
     <button
-      className={btnCLass}
+      className={btnClass}
       onClick={onClickHandler}
     >
       {children}

@@ -7,6 +7,7 @@ import Button from './Common/Button';
 function TopNav() {
 
   //pass to/from these mode somewhere?
+  //move to context provider - together with userId, setUserId
   const [viewMode, setViewMode] = useState("CALENDAR");
   console.log("viewMode: ", viewMode);
 
@@ -15,11 +16,12 @@ function TopNav() {
 
   return (
     <div className={topNavClass}>
-      <h1>MOJO</h1>
+      <h1>mojo</h1>
       <div>
         <Button btnType="nav" onClickHandler={() => setViewMode('HOME')}>home</Button>
         <Button btnType="nav" onClickHandler={() => setViewMode('JOURNAL')}>journal</Button>
         <Button btnType="nav" onClickHandler={() => setViewMode('MOODSCAPE')}>moodscape</Button>
+        <Button btnType="nav" onClickHandler={() => setUserId('')}>logout</Button>
       </div>
     </div>
   );

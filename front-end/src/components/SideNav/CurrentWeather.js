@@ -13,7 +13,7 @@ function CurrentWeather() {
   const [todayWeather, setTodayWeather] = useState({});
 
   //get these values from somwhere
-  const selectedDate = '2023-03-11';
+  const selectedDate = '';
   const city = 'Calgary';
 
   useEffect(() => {
@@ -22,8 +22,7 @@ function CurrentWeather() {
 
     //insert today weather to daySelection table if it is not there yet
 
-    //return from weather api
-    // setTodayWeather(data);
+    //use return from axios to set today weather state
 
   }, []);
 
@@ -31,7 +30,7 @@ function CurrentWeather() {
 
   return (
     <div className={currentWeatherClass}>
-      <div>
+      {/* <div>
         <Icon
           imgUrl={todayWeather.icon}
         />
@@ -50,7 +49,7 @@ function CurrentWeather() {
           iconSize='medium'
         />
         <p>{todayWeather.date}</p>
-      </div>
+      </div> */}
     </div>
   );
 }

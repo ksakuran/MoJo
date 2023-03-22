@@ -3,6 +3,8 @@ import classNames from "classnames";
 import "../../styles/CurrentWeather.scss";
 import axios from 'axios';
 import { getTodayDate } from '../../helpers/date_time';
+import Icon from '../Common/Icon';
+
 
 function CurrentWeather() {
 
@@ -11,6 +13,11 @@ function CurrentWeather() {
   const [todayWeather, setTodayWeather] = useState({});
 
   useEffect(() => {
+
+    //make getCurrentWeather API call to backend and pass userID and date with it
+
+    //insert today weather to daySelection table if it is not there yet
+
     //weather api
     let city = 'portland';
     let url = `http://api.weatherapi.com/v1/current.json?key=${apiKey}&q=${city}&aqi=no`;
@@ -45,17 +52,27 @@ function CurrentWeather() {
 
   return (
     <div className={currentWeatherClass}>
-      <div className='testBox'>
-        <div className='weather'>
-          <img src={todayWeather.icon} />
-          <p className='no-margin'>{todayWeather.text}</p>
-        </div>
-        <div>
-          <p>📌Portland </p>
-          <p>🗓️{todayWeather.date}</p>
-        </div>
+      <div>
+        <Icon
+          imgUrl={todayWeather.icon}
+        />
+        <p>{todayWeather.text}</p>
       </div>
-
+      <div>
+        <Icon
+          imgUrl='images/icons/location.png'
+          iconSize='medium'
+        />
+        {/* replace with data from actual user login */}
+        <p>Portland </p>
+      </div>
+      <div>
+        <Icon
+          imgUrl='images/icons/selected_date.png'
+          iconSize='medium'
+        />
+        <p>{todayWeather.date}</p>
+      </div>
     </div>
   );
 }

@@ -1,3 +1,4 @@
+import React from "react";
 import classNames from "classnames";
 import UserInfoForm from "./UserInfoForm";
 import "./../../styles/UserInfo.scss"; 
@@ -21,4 +22,4 @@ function UserInfo(props) {
   )
 };
 
-export default UserInfo
+export default UserInfo;

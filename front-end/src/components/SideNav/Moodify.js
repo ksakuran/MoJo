@@ -1,3 +1,4 @@
+import React from "react";
 import classNames from "classnames";
 import "./../../styles/Moodify.scss"; 
 import { useState, useEffect } from "react"
@@ -62,7 +63,7 @@ function Moodify() {
         </>
       )}
       {loggedIn && (
-        <button onClick={() => getNowPlaying()}>Check Now Playing</button>
+             <iframe title="spotify-player" style={{ borderRadius: "12px" }} src="https://open.spotify.com/embed/playlist/37i9dQZF1DX0UrRvztWcAU?utm_source=generator&theme=0" width="50%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
       )}
     </div>
   )

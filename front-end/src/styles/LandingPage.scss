@@ -1,0 +1,48 @@
+#landing{
+  position: relative;
+  display: flex;
+  margin-top: 8vh;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 80vh;
+  text-align: center;
+  color: rgb(255, 255, 255);
+}
+
+#landing h1{
+  font-size: 5rem;
+  text-align: center;
+  line-height: 0px;
+  text-shadow: 2px 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+#landing small{
+  font-family: 'Syne', sans-serif;
+  font-size: medium;
+}
+
+#landing p {
+  font-family: 'Syne', sans-serif;
+  font-size: larger;
+}
+
+button#get-started {
+  background-color: rgba(255, 255, 255, 0);
+  border-radius: 1.9rem;
+  border-style: solid;
+  border-width: 0.1rem;
+  border-color: rgba(255, 255, 255, 0.497);
+  padding: 1rem;
+  margin: 1rem;
+  width: 9rem;
+  font-family: 'Syne', sans-serif;
+  font-size: large;
+  color: white;
+}
+
+button#get-started:hover {
+  background-color: white;
+  color: black;
+
+}

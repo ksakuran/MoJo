@@ -5,13 +5,13 @@ import "../styles/DaySelectionCalendar.scss";
 import FullCalendar from '@fullcalendar/react'; // must go before plugins
 import dayGridPlugin from '@fullcalendar/daygrid'; // a plugin!
 import interactionPlugin from "@fullcalendar/interaction"; // needed for dayClick
+import Icon from './Common/Icon';
 
 
 function DaySelectionCalendar() {
 
   //potential styles
   const calendarClass = classNames("day-selection-calendar");
-  const moodImageClass = classNames("mood-image");
 
   const [daySelectionId, setDaySelectionId] = useState("");
   const [selectedDate, setSelectedDate] = useState("");
@@ -30,7 +30,9 @@ function DaySelectionCalendar() {
   const renderEventContent = (eventInfo) => {
     const mood = eventInfo.event.title;
     return (
-      <img className={moodImageClass} src={`images/${mood}.png`} />
+      <Icon
+        imgUrl={`images/${mood}.png`}
+      />
     );
   };
 

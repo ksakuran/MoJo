@@ -13,6 +13,7 @@ function Icon(props) {
     <img
       src={imgUrl}
       className={iconClass}
+      alt='icon'
     >
       {children}
     </img>

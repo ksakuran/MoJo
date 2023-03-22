@@ -1,5 +1,6 @@
 import React from "react";
 import classNames from "classnames";
+import '../../styles/DateSelectionForm.scss'
 
 const DateSelectionForm = () => {
 
@@ -15,7 +16,7 @@ const DateSelectionForm = () => {
       <input type="date" id="start-date" name="start-date" />&nbsp;&nbsp;
       <label for="end-date">end date:</label>
       <input type="date" id="end-date" name="end-date" />
-      <button onClick={()=> {onSubmit()}} type="submit">select</button>
+      <button className={DateSelectionFormClass} onClick={()=> {onSubmit()}} type="submit">select</button>
     </form>
   );
 };

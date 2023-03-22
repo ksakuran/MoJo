@@ -5,6 +5,7 @@ import { Doughnut } from "react-chartjs-2";
 
 const DoughnutChart = (props) => {
   return (
+    <div className="chart">
       <Doughnut
         data={props.chartData}
         options={{
@@ -19,6 +20,7 @@ const DoughnutChart = (props) => {
           },
         }}
       />
+      </div>
   );
 };
 

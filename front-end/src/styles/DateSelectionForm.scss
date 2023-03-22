@@ -1,3 +1,23 @@
 form.date-selector-form {
-  background-color: white
+  background-color: rgba(238, 210, 248, 0.6);
+  border-radius: 1.8rem;
+  border-style: solid;
+  border-width: 0.1rem;
+  border-color: rgb(196, 196, 196);
+  padding: 1.25rem;
+  margin: 0.5rem;
+  display: inline-block;
+  
+  
+}
+
+button.date-selector-form {
+  background-color: rgba(244, 244, 244, 0.6);
+  border-radius: 1.8rem;
+  border-style: solid;
+  border-width: 0.1rem;
+  border-color: rgb(196, 196, 196);
+  padding: 0.7rem;
+  margin-left: 0.5em;
+
 }

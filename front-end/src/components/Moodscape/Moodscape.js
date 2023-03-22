@@ -3,25 +3,10 @@ import "../../styles/Moodscape.scss";
 import classNames from "classnames";
 import DateSelectionForm from "./DateSelectionForm";
 
-import {
-  Chart as ChartJS,
-  CategoryScale,
-  LinearScale,
-  BarElement,
-  Title,
-  Tooltip,
-  Legend,
-} from "chart.js/auto";
+import { Chart } from "chart.js/auto";
 import DoughnutChart from "./DoughnutChart";
 
-ChartJS.register(
-  CategoryScale,
-  LinearScale,
-  BarElement,
-  Title,
-  Tooltip,
-  Legend
-);
+
 
 const Moodscape = (props) => {
   const moodscapeClass = classNames("moodscape-page");
@@ -47,7 +32,7 @@ const Moodscape = (props) => {
 
   return (
     <section className={moodscapeClass}>
-      <button onClick={clickShowForm}>select date range</button>
+      <button className={moodscapeClass} onClick={clickShowForm}>select date range</button>
       {showForm && <DateSelectionForm />}
       <DoughnutChart chartData={donutChartData} />
     </section>

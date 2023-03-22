@@ -5,7 +5,6 @@ import "../styles/DaySelectionCalendar.scss";
 import FullCalendar from '@fullcalendar/react'; // must go before plugins
 import dayGridPlugin from '@fullcalendar/daygrid'; // a plugin!
 import interactionPlugin from "@fullcalendar/interaction"; // needed for dayClick
-import ChangeDate from './SideNav/ChangeDate';
 
 
 function DaySelectionCalendar() {
@@ -37,7 +36,6 @@ function DaySelectionCalendar() {
 
   return (
     <section className={calendarClass}>
-      <ChangeDate />
       <h1>select a date to checkin with yourself </h1>
       <FullCalendar
         plugins={[dayGridPlugin, interactionPlugin]}

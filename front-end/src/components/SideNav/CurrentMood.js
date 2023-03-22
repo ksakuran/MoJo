@@ -5,10 +5,16 @@ function CurrentMood() {
 
   const moods = ['happy', 'motivated', 'grateful']; 
    // mood_selections
+  
+  const iconSelection = function() {
+     for (let mood of moods) {
+      // mood === moods.name ? return moods.icon
+     }
+  } 
 
   const currentMood = moods.map(mood => {
     return (
-      <li><i></i>{mood}</li>
+      <li><i>{iconSelection}</i>{mood}</li>
       )
   })
 

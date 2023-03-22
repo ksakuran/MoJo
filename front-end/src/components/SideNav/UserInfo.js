@@ -10,7 +10,12 @@ function UserInfo(props) {
       <div className="name-display">
         <h4>Andy</h4>
         {/* Andy will be replaced with {props.first_name} */}
-        <input className="btn" type="image" src="images/pencil_icon.png" width="20" height="20"></input>
+        <input 
+          className="btn"
+          type="image"
+          src="images/pencil_icon.png" width="20" height="20"
+          // onClick={go to UserInfoForm}
+          />
       </div>
     </div>
   )

@@ -6,6 +6,8 @@ function UserInfoForm() {
 
   const userInfoClass = classNames("update-info-form");
 
+  // userInfo from session
+
   return(
     <form classNames={userInfoClass}>
         <label htmlFor="formFirstName">First name:</label><br/>

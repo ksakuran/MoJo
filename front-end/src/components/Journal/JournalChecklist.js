@@ -4,7 +4,13 @@ import JournalChecklistItem from "./JournalChecklistItem";
 
 function JournalCheckist(props) {
   // const checklistItems = props.items.map((item) => {
-  //   return <JournalChecklistItem/>
+  //   return <JournalChecklistItem
+  //       id={props.item_id}
+  //       description={props.description}
+  //       user={props.user_id}
+  //       isSelected={props.selected}
+  //       isActive={props.active}
+  //       />
   // })
 
   return(

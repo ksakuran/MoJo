@@ -6,8 +6,6 @@ import FullCalendar from '@fullcalendar/react'; // must go before plugins
 import dayGridPlugin from '@fullcalendar/daygrid'; // a plugin!
 import interactionPlugin from "@fullcalendar/interaction"; // needed for dayClick
 import Icon from './Common/Icon';
-import CurrentWeather from './SideNav/CurrentWeather';
-import ChangeDate from './SideNav/ChangeDate';
 import { daySelectionContext } from '../providers/DaySelectionProvider';
 import { appContext } from '../providers/AppProvider';
 

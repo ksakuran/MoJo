@@ -13,6 +13,7 @@ function ChangeDate() {
 
   return (
     <div className={changeDateClass}>
+      <img src='images/change_date_2.png' className="change-date-image" />
       <button onClick={handleDateChange}>Change Date</button>
     </div>
   );

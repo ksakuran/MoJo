@@ -1,10 +1,9 @@
-
-  @import url('https://fonts.googleapis.com/css2?family=Fraunces:wght@300;400;500&family=Syne:wght@400;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:wght@300;400;500&family=Syne:wght@400;600&display=swap');
 
 
 body {
   margin: 0;
-  font-family: 'Fraunces' , serif;
+  font-family: 'Fraunces', serif;
   font-weight: 600;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -15,7 +14,8 @@ body {
   padding: 0;
   min-height: 100vh;
   background-image: linear-gradient(80deg, rgb(17, 140, 228), rgba(225, 20, 112, 0.933));
-  overflow: hidden;
+  overflow: scroll;
+
 
 }
 

@@ -1,5 +1,6 @@
+import React from 'react';
 import classNames from "classnames";
-import "./../../styles/JournalChecklist.scss"; 
+import "./../../styles/JournalChecklist.scss";
 import JournalChecklistItem from "./JournalChecklistItem";
 
 function JournalCheckist(props) {
@@ -13,17 +14,17 @@ function JournalCheckist(props) {
   //       />
   // })
 
-  return(
+  return (
     <article>
       <ul>
-      <JournalChecklistItem/>
-      <JournalChecklistItem/>
-      <JournalChecklistItem/>
+        <JournalChecklistItem />
+        <JournalChecklistItem />
+        <JournalChecklistItem />
 
         {/* {checklistItems} */}
       </ul>
     </article>
-  )
+  );
 }
 
 export default JournalCheckist;

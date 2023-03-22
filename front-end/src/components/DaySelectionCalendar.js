@@ -8,18 +8,25 @@ import interactionPlugin from "@fullcalendar/interaction"; // needed for dayClic
 import Icon from './Common/Icon';
 import CurrentWeather from './SideNav/CurrentWeather';
 import ChangeDate from './SideNav/ChangeDate';
+import { daySelectionContext } from '../providers/DaySelectionProvider';
+import { appContext } from '../providers/AppProvider';
 
 function DaySelectionCalendar() {
 
   //potential styles
   const calendarClass = classNames("day-selection-calendar");
 
-  // const [daySelectionId, setDaySelectionId] = useState(""); //move to context
-  // const { setDaySelectionId } = useContext();
-  const [selectedDate, setSelectedDate] = useState("");
+  const { daySelectionId, setDaySelectionId, selectedDate, setSelectedDate } = useContext(daySelectionContext);
+  const { userId } = useContext(appContext);
+
 
   useEffect(() => {
-    //make axios call to create or retrieve selected date info
+    //make axios call to check if selected date and user_id exists in day_selection table, then return daySelectionId
+    //api/daySelection/:date/:user
+    //change router to check with date & user
+
+    //make axios call to create selected date info then return daySelectionId
+    //api/daySelection/new
 
     //set daySelectionId with result from axios 
     //setDaySelectionId

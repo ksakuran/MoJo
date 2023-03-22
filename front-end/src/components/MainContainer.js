@@ -1,17 +1,18 @@
 
-import React from 'react';
-// import SideNav from "./SideNav/SideNav";
+import React, { useContext } from 'react';
+import SideNav from "./SideNav/SideNav";
 import DaySelectionCalendar from "./DaySelectionCalendar";
-// import HomePage from "./Home/HomePage";
-// import JournalPage from "./Journal/JournalPage";
-// import Moodscape from "./Moodscape/Moodscape";
+import HomePage from "./Home/HomePage";
+import JournalPage from "./Journal/JournalPage";
+import Moodscape from "./Moodscape/Moodscape";
 import classNames from "classnames";
 import '../styles/MainContainer.scss';
+import { appContext } from '../providers/AppProvider';
 
 function MainContainer() {
 
-  //get viewMode from somewhere
-  const viewMode = 'CALENDAR';
+  //get viewMode from appConext
+  const { viewMode } = useContext(appContext);
 
   //potential styles
   const mainContainerClass = classNames("main-container");
@@ -19,7 +20,7 @@ function MainContainer() {
   return (
     <div className={mainContainerClass}>
       {/* Always display on the left */}
-      {/* <SideNav /> */}
+      <SideNav />
 
       {/* if no daySelectionId in session or default viewMode */}
       {
@@ -28,7 +29,7 @@ function MainContainer() {
         )
       }
 
-      {/* {
+      {
         viewMode === 'HOME' && (
           <HomePage />
         )
@@ -44,7 +45,7 @@ function MainContainer() {
         viewMode === 'MOODSCAPE' && (
           <Moodscape />
         )
-      } */}
+      }
 
     </div>
   );

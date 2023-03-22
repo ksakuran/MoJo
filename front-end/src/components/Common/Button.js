@@ -2,8 +2,9 @@ import React from "react";
 import classNames from "classnames";
 import "../../styles/Button.scss";
 
+
 function Button(props) {
-  const { btnType, onClickHandler, children } = props;
+  const { btnType, onClickHandler, btnId, children } = props;
 
   const btnClass = classNames("btn", {
     'btn-small': btnType === 'small',
@@ -13,6 +14,7 @@ function Button(props) {
 
   return (
     <button
+      id={btnId}
       className={btnClass}
       onClick={onClickHandler}
     >

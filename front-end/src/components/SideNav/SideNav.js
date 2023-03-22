@@ -1,8 +1,9 @@
+import React from 'react';
 import classNames from "classnames";
-import "./../../styles/SideNav.scss"; 
+import "./../../styles/SideNav.scss";
 import UserInfo from "./UserInfo";
-// import ChangeDate from "./ChangeDate";
-//import CurrentWeather from "./CurrentWeather"
+import ChangeDate from "./ChangeDate";
+import CurrentWeather from "./CurrentWeather";
 import CurrentMood from "./CurrentMood";
 import Moodify from "./Moodify";
 
@@ -10,13 +11,13 @@ function SideNav() {
 
   return (
     <section className="sideNav">
-      <UserInfo/>
-      {/* <ChangeDate/> */}
-      {/* <CurrentWeather/> */}
-      <CurrentMood/>
-      <Moodify/>
+      <UserInfo />
+      <ChangeDate />
+      <CurrentWeather />
+      <CurrentMood />
+      <Moodify />
     </section>
-  )
+  );
 };
 
 export default SideNav;

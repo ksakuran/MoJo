@@ -1,4 +1,9 @@
-#up{
+// section.background {
+//   z-index: 999;
+// }
+
+
+#up {
   position: absolute;
   height: 35vw;
   width: 35vw;
@@ -9,7 +14,7 @@
 
 }
 
-#down{
+#down {
   position: absolute;
   right: 0;
   height: 30vw;
@@ -21,7 +26,7 @@
 
 }
 
-#left{
+#left {
   position: absolute;
   height: 40vw;
   width: 40vw;
@@ -32,7 +37,7 @@
 
 }
 
-#right{
+#right {
   position: absolute;
   height: 30vw;
   width: 30vw;
@@ -43,7 +48,7 @@
 
 }
 
-#middle{
+#middle {
   position: absolute;
   top: 30%;
   left: 30%;
@@ -57,58 +62,71 @@
 }
 
 @keyframes middle {
-  0%{
-     transform: rotate(0deg);
-    }
-  50%{
+  0% {
+    transform: rotate(0deg);
+  }
+
+  50% {
     transform: rotate(180deg);
   }
- 100%{
-     transform: rotate(360deg);
-    }
- }
 
-@keyframes down{
-  0%, 100%{
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes down {
+
+  0%,
+  100% {
     top: -5%;
     transform: rotate(360deg);
   }
-  50%{
+
+  50% {
     transform: rotate(0deg);
     top: 80%;
   }
 }
 
-@keyframes up{
-  0%, 100%{
+@keyframes up {
+
+  0%,
+  100% {
     bottom: -5%;
     transform: rotate(360deg);
   }
-  50%{
+
+  50% {
     transform: rotate(0deg);
     bottom: 80%;
   }
 }
 
-@keyframes left{
-  0%, 100%{
+@keyframes left {
+
+  0%,
+  100% {
     left: -5%;
     transform: rotate(0deg);
   }
-  50%{
+
+  50% {
     left: 80%;
     transform: rotate(360deg);
   }
 }
 
-@keyframes right{
-  0%, 100%{
+@keyframes right {
+
+  0%,
+  100% {
     transform: rotate(360deg);
     right: -5%;
   }
-  50%{
+
+  50% {
     transform: rotate(360deg);
     right: 80%;
   }
 }
-

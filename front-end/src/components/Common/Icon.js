@@ -1,5 +1,6 @@
 import React from "react";
 import classNames from "classnames";
+import "../../styles/Icon.scss";
 
 function Icon(props) {
   const { imgUrl, iconSize, children } = props;

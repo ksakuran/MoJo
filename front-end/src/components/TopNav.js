@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import classNames from "classnames";
 import "../styles/TopNav.scss";
+import Button from './Common/Button';
 
 
 function TopNav() {
@@ -16,9 +17,9 @@ function TopNav() {
     <div className={topNavClass}>
       <h1>MOJO</h1>
       <div>
-        <button onClick={() => setViewMode('HOME')}>home</button>
-        <button onClick={() => setViewMode('JOURNAL')}>journal</button>
-        <button onClick={() => setViewMode('MOODSCAPE')}>moodscape</button>
+        <Button btnType="nav" onClickHandler={() => setViewMode('HOME')}>home</Button>
+        <Button btnType="nav" onClickHandler={() => setViewMode('JOURNAL')}>journal</Button>
+        <Button btnType="nav" onClickHandler={() => setViewMode('MOODSCAPE')}>moodscape</Button>
       </div>
     </div>
   );

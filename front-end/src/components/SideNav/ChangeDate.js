@@ -1,6 +1,7 @@
 import React from "react";
 import classNames from "classnames";
 import "../../styles/ChangeDate.scss";
+import Button from "../Common/Button";
 
 function ChangeDate() {
 
@@ -14,7 +15,9 @@ function ChangeDate() {
   return (
     <div className={changeDateClass}>
       <img src='images/change_date_2.png' className="change-date-image" />
-      <button onClick={handleDateChange}>Change Date</button>
+      <Button
+        onClickHandler={handleDateChange}
+      >Change Date</Button>
     </div>
   );
 

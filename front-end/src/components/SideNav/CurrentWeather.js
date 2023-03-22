@@ -20,6 +20,7 @@ function CurrentWeather() {
 
     //weather api
     let city = 'portland';
+    let apiKey = 'a478a7aaf604410da1120203231503';
     let url = `http://api.weatherapi.com/v1/current.json?key=${apiKey}&q=${city}&aqi=no`;
 
     axios

@@ -1,12 +1,12 @@
 
-export function getTodayDate() {
+export function formatDate(date) {
 
   const monthNames = ["January", "February", "March", "April", "May", "June",
     "July", "August", "September", "October", "November", "December"
   ];
 
-  const currentDate = new Date();
-  const dd = currentDate.getDate();
+  const currentDate = date ? new Date(date) : new Date();
+  const dd = currentDate.getDate() + 1;
   const MM = monthNames[currentDate.getMonth()];
   var yyyy = currentDate.getFullYear();
 
@@ -23,6 +23,6 @@ export function getCurrentTime() {
 };
 
 module.export = {
-  getTodayDate,
+  formatDate,
   getCurrentTime
 };

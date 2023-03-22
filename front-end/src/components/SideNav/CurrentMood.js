@@ -14,7 +14,7 @@ function CurrentMood() {
 
   const currentMood = moods.map(mood => {
     return (
-      <li><i>{iconSelection}</i>{mood}</li>
+      <li><i>{iconSelection()}</i>{mood}</li>
       )
   })
 

@@ -1,11 +1,11 @@
 #landing{
   position: relative;
   display: flex;
+  margin-top: 8vh;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   min-height: 80vh;
-  z-index: 999;
   text-align: center;
   color: rgb(255, 255, 255);
 }
@@ -34,7 +34,7 @@ button#get-started {
   border-width: 0.1rem;
   border-color: rgba(255, 255, 255, 0.497);
   padding: 1rem;
-  margin: 0.5rem;
+  margin: 1rem;
   width: 9rem;
   font-family: 'Syne', sans-serif;
   font-size: large;

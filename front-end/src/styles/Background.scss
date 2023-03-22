@@ -1,81 +1,114 @@
 #up{
   position: absolute;
-  height: 700px;
-  width: 700px;
+  height: 35vw;
+  width: 35vw;
   border-radius: 50%;
-  background-image: linear-gradient(80deg, rgb(5, 124, 172), rgb(43, 247, 202, 0.5));
-  filter: blur(90px);
-  animation: down 33s infinite;
+  background-image: linear-gradient(80deg, rgba(248, 61, 105, 0.946), rgba(40, 134, 250, 0.91));
+  filter: blur(100px);
+  animation: down 34s infinite;
 
 }
 
 #down{
   position: absolute;
   right: 0;
-  height: 550px;
-  width: 550px;
+  height: 30vw;
+  width: 30vw;
   border-radius: 50%;
-  background-image: linear-gradient(80deg, rgba(245, 207, 82, 0.8), rgba(199, 10, 114));
-  filter: blur(90px);
-  animation: up 33s infinite;
+  background-image: linear-gradient(80deg, rgba(255, 202, 28, 0.928), rgba(199, 10, 114));
+  filter: blur(100px);
+  animation: up 34s infinite;
 
 }
 
 #left{
   position: absolute;
-  height: 500px;
-  width: 500px;
+  height: 40vw;
+  width: 40vw;
   border-radius: 50%;
-  background-image: linear-gradient(80deg, rgba(5, 124, 172), rgba(183, 253, 52, 0.8));
-  filter: blur(90px);
-  animation: left 33s infinite;
+  background-image: linear-gradient(80deg, rgba(255, 222, 91, 0.869), rgba(253, 52, 156, 0.896));
+  filter: blur(110px);
+  animation: left 34s infinite;
 
 }
 
 #right{
   position: absolute;
-  height: 600px;
-  width: 600px;
+  height: 30vw;
+  width: 30vw;
   border-radius: 50%;
-  background-image: linear-gradient(80deg, rgba(26, 248, 18, 0.6), rgba(199, 10, 52, 0.6));
-  filter: blur(90px);
-  animation: right 33s infinite;
+  background-image: linear-gradient(80deg, rgba(18, 202, 248, 0.965), rgba(199, 10, 101, 0.892));
+  filter: blur(100px);
+  animation: right 34s infinite;
 
 }
 
+#middle{
+  position: absolute;
+  top: 30%;
+  left: 30%;
+  height: 35vw;
+  width: 35vw;
+  border-radius: 50%;
+  background-image: linear-gradient(80deg, rgba(68, 136, 253, 0.965), rgba(246, 28, 104, 0.978));
+  filter: blur(90px);
+  animation: middle 14s infinite;
+
+}
+
+@keyframes middle {
+  0%{
+     transform: rotate(0deg);
+    }
+  50%{
+    transform: rotate(180deg);
+  }
+ 100%{
+     transform: rotate(360deg);
+    }
+ }
+
 @keyframes down{
   0%, 100%{
-    top: -100px;
+    top: -5%;
+    transform: rotate(360deg);
   }
-  70%{
-    top: 700px;
+  50%{
+    transform: rotate(0deg);
+    top: 80%;
   }
 }
 
 @keyframes up{
   0%, 100%{
-    bottom: -100px;
+    bottom: -5%;
+    transform: rotate(360deg);
   }
-  70%{
-    bottom: 700px;
+  50%{
+    transform: rotate(0deg);
+    bottom: 80%;
   }
 }
 
 @keyframes left{
   0%, 100%{
-    left: -100px;
+    left: -5%;
+    transform: rotate(0deg);
   }
-  70%{
-    left: 1300px;
+  50%{
+    left: 80%;
+    transform: rotate(360deg);
   }
 }
 
 @keyframes right{
   0%, 100%{
-    right: -100px;
+    transform: rotate(360deg);
+    right: -5%;
   }
-  70%{
-    right: 1300px;
+  50%{
+    transform: rotate(360deg);
+    right: 80%;
   }
 }
 

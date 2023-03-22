@@ -22,26 +22,9 @@ function CurrentWeather() {
 
     //insert today weather to daySelection table if it is not there yet
 
-    //weather api;
-    const currentURL = `http://api.weatherapi.com/v1/current.json?key=${apiKey}&q=${city}&aqi=no`;
-    const historyURL = `http://api.weatherapi.com/v1/history.json?key=${apiKey}&q=${city}&dt=${selectedDate}`;
-    let url = selectedDate ? historyURL : currentURL;
+    //return from weather api
+    // setTodayWeather(data);
 
-    axios
-      .get(url)
-      .then((response) => {
-        const responseData = selectedDate ? response.data.forecast.forecastday[0].day : response.data.current;
-        const data = {
-          text: responseData.condition.text,
-          icon: responseData.condition.icon,
-          date: selectedDate ? formatDate(selectedDate) : formatDate()
-        };
-        setTodayWeather(data);
-
-      })
-      .catch((error) => {
-        console.log("error: ", error);
-      });
   }, []);
 
 

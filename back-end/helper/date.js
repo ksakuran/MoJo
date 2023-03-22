@@ -32,9 +32,25 @@ function getStartAndEndDayInMonth(year, month) {
   return result;
 }
 
+function formatDate(date) {
+  const monthNames = ["January", "February", "March", "April", "May", "June",
+    "July", "August", "September", "October", "November", "December"
+  ];
+
+  const currentDate = date ? new Date(date) : new Date();
+  const dd = currentDate.getDate() + 1;
+  const MM = monthNames[currentDate.getMonth()];
+  var yyyy = currentDate.getFullYear();
+
+  const today = dd + ' ' + MM + ' ' + yyyy;
+  return today;
+};
+
+
 module.exports = {
   getAllDaysInMonth,
-  getStartAndEndDayInMonth
+  getStartAndEndDayInMonth,
+  formatDate
 };
 
 // console.log(getAllDaysInMonth(2023, 02));

@@ -1,4 +1,5 @@
 import classNames from "classnames";
+import UserInfoForm from "./UserInfoForm";
 import "./../../styles/UserInfo.scss"; 
 
 function UserInfo(props) {

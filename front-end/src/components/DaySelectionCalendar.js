@@ -8,6 +8,7 @@ import interactionPlugin from "@fullcalendar/interaction"; // needed for dayClic
 import Icon from './Common/Icon';
 import { daySelectionContext } from '../providers/DaySelectionProvider';
 import { appContext } from '../providers/AppProvider';
+import axios from 'axios';
 
 function DaySelectionCalendar() {
 
@@ -15,22 +16,37 @@ function DaySelectionCalendar() {
   const calendarClass = classNames("day-selection-calendar");
 
   const { daySelectionId, setDaySelectionId, selectedDate, setSelectedDate } = useContext(daySelectionContext);
-  const { userId } = useContext(appContext);
+  const { userId, setViewMode } = useContext(appContext);
 
 
   useEffect(() => {
-    //make axios call to check if selected date and user_id exists in day_selection table, then return daySelectionId
-    //api/daySelection/:date/:user
-    //change router to check with date & user
+    if (userId && selectedDate) {
+      //make axios call to check if selected date and user_id exists in day_selection table
+      axios.
+        get(`/api/dayselection/${selectedDate}/${userId}`)
+        .then(res => {
+          const { data } = res;
 
-    //make axios call to create selected date info then return daySelectionId
-    //api/daySelection/new
-
-    //set daySelectionId with result from axios 
-    //setDaySelectionId
-
-    if (selectedDate) alert(`you clicked ${selectedDate}!`);
-
+          if (Object.keys(data).length > 0) {
+            //if exists then set daySelectionId with that value
+            setDaySelectionId(data.daySelection.id);
+          } else {
+            //if not exists then create new daySelectionId 
+            return axios.post(`/api/dayselection/new`, {
+              created_date: selectedDate,
+              user_id: userId
+            });
+          }
+        })
+        .then(res => {
+          if (res) {
+            //set state with newly created value
+            setDaySelectionId(res.data.daySelection.id);
+          }
+          setViewMode('HOME');
+        })
+        .catch(err => console.error(err));
+    }
   }, [selectedDate]);
 
 

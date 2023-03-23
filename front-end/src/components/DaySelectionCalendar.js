@@ -6,43 +6,113 @@ import FullCalendar from '@fullcalendar/react'; // must go before plugins
 import dayGridPlugin from '@fullcalendar/daygrid'; // a plugin!
 import interactionPlugin from "@fullcalendar/interaction"; // needed for dayClick
 import Icon from './Common/Icon';
-import CurrentWeather from './SideNav/CurrentWeather';
-import ChangeDate from './SideNav/ChangeDate';
 import { daySelectionContext } from '../providers/DaySelectionProvider';
 import { appContext } from '../providers/AppProvider';
+import axios from 'axios';
+import { format, addDays } from 'date-fns';
+import { title } from 'process';
 
 function DaySelectionCalendar() {
 
   //potential styles
   const calendarClass = classNames("day-selection-calendar");
 
-  const { daySelectionId, setDaySelectionId, selectedDate, setSelectedDate } = useContext(daySelectionContext);
-  const { userId } = useContext(appContext);
+  const { setDaySelectionId, selectedDate, setSelectedDate } = useContext(daySelectionContext);
+  const { userId, setViewMode } = useContext(appContext);
+  const [calendarEvents, setCalendarEvents] = useState([]);
+  const [currentMonth, setCurrentMonth] = useState({
+    month: format(new Date(), 'MM'),
+    year: format(new Date(), 'yyyy')
+  });
 
+  const calendarRef = React.createRef();
 
+  //for calendar event list
   useEffect(() => {
-    //make axios call to check if selected date and user_id exists in day_selection table, then return daySelectionId
-    //api/daySelection/:date/:user
-    //change router to check with date & user
+    //retrieve monthly data and load to calendar
+    const { month, year } = currentMonth;
+    axios
+      .get(`/api/dayselection/calendar/${month}/${year}/${userId}`)
+      .then(res => {
+        const { calendarData } = res.data;
+        const moodList = calendarData[0];
+        const journalList = calendarData[1];
+        setCalendarEvents([]);
+        journalList.forEach(journal => {
+          if (journal.journal_id) {
+            const event = { title: '2.journal', date: format(new Date(journal.day_selection_created_date), 'yyyy-MM-dd') };
+            setCalendarEvents(prev => [...prev, event]);
+          }
+        });
+        moodList.forEach(mood => {
+          const event = { title: mood.name, date: format(new Date(mood.day_selection_created_date), 'yyyy-MM-dd') };
+          setCalendarEvents(prev => [...prev, event]);
+        });
+      })
+      .catch(err => console.error(err));
+  }, [currentMonth]);
 
-    //make axios call to create selected date info then return daySelectionId
-    //api/daySelection/new
+  //for setting daySelectionId
+  useEffect(() => {
+    if (userId && selectedDate) {
+      //make axios call to check if selected date and user_id exists in day_selection table
+      axios.
+        get(`/api/dayselection/${selectedDate}/${userId}`)
+        .then(res => {
+          const { data } = res;
 
-    //set daySelectionId with result from axios 
-    //setDaySelectionId
-
-    if (selectedDate) alert(`you clicked ${selectedDate}!`);
-
+          if (Object.keys(data).length > 0) {
+            //if exists then set daySelectionId with that value
+            setDaySelectionId(data.daySelection.id);
+          } else {
+            //if not exists then create new daySelectionId 
+            return axios.post(`/api/dayselection/new`, {
+              created_date: selectedDate,
+              user_id: userId
+            });
+          }
+        })
+        .then(res => {
+          if (res) {
+            //set state with newly created value
+            setDaySelectionId(res.data.daySelection.id);
+          }
+          setViewMode('HOME');
+        })
+        .catch(err => console.error(err));
+    }
   }, [selectedDate]);
 
-
   const renderEventContent = (eventInfo) => {
-    const mood = eventInfo.event.title;
+    const name = eventInfo.event.title;
+    let imageUrl = `images/${name}.png`;
     return (
       <Icon
-        imgUrl={`images/${mood}.png`}
+        imgUrl={imageUrl}
+        iconSize="large"
       />
     );
+  };
+
+  const getRef = () => {
+    if (calendarRef.current) {
+      //get current view first date
+      let calendarApi = calendarRef.current.getApi();
+      const startOfTheMonth = calendarApi.currentData.dateProfile.currentRange.start;
+      const addedDay = addDays(new Date(startOfTheMonth), 1);
+
+      //format to get month and year
+      const calendarMonth = format(new Date(addedDay), 'MM');
+      const calendarYear = format(new Date(addedDay), 'yyyy');
+
+      //udpate state if selected month is different
+      if (currentMonth.month !== calendarMonth || currentMonth.year !== calendarYear) {
+        setCurrentMonth({
+          month: calendarMonth,
+          year: calendarYear
+        });
+      }
+    }
   };
 
   return (
@@ -53,15 +123,10 @@ function DaySelectionCalendar() {
         dateClick={(arg) => setSelectedDate(arg.dateStr)}
         initialView="dayGridMonth"
         eventContent={renderEventContent}
-        events={[
-          { title: "1.sun", date: '2023-03-20' },
-          { title: "2.journal", date: '2023-03-20' },
-          { title: "3.checklist", date: '2023-03-20' },
-          { title: "happy", date: '2023-03-20' },
-          { title: "relax", date: '2023-03-20' },
-          { title: "tired", date: '2023-03-20' }
-        ]}
+        events={calendarEvents}
         eventDisplay="list-item"
+        ref={calendarRef}
+        datesSet={getRef}
       />
     </section>
   );

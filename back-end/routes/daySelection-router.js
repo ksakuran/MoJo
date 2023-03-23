@@ -5,9 +5,10 @@ const date = require('../helper/date.js');
 
 
 //returns an object of day selection details for selected date
-router.get(`/:date`, (req, res) => {
+router.get(`/:date/:userId`, (req, res) => {
   const date = req.params.date;
-  daySelectionQueries.getDaySelectionByDate(date)
+  const userId = req.params.userId;
+  daySelectionQueries.getDaySelectionByDate(date, userId)
     .then(daySelection => {
       return res.json({ daySelection });
     })
@@ -21,13 +22,14 @@ router.get(`/:date`, (req, res) => {
 //returns
 //an object of day selection details and journal data for selected date
 //an array of mood data for selected date
-router.get(`/calendar/:month/:year`, (req, res) => {
+router.get(`/calendar/:month/:year/:userId`, (req, res) => {
   const month = req.params.month;
   const year = req.params.year;
+  const userId = req.params.userId;
   const { startDate, endDate } = date.getStartAndEndDayInMonth(year, month);
 
-  const moodPromise = daySelectionQueries.getMoodSelectionByDay(startDate, endDate);
-  const journalPromise = daySelectionQueries.getJournalDaySelectionByDay(startDate, endDate);
+  const moodPromise = daySelectionQueries.getMoodSelectionByDay(startDate, endDate, userId);
+  const journalPromise = daySelectionQueries.getJournalDaySelectionByDay(startDate, endDate, userId);
 
   Promise.all([moodPromise, journalPromise])
     .then(calendarData => {

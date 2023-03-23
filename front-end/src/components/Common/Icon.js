@@ -8,6 +8,7 @@ function Icon(props) {
   const iconClass = classNames("icon", {
     'icon-small': iconSize === 'small',
     'icon-medium': iconSize === 'medium',
+    'icon-large': iconSize === 'large',
   });
 
   return (

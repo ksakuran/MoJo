@@ -101,6 +101,8 @@
 //   ],
 // };
 
+// update this fn to handle no data from selection
+
 const moodInfoFormatter = (all, selection) => {
 
   const selectedMoodIds = selection.selectedMoods.map((mood) => mood.mood_id)

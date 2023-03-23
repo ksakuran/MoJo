@@ -1,22 +1,35 @@
-import React from "react";
+import React, { useContext, useState } from 'react';
 import classNames from "classnames";
-import UserInfoForm from "./UserInfoForm";
 import "./../../styles/UserInfo.scss"; 
 
-function UserInfo(props) {
+import UserInfoForm from "./UserInfoForm";
+import Button from "../Common/Button";
+import { appContext } from '../../providers/AppProvider';
+
+function UserInfo() {
+
+  const nameDisplayClass = classNames("name-edit");
+  const editButtonClass = classNames("edit-btn");
+
+  const { firstName } = useContext(appContext)
+
+  const [formModal, setFormModal] = useState(false);
+
+  const toggleFormModal = () => {
+    console.log('TOGGLED!');
+    setFormModal(!formModal);
+  };
 
   return (
     <div>
-      <img src="https://bit.ly/3FCF2Sj"/>
-      <div className="name-display">
-        <h4>Andy</h4>
-        {/* Andy will be replaced with {props.first_name} */}
-        <input 
-          className="btn"
-          type="image"
-          src="images/pencil_icon.png" width="20" height="20"
-          // onClick={go to UserInfoForm}
-          />
+      <img src="images/profile_user.png" width="40" height="40"/>
+      <div className={nameDisplayClass}>
+        <h4>Andy {firstName}</h4>
+        <Button onClickHandler={toggleFormModal}>
+          <img className={editButtonClass} src="images/pencil_icon.png" height="20"
+            width="20"/>
+        </Button>
+        {formModal && (<UserInfoForm toggle={toggleFormModal}></UserInfoForm>)}
       </div>
     </div>
   )

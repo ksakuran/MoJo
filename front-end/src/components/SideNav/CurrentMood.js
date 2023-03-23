@@ -25,20 +25,23 @@ function CurrentMood() {
   // }, [daySelectionId, moods]);
 
 
-  const currentMood = moods[0].map(mood => {
-    return (
-    <li>
-      <Icon imgUrl={`images/${mood.name}.png`} iconSize="small">{mood.name}</Icon>/
-    </li>
-    );
-  });
+  // const moodList = moods[0].map(mood => {
+  //   return (
+  //   <li>
+  //     <Icon imgUrl={`images/${mood.name}.png`} iconSize="small">{mood.name}</Icon>/
+  //   </li>
+  //   );
+  // });
 
 
   return (
     <div>
       <h4>current mood</h4>
       <ul>
-        {currentMood}
+        <li>Happy</li>
+        <li>Motivated</li>
+        <li>Grateful</li>
+        {/* {moodList} */}
       </ul>
     </div>
   );

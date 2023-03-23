@@ -5,23 +5,23 @@ import './../../styles/MoodBoxItem.scss';
 
 
 const MoodBoxItem = (props) => {
-
+  const { name, selected, id, onClick } = props
 
   const MoodBoxItemClass = classNames("mood-box-item", {
     
-    "button--selected": props.selected,
+    "button--selected": selected,
   });
   
-  const icon = `./public/images/${props.name}.png`
+  const icon = `./public/images/${name}.png`
 
   // const clickCheck = (name) => {
   //   console.log(`${name} has been clicked`)
   // }
 
   return(
-    <button onClick={() => {props.onClick(props.id)}} className={MoodBoxItemClass}>
+    <button onClick={() => {onClick(id, selected)}} className={MoodBoxItemClass}>
       {/* <img src={icon}/> */}
-      <small>{props.name}</small>
+      <small>{name}</small>
     </button>
   )
 }

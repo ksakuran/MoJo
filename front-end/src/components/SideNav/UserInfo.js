@@ -1,6 +1,6 @@
 import React, { useContext, useState } from 'react';
 import classNames from "classnames";
-import "./../../styles/UserInfo.scss"; 
+import "./../../styles/UserInfo.scss";
 
 import UserInfoForm from "./UserInfoForm";
 import Button from "../Common/Button";
@@ -11,7 +11,7 @@ function UserInfo() {
   const nameDisplayClass = classNames("name-edit");
   const editButtonClass = classNames("edit-btn");
 
-  const { firstName } = useContext(appContext)
+  const { firstName } = useContext(appContext);
 
   const [formModal, setFormModal] = useState(false);
 
@@ -22,17 +22,17 @@ function UserInfo() {
 
   return (
     <div>
-      <img src="images/profile_user.png" width="40" height="40"/>
+      <img src="images/profile_user.png" width="40" height="40" />
       <div className={nameDisplayClass}>
         <h4>Andy {firstName}</h4>
         <Button onClickHandler={toggleFormModal}>
           <img className={editButtonClass} src="images/pencil_icon.png" height="20"
-            width="20"/>
+            width="20" />
         </Button>
         {formModal && (<UserInfoForm toggle={toggleFormModal}></UserInfoForm>)}
       </div>
     </div>
-  )
+  );
 };
 
 export default UserInfo;

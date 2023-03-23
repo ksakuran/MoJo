@@ -17,7 +17,7 @@ function CurrentWeather() {
   //get these values from somwhere
   const city = 'Calgary';
 
-  console.log("here in currentweather!");
+  // console.log("here in currentweather!");
 
   useEffect(() => {
 
@@ -26,7 +26,7 @@ function CurrentWeather() {
     axios
       .get(url)
       .then(res => {
-        console.log(res);
+        // console.log(res);
         const { text, icon, date } = res.data.weather;
         setTodayWeather({
           icon,
@@ -48,6 +48,7 @@ function CurrentWeather() {
         <Icon
           imgUrl={todayWeather.icon}
           iconSize='x-large'
+          iconStyle="padding"
         />
         <p>{todayWeather.text}</p>
       </div>
@@ -57,6 +58,7 @@ function CurrentWeather() {
           <Icon
             imgUrl='images/icons/selected_date_1.png'
             iconSize='medium'
+            iconStyle="padding"
           />
           <p>{todayWeather.date}</p>
         </div>
@@ -64,6 +66,7 @@ function CurrentWeather() {
           <Icon
             imgUrl='images/icons/location_1.png'
             iconSize='medium'
+            iconStyle="padding"
           />
           <p>{city} </p>
         </div>

@@ -4,9 +4,50 @@
 }
 
 .fc-daygrid-day-frame {
-  height: 200px;
+  // max-height: 100px;
 }
 
 .day-selection-calendar {
+  // padding: 1rem;
   width: 70%;
+
+  // border-radius: 1.5rem;
+  // border-style: solid;
+  // border-width: 0.1rem;
+  // border-color: rgba(186, 44, 44, 0.508);
+
+  // height: 40rem;
+  // overflow: hidden;
+
 }
+
+.day-selection-calendar h1 {
+  margin: 0;
+}
+
+.fc-daygrid {
+  height: 75%;
+}
+
+// fc-dayGridMonth-view fc-view fc-daygrid
+
+// .day-selection-calendar .inner-box {
+//   height: inherit;
+//   padding: 1rem;
+// }
+
+
+// .fc-theme-standard {
+//   height: inherit;
+// }
+
+// fc fc-media-screen fc-direction-ltr fc-theme-standard
+// .fc-header-toolbar,
+// .fc-toolbar {
+//   margin-bottom: 0
+// }
+
+// .fc-view-harness fc-view-harness-active
+// .fc-view-harness {
+//   height: 500px;
+// }

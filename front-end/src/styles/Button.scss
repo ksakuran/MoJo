@@ -9,12 +9,14 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  width: inherit;
+  height: inherit;
 }
 
 .btn p {
   margin: 1rem;
 }
 
-.nav {
+.btn-nav {
   margin: 1rem;
 }

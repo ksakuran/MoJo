@@ -89,13 +89,15 @@ function DaySelectionCalendar() {
     return (
       <Icon
         imgUrl={imageUrl}
-        iconSize="large"
+        iconSize="medium"
       />
     );
   };
 
   const getRef = () => {
+    console.log(calendarRef);
     if (calendarRef.current) {
+      // calendarRef.current.calendar.updateSize();
       //get current view first date
       let calendarApi = calendarRef.current.getApi();
       const startOfTheMonth = calendarApi.currentData.dateProfile.currentRange.start;
@@ -118,6 +120,7 @@ function DaySelectionCalendar() {
   return (
     <section className={calendarClass}>
       <h1>select a date to checkin with yourself </h1>
+      {/* <div className='inner-box'> */}
       <FullCalendar
         plugins={[dayGridPlugin, interactionPlugin]}
         dateClick={(arg) => setSelectedDate(arg.dateStr)}
@@ -128,6 +131,8 @@ function DaySelectionCalendar() {
         ref={calendarRef}
         datesSet={getRef}
       />
+      {/* </div> */}
+
     </section>
   );
 }

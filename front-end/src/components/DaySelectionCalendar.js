@@ -39,10 +39,6 @@ function DaySelectionCalendar() {
         const journalList = calendarData[1];
         setCalendarEvents([]);
         journalList.forEach(journal => {
-          if (journal.weather_icon) {
-            const event = { title: `weather:${journal.weather_icon}`, date: format(new Date(journal.day_selection_created_date), 'yyyy-MM-dd') };
-            setCalendarEvents(prev => [...prev, event]);
-          }
           if (journal.journal_id) {
             const event = { title: '2.journal', date: format(new Date(journal.day_selection_created_date), 'yyyy-MM-dd') };
             setCalendarEvents(prev => [...prev, event]);
@@ -89,13 +85,7 @@ function DaySelectionCalendar() {
 
   const renderEventContent = (eventInfo) => {
     const name = eventInfo.event.title;
-
     let imageUrl = `images/${name}.png`;
-
-    if (name.startsWith('weather:')) {
-      imageUrl = name.slice(8);
-    }
-
     return (
       <Icon
         imgUrl={imageUrl}

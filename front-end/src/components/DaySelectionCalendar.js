@@ -10,6 +10,7 @@ import { daySelectionContext } from '../providers/DaySelectionProvider';
 import { appContext } from '../providers/AppProvider';
 import axios from 'axios';
 import { format, addDays } from 'date-fns';
+import { title } from 'process';
 
 function DaySelectionCalendar() {
 
@@ -37,15 +38,19 @@ function DaySelectionCalendar() {
         const moodList = calendarData[0];
         const journalList = calendarData[1];
         setCalendarEvents([]);
-        moodList.forEach(mood => {
-          const event = { title: mood.name, date: format(new Date(mood.day_selection_created_date), 'yyyy-MM-dd') };
-          setCalendarEvents(prev => [...prev, event]);
-        });
         journalList.forEach(journal => {
+          if (journal.weather_icon) {
+            const event = { title: `weather:${journal.weather_icon}`, date: format(new Date(journal.day_selection_created_date), 'yyyy-MM-dd') };
+            setCalendarEvents(prev => [...prev, event]);
+          }
           if (journal.journal_id) {
             const event = { title: '2.journal', date: format(new Date(journal.day_selection_created_date), 'yyyy-MM-dd') };
             setCalendarEvents(prev => [...prev, event]);
           }
+        });
+        moodList.forEach(mood => {
+          const event = { title: mood.name, date: format(new Date(mood.day_selection_created_date), 'yyyy-MM-dd') };
+          setCalendarEvents(prev => [...prev, event]);
         });
       })
       .catch(err => console.error(err));
@@ -84,9 +89,16 @@ function DaySelectionCalendar() {
 
   const renderEventContent = (eventInfo) => {
     const name = eventInfo.event.title;
+
+    let imageUrl = `images/${name}.png`;
+
+    if (name.startsWith('weather:')) {
+      imageUrl = name.slice(8);
+    }
+
     return (
       <Icon
-        imgUrl={`images/${name}.png`}
+        imgUrl={imageUrl}
         iconSize="large"
       />
     );

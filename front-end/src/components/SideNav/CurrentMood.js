@@ -12,6 +12,7 @@ function CurrentMood() {
   const { daySelectionId } = useContext(appContext);
   let moods = [];
 
+  // ------- Can uncomment once I have pulled completed mood selection feature
   // useEffect(() => {
   //   axios
   //     .get(`/api/mood/${daySelectionId}`)

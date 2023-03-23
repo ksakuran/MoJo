@@ -5,10 +5,12 @@ import "./../../styles/UserInfoForm.scss";
 import Button from '../Common/Button';
 import { appContext } from '../../providers/AppProvider';
 
-function UserInfoForm() {
+function UserInfoForm(props) {
 
-  const userInfoClass = classNames("updateInfoForm");
+  const userInfoClass = classNames("formModal", "overlay");
+  const buttonContainerClass = classNames("btn-container")
   const { updateUser } = useContext(appContext);
+
 
   const handleSaveClick = function() {
     const form = document.getElementById("updateInfoForm");
@@ -23,6 +25,10 @@ function UserInfoForm() {
   // POST request is made in AppProvider via updateUser function
 
   return (
+    <>
+    <div onClickHandler={props.toggle} className="overlay">
+
+    <h3>Update your details</h3>
     <form classNames={userInfoClass} id="updateInfoForm">
       <label htmlFor="formFirstName">First name:</label><br />
       <input type="text" name="formFirstName"></input><br />
@@ -36,10 +42,17 @@ function UserInfoForm() {
       <label htmlFor="formPicture">Picture (url):</label><br />
       <input type="text" name="formPicture"></input><br /><br />
 
+      <div className={buttonContainerClass}>
       <Button
         onClickHandler={handleSaveClick}
       >Save</Button>
+      <Button
+        onClickHandler={props.toggle}
+      >Cancel</Button>
+      </div>
     </form>
+    </div>
+    </>
   );
 };
 

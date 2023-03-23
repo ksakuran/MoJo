@@ -14,7 +14,7 @@ function Journal(props) {
   const journalClass = classNames("journal");
 
 
-  const generateNewPrompt = function() {
+  const generateNewPrompt = function () {
     const prompts = ["What is something you are grateful for today?", "Tell me about your morning.", "What is one thing you can do today to make you feel good?", "When do you feel most in tune with yourself?", "What can wait until next week?"];
     const randomPrompt = prompts[Math.floor(Math.random() * prompts.length)];
     return randomPrompt;
@@ -24,7 +24,7 @@ function Journal(props) {
   const [showPrompt, setShowPrompt] = useState(false);
   const [journalEntry, setJournalEntry] = useState(false);
 
-  const { daySelectionId } = useContext(appContext)
+  const { daySelectionId } = useContext(appContext);
 
 
   const togglePrompt = () => {
@@ -39,7 +39,7 @@ function Journal(props) {
     axios
       .post(`/api/journal/`, {
         daySelectionId: daySelectionId,
-        // body: {journal entry}
+        body: "Example body" // {journal entry text}
       })
       .then(response => {
         console.log("entry saved: ", response);
@@ -47,9 +47,9 @@ function Journal(props) {
       .catch(err => {
         console.log("error", err);
       });
-  }, [journalEntry])
+  }, [journalEntry]);
 
-  
+
   return (
     <article className={journalClass}>
       <header>
@@ -61,10 +61,10 @@ function Journal(props) {
       </header>
       <br />
 
-      <JournalTextBox/>
+      <JournalTextBox />
 
       <footer>
-        <Button onClick={setJournalEntry(true)}>Save</Button>
+        <Button onClick={() => setJournalEntry(true)}>Save</Button>
       </footer>
     </article>
   );

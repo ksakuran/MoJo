@@ -9,6 +9,7 @@ function Icon(props) {
     'icon-small': iconSize === 'small',
     'icon-medium': iconSize === 'medium',
     'icon-large': iconSize === 'large',
+    'icon-x-large': iconSize === 'x-large',
   });
 
   return (

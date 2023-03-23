@@ -42,30 +42,34 @@ function CurrentWeather() {
 
   }, [selectedDate]);
 
-
-
   return (
     <div className={currentWeatherClass}>
-      <div>
+      <div className='second-box'>
         <Icon
           imgUrl={todayWeather.icon}
+          iconSize='x-large'
         />
         <p>{todayWeather.text}</p>
       </div>
-      <div>
-        <Icon
-          imgUrl='images/icons/location.png'
-          iconSize='medium'
-        />
-        <p>{city} </p>
+
+      <div className='first-box'>
+        <div>
+          <Icon
+            imgUrl='images/icons/selected_date_1.png'
+            iconSize='medium'
+          />
+          <p>{todayWeather.date}</p>
+        </div>
+        <div>
+          <Icon
+            imgUrl='images/icons/location_1.png'
+            iconSize='medium'
+          />
+          <p>{city} </p>
+        </div>
       </div>
-      <div>
-        <Icon
-          imgUrl='images/icons/selected_date.png'
-          iconSize='medium'
-        />
-        <p>{todayWeather.date}</p>
-      </div>
+
+
     </div>
   );
 }

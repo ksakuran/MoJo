@@ -5,8 +5,11 @@ section.home-page {
   align-items: center;
   flex-direction: column;
   justify-content: center;
+  z-index: 900;
+  color: white;
+  font-family: 'Syne', serif;
 }
 
 p {
-  margin-bottom: 4rem;
+  margin: 3rem;
 }

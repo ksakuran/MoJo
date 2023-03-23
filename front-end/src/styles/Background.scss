@@ -1,6 +1,7 @@
-// section.background {
-//   z-index: 999;
-// }
+section.background {
+  z-index: -100;
+  overflow: hidden;
+}
 
 
 #up {
@@ -11,7 +12,7 @@
   background-image: linear-gradient(80deg, rgba(248, 61, 105, 0.946), rgba(40, 134, 250, 0.91));
   filter: blur(100px);
   animation: down 34s infinite;
-
+  z-index: -100;
 }
 
 #down {
@@ -23,6 +24,7 @@
   background-image: linear-gradient(80deg, rgba(255, 202, 28, 0.928), rgba(199, 10, 114));
   filter: blur(100px);
   animation: up 34s infinite;
+  z-index: -100;
 
 }
 
@@ -34,6 +36,7 @@
   background-image: linear-gradient(80deg, rgba(255, 222, 91, 0.869), rgba(253, 52, 156, 0.896));
   filter: blur(110px);
   animation: left 34s infinite;
+  z-index: -100;
 
 }
 
@@ -45,6 +48,7 @@
   background-image: linear-gradient(80deg, rgba(18, 202, 248, 0.965), rgba(199, 10, 101, 0.892));
   filter: blur(100px);
   animation: right 34s infinite;
+  z-index: -100;
 
 }
 
@@ -58,6 +62,7 @@
   background-image: linear-gradient(80deg, rgba(68, 136, 253, 0.965), rgba(246, 28, 104, 0.978));
   filter: blur(90px);
   animation: middle 14s infinite;
+  z-index: -100;
 
 }
 
@@ -79,13 +84,13 @@
 
   0%,
   100% {
-    top: -5%;
+    top: 0%;
     transform: rotate(360deg);
   }
 
   50% {
     transform: rotate(0deg);
-    top: 80%;
+    top: 75%;
   }
 }
 
@@ -93,13 +98,13 @@
 
   0%,
   100% {
-    bottom: -5%;
+    bottom: 0%;
     transform: rotate(360deg);
   }
 
   50% {
     transform: rotate(0deg);
-    bottom: 80%;
+    bottom: 75%;
   }
 }
 
@@ -107,12 +112,12 @@
 
   0%,
   100% {
-    left: -5%;
+    left: 0%;
     transform: rotate(0deg);
   }
 
   50% {
-    left: 80%;
+    left: 75%;
     transform: rotate(360deg);
   }
 }
@@ -122,11 +127,11 @@
   0%,
   100% {
     transform: rotate(360deg);
-    right: -5%;
+    right: 0%;
   }
 
   50% {
     transform: rotate(360deg);
-    right: 80%;
+    right: 75%;
   }
 }

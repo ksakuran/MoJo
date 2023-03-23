@@ -14,12 +14,12 @@ const MoodBoxItem = (props) => {
   
   const icon = `./public/images/${props.name}.png`
 
-  const clickCheck = (name) => {
-    console.log(`${name} has been clicked`)
-  }
+  // const clickCheck = (name) => {
+  //   console.log(`${name} has been clicked`)
+  // }
 
   return(
-    <button onClick={() => {clickCheck(props.name)}} className={MoodBoxItemClass}>
+    <button onClick={() => {props.onClick(props.id)}} className={MoodBoxItemClass}>
       {/* <img src={icon}/> */}
       <small>{props.name}</small>
     </button>

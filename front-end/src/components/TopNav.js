@@ -17,16 +17,16 @@ function TopNav() {
   const topNavClass = classNames("top-nav");
 
   return (
-    <div className={topNavClass}>
+    <nav className={topNavClass}>
       <h1>mojo</h1>
-      <div>
-        <Button btnType="nav" onClickHandler={() => setViewMode('HOME')}>home</Button>
-        <Button btnType="nav" onClickHandler={() => setViewMode('JOURNAL')}>journal</Button>
-        <Button btnType="nav" onClickHandler={() => setViewMode('MOODSCAPE')}>moodscape</Button>
-        {userId && (<Button btnType="nav" onClickHandler={handleLogOut}>logout</Button>)}
+      <ul className={topNavClass}>
+        <li><Button btnType="nav" onClickHandler={() => setViewMode('HOME')}>home</Button></li>
+        <li><Button btnType="nav" onClickHandler={() => setViewMode('JOURNAL')}>journal</Button></li>
+        <li><Button btnType="nav" onClickHandler={() => setViewMode('MOODSCAPE')}>moodscape</Button></li>
+        {userId && (<li><Button btnType="nav" onClickHandler={handleLogOut}>logout</Button></li>)}
 
-      </div>
-    </div >
+      </ul>
+    </nav >
   );
 }
 

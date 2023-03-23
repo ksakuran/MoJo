@@ -1,1 +1,10 @@
-.main-container {}
+main.main-container {
+  display: inline-flex;
+  position: fixed;
+  top: 6rem;
+  width: 95vw;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  
+}

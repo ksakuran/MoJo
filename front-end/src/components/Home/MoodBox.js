@@ -1,99 +1,72 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./../../styles/MoodBox.scss";
 import classNames from "classnames";
 import MoodBoxItem from "./MoodBoxItem";
+import axios from "axios";
+const { moodInfoFormatter } = require('../../helpers/mood_formatter')
 
 const MoodBox = (props) => {
   const MoodBoxClass = classNames("mood-box");
 
-  const dummyData = [
-    {
-      id: '1',
-      name: 'happy',
-      selected: true,
-    },
-    {
-      id: '2',
-      name: 'grateful',
-      selected: true,
-    },
-    {
-      id: '3',
-      name: 'excited',
-      selected: true,
-    },
-    {
-      id: '4',
-      name: 'confident',
-      selected: false,
-    },
-    {
-      id: '5',
-      name: 'motivated',
-      selected: false,
-    },
-    {
-      id: '6',
-      name: 'neutral',
-      selected: false,
-    },
-    {
-      id: '7',
-      name: 'relaxed',
-      selected: false,
-    },
-    {
-      id: '8',
-      name: 'tired',
-      selected: false,
-    },
-    {
-      id: '9',
-      name: 'uncertain',
-      selected: false,
-    },
-    {
-      id: '10',
-      name: 'bored',
-      selected: false,
-    },
-    {
-      id: '11',
-      name: 'sad',
-      selected: false,
-    },
-    {
-      id: '12',
-      name: 'stressed',
-      selected: false,
-    },
-    {
-      id: '13',
-      name: 'anxious',
-      selected: false,
-    },
-    {
-      id: '14',
-      name: 'angry',
-      selected: false,
-    },
-    {
-      id: '15',
-      name: 'depressed',
-      selected: false,
-    },
-  ];
+  const [moods, setMoods] = useState([]);
+  const [ moodSelections, setMoodSelections] = useState([]);
+  const [ updateSelection, setUpdateSelections ] = useState(false)
 
-  const moods = dummyData.map((mood) => {
+
+  useEffect(() => {
+    const dayId = 1;
+    //need to get dayId from state
+
+    Promise.all([
+      axios.get("/api/mood/"), 
+      axios.get(`/api/mood/${dayId}`)
+    ]).then((results) => {
+        console.log("results from axios call to get all moods", results[0].data.moods);
+        console.log("results from axios to get selected moods", results[1].data.selectedMoods);
+        
+        const all = results[0].data;
+        const selected = results[1].data
+        
+        //setMoodSelections(selected);
+        setMoods(moodInfoFormatter(all, selected));
+
+
+      })
+      .catch((err) => {
+        console.log("error from axios call to get all moods", err);
+      });
+  }, []);
+
+  console.log("moods outside axios", moods);
+
+
+  const onSelect = (id) => {
+    console.log(`clicked mood ${id}`)
+    setUpdateSelections(true);
+  }
+
+
+  useEffect(() => {
+    const moodId = 5
+    const dayId
+    axios.post(`/api/mood/selection`, {
+      dayId,
+      moodId,
+   
+    }).
+  })
+
+
+  const moodItems = moods.map((mood) => {
     return (
-      <MoodBoxItem key={mood.id} name={mood.name} selected={mood.selected} />
+      <MoodBoxItem key={mood.id} name={mood.name} selected={mood.selected} id={mood.id} onClick={onSelect}/>
     );
   });
 
   return (
     <article className={MoodBoxClass}>
-      <header>how are you feeling today?</header>
-      <div>{moods}</div>
+      <header>how are you feeling today? select 3</header>
+      <div>{moodItems}</div>
     </article>
   );
 };

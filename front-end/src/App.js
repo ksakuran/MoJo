@@ -5,6 +5,7 @@ import LandingPage from './components/LandingPage';
 import MainContainer from './components/MainContainer';
 import { appContext } from './providers/AppProvider';
 import DaySelectionProvider from './providers/DaySelectionProvider';
+import Background from './components/Background';
 
 function App() {
   const { userId } = useContext(appContext);
@@ -12,6 +13,7 @@ function App() {
   return (
     <>
       <TopNav />
+      <Background/>
 
       {!userId && <LandingPage />}
 

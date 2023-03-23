@@ -18,7 +18,7 @@ function MainContainer() {
   const mainContainerClass = classNames("main-container");
 
   return (
-    <div className={mainContainerClass}>
+    <main className={mainContainerClass}>
       {/* Always display on the left */}
       <SideNav />
 
@@ -47,7 +47,7 @@ function MainContainer() {
         )
       }
 
-    </div>
+    </main>
   );
 }
 

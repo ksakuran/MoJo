@@ -1,13 +1,15 @@
 button.mood-box-item {
-  background-color: rgba(255, 255, 255, 0.6);
-  border-radius: 1.5rem;
+  background-color: rgba(132, 132, 132, 0.138);
+  border-radius: 1.7rem;
   border-style: solid;
   border-width: 0.1rem;
-  border-color: white;
+  border-color: rgba(229, 229, 229, 0.682);
   padding: 0.8rem;
   margin: 0.5rem;
-  width: 6rem;
-
+  width: 6.8rem;
+  font-family: "Syne", serif;
+  font-size: large;
+  color: white;
 }
 
 button.button--selected {

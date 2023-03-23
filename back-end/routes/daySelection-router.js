@@ -56,4 +56,19 @@ router.post('/new', (req, res) => {
     });
 });
 
+//create new day selection object and return current selected day_selections_id
+router.post('/update/:daySelectionId', (req, res) => {
+  const daySelectionId = req.params.daySelectionId;
+  const body = req.body;
+  daySelectionQueries.updateDaySelection(body, daySelectionId)
+    .then(daySelection => {
+      res.json({ daySelection });
+    })
+    .catch(err => {
+      res
+        .status(500)
+        .json({ error: err.message });
+    });
+});
+
 module.exports = router;

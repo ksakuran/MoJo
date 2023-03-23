@@ -11,10 +11,11 @@ function ChangeDate() {
   const changeDateClass = classNames("change-date");
 
   const { setViewMode } = useContext(appContext);
-  const { setSelectedDate } = useContext(daySelectionContext);
+  const { setSelectedDate, setDaySelectionId } = useContext(daySelectionContext);
 
   const handleChangeDate = () => {
     setSelectedDate('');
+    setDaySelectionId('');
     setViewMode('CALENDAR');
   };
 

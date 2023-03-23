@@ -68,7 +68,7 @@ function DaySelectionCalendar() {
             //if not exists then create new daySelectionId 
             return axios.post(`/api/dayselection/new`, {
               created_date: selectedDate,
-              user_id: userId
+              userId: userId
             });
           }
         })
@@ -95,7 +95,6 @@ function DaySelectionCalendar() {
   };
 
   const getRef = () => {
-    console.log(calendarRef);
     if (calendarRef.current) {
       // calendarRef.current.calendar.updateSize();
       //get current view first date
@@ -119,8 +118,7 @@ function DaySelectionCalendar() {
 
   return (
     <section className={calendarClass}>
-      <h1>select a date to checkin with yourself </h1>
-      {/* <div className='inner-box'> */}
+      <h1>navigate your entries by selecting a day</h1>
       <FullCalendar
         plugins={[dayGridPlugin, interactionPlugin]}
         dateClick={(arg) => setSelectedDate(arg.dateStr)}
@@ -131,8 +129,6 @@ function DaySelectionCalendar() {
         ref={calendarRef}
         datesSet={getRef}
       />
-      {/* </div> */}
-
     </section>
   );
 }

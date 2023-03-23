@@ -13,6 +13,7 @@
 .first-box {
   display: flex;
   flex-direction: column;
+  width: 50%;
 }
 
 .first-box div {
@@ -24,6 +25,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  width: 50%;
 }
 
 .current-weather p {

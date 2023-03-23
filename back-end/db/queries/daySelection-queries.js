@@ -69,9 +69,28 @@ const addDaySelection = (body) => {
     });
 };
 
+const updateDaySelection = (body, daySelectionId) => {
+  const query = `
+  UPDATE day_selections
+  SET weather_description = $1, weather_icon = $2
+  WHERE id = $3
+  RETURNING *;
+  `;
+  const param = [body.weather_description, body.weather_icon, daySelectionId];
+
+  return db.query(query, param)
+    .then(data => {
+      return data.rows[0];
+    })
+    .catch(err => {
+      return err;
+    });
+};
+
 module.exports = {
   getDaySelectionByDate,
   getMoodSelectionByDay,
   getJournalDaySelectionByDay,
-  addDaySelection
+  addDaySelection,
+  updateDaySelection
 };

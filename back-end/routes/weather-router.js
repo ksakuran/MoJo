@@ -4,7 +4,6 @@ const fns = require('date-fns');
 const axios = require('axios');
 const df = require('../helper/date.js');
 
-
 router.get('/:city/:date', (req, res) => {
   const city = req.params.city;
   const date = req.params.date;

@@ -10,7 +10,7 @@ import Moodify from "./Moodify";
 
 function SideNav() {
 
-  const sideNavClass = classNames("sideNav")
+  const sideNavClass = classNames("side-nav");
 
 
   return (

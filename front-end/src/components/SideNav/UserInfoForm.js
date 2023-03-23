@@ -1,15 +1,29 @@
-import React from "react";
+import React, { useContext } from 'react';
 import classNames from "classnames";
 import "./../../styles/UserInfoForm.scss";
 
+import Button from '../Common/Button';
+import { appContext } from '../../providers/AppProvider';
+
 function UserInfoForm() {
 
-  const userInfoClass = classNames("update-info-form");
+  const userInfoClass = classNames("updateInfoForm");
+  const { updateUser } = useContext(appContext);
 
-  // userInfo from session
+  const handleSaveClick = function() {
+    const form = document.getElementById("updateInfoForm");
+    const firstName = form.elements["formFirstName"].value;
+    const lastName = form.elements["formLastName"].value;
+    const city = form.elements["formCity"].value;
+    const picture = form.elements["formPicture"].value;
+
+    updateUser(firstName, lastName, city, picture);
+  };
+  
+  // POST request is made in AppProvider via updateUser function
 
   return (
-    <form classNames={userInfoClass}>
+    <form classNames={userInfoClass} id="updateInfoForm">
       <label htmlFor="formFirstName">First name:</label><br />
       <input type="text" name="formFirstName"></input><br />
 
@@ -19,17 +33,12 @@ function UserInfoForm() {
       <label htmlFor="formCity">City:</label><br />
       <input type="text" name="formCity"></input><br />
 
-      <label htmlFor="formEmail">Email:</label><br />
-      <input type="text" name="formEmail"></input><br />
-
-      <label htmlFor="formPassword">Password:</label><br />
-      <input type="text" name="formPassword"></input><br />
-
-      <label htmlFor="formPicture">Profile Picture (url):</label><br />
+      <label htmlFor="formPicture">Picture (url):</label><br />
       <input type="text" name="formPicture"></input><br /><br />
 
-      <button>Save</button>
-      {/* Save button goes to POST /api/user/:userId */}
+      <Button
+        onClickHandler={handleSaveClick}
+      >Save</Button>
     </form>
   );
 };

@@ -6,13 +6,14 @@ import axios from "axios";
 import JournalPrompt from "./JournalPrompt";
 import JournalTextBox from "./JournalTextBox";
 import Button from "../Common/Button";
-import { appContext } from '../../providers/AppProvider';
+import { daySelectionContext } from '../../providers/DaySelectionProvider';
 
 
 
-function Journal(props) {
+function Journal() {
+
   const journalClass = classNames("journal");
-
+  const promptButtonClass = classNames("btn-prompt")
 
   const generateNewPrompt = function () {
     const prompts = ["What is something you are grateful for today?", "Tell me about your morning.", "What is one thing you can do today to make you feel good?", "When do you feel most in tune with yourself?", "What can wait until next week?"];
@@ -24,7 +25,7 @@ function Journal(props) {
   const [showPrompt, setShowPrompt] = useState(false);
   const [journalEntry, setJournalEntry] = useState(false);
 
-  const { daySelectionId } = useContext(appContext);
+  const { daySelectionId } = useContext(daySelectionContext);
 
 
   const togglePrompt = () => {
@@ -52,10 +53,10 @@ function Journal(props) {
 
   return (
     <article className={journalClass}>
-      <header>
+      <header className={promptButtonClass}>
         {showPrompt && (<JournalPrompt prompt={prompt} />)}
         <Button
-          onClick={togglePrompt}>
+          onClickHandler={togglePrompt}>
           give me a prompt
         </Button>
       </header>

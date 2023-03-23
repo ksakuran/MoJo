@@ -1,7 +1,7 @@
 import React from "react";
 import classNames from "classnames";
 import './../../styles/MoodBoxItem.scss';
-
+import Icon from "../Common/Icon";
 
 
 const MoodBoxItem = (props) => {
@@ -12,15 +12,16 @@ const MoodBoxItem = (props) => {
     "button--selected": selected,
   });
   
-  const icon = `./public/images/${name}.png`
+  const icon = `images/${name}.png`
 
   // const clickCheck = (name) => {
   //   console.log(`${name} has been clicked`)
   // }
 
   return(
-    <button onClick={() => {onClick(id, selected)}} className={MoodBoxItemClass}>
+    <button onClick={() => {onClick(id, selected, name)}} className={MoodBoxItemClass}>
       {/* <img src={icon}/> */}
+      <Icon imgUrl={icon} iconSize={"medium"}/>
       <small>{name}</small>
     </button>
   )

@@ -18,14 +18,17 @@ const MoodBox = (props) => {
 
 
   //on click handler for the mood box items
-  const onSelect = (id, selected) => {
-    console.log(`clicked mood ${id} selected = ${selected} `);
-    if (selected === false) {
-      setNewMoodSelectionId(id);
-      setUpdateSelections(!updateSelections);
-    } else {
+  const onSelect = (id, selected, name) => {
+    console.log(`clicked mood ${id} selected = ${selected} ${name}`);
+    console.log("moods selections length", moodSelections.length)
+    if (selected) {
       setRemoveMoodId(id);
       setRemoveSelecion(!removeSelection);
+    }
+
+    if (!selected){
+      setNewMoodSelectionId(id);
+      setUpdateSelections(!updateSelections);
     }
   };
 

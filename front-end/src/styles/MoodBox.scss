@@ -1,21 +1,21 @@
 
 
 article.mood-box {
-  width: 39rem;
+  width: 49rem;
   height: 25%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: left;
-  background-color: rgba(255, 255, 255, 0.095);
-  border-radius: 1.5rem;
-  border-style: solid;
-  border-width: 0.1rem;
-  border-color: rgba(255, 255, 255, 0.508);
+  background-color: rgba(255, 255, 255, 0);
+  // border-radius: 1.5rem;
+  // border-style: solid;
+  // border-width: 0.1rem;
+  // border-color: rgba(255, 255, 255, 0.508);
   padding: 0.8rem;
 
   header {
-    font-size: medium;
+    font-size: large;
     padding: 0.8rem;
     font-family: "Syne", serif;
     

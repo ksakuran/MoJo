@@ -87,6 +87,7 @@ function DaySelectionCalendar() {
     return (
       <Icon
         imgUrl={`images/${name}.png`}
+        iconSize="large"
       />
     );
   };
@@ -95,7 +96,7 @@ function DaySelectionCalendar() {
     if (calendarRef.current) {
       //get current view first date
       let calendarApi = calendarRef.current.getApi();
-      const startOfTheMonth = calendarApi.currentData.dateProfile.currentRange.start + 1;
+      const startOfTheMonth = calendarApi.currentData.dateProfile.currentRange.start;
       const addedDay = addDays(new Date(startOfTheMonth), 1);
 
       //format to get month and year

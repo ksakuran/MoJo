@@ -6,8 +6,10 @@ import "./../../styles/JournalPage.scss";
 
 function JournalPage() {
 
+  const journalPageClass = classNames("journal-page")
+
   return (
-    <section className="page" id="journal-page">
+    <section className={journalPageClass} id="journal-page">
       <Journal />
       <JournalChecklist />
     </section>

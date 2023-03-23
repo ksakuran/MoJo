@@ -8,7 +8,6 @@ function JournalPrompt(props) {
 
   return (
     <header>
-      {/* <div className={promptClass}>{props.prompt}</div> */}
       <div className={promptClass}>{props.prompt}</div>
     </header>
   );

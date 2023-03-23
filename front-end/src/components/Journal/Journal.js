@@ -1,15 +1,17 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import classNames from "classnames";
+import "./../../styles/Journal.scss";
+import axios from "axios";
 
 import JournalPrompt from "./JournalPrompt";
 import JournalTextBox from "./JournalTextBox";
-import "./../../styles/Journal.scss";
+import Button from "../Common/Button";
+import { appContext } from '../../providers/AppProvider';
 
 
 
 function Journal(props) {
-  const saveButtonClass = classNames("button", "save-journal");
-  const promptButtonClass = classNames("button", "prompt-journal");
+  const journalClass = classNames("journal");
 
 
   const generateNewPrompt = function() {
@@ -20,6 +22,10 @@ function Journal(props) {
 
   const [prompt, setPrompt] = useState(generateNewPrompt());
   const [showPrompt, setShowPrompt] = useState(false);
+  const [journalEntry, setJournalEntry] = useState(false);
+
+  const { daySelectionId } = useContext(appContext)
+
 
   const togglePrompt = () => {
     if (!showPrompt) {
@@ -28,22 +34,37 @@ function Journal(props) {
     setPrompt(generateNewPrompt());
   };
 
+
+  useEffect(() => {
+    axios
+      .post(`/api/journal/`, {
+        daySelectionId: daySelectionId,
+        // body: {journal entry}
+      })
+      .then(response => {
+        console.log("entry saved: ", response);
+      })
+      .catch(err => {
+        console.log("error", err);
+      });
+  }, [journalEntry])
+
+  
   return (
-    <article>
+    <article className={journalClass}>
       <header>
         {showPrompt && (<JournalPrompt prompt={prompt} />)}
-        <button
-          className={promptButtonClass}
+        <Button
           onClick={togglePrompt}>
           give me a prompt
-        </button>
+        </Button>
       </header>
       <br />
 
-      <JournalTextBox daySelectionId={props.daySelectionId} />
+      <JournalTextBox/>
 
       <footer>
-        <button className={saveButtonClass}>Save</button>
+        <Button onClick={setJournalEntry(true)}>Save</Button>
       </footer>
     </article>
   );

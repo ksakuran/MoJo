@@ -9,16 +9,49 @@ import Icon from './Common/Icon';
 import { daySelectionContext } from '../providers/DaySelectionProvider';
 import { appContext } from '../providers/AppProvider';
 import axios from 'axios';
+import { format, addDays } from 'date-fns';
 
 function DaySelectionCalendar() {
 
   //potential styles
   const calendarClass = classNames("day-selection-calendar");
 
-  const { daySelectionId, setDaySelectionId, selectedDate, setSelectedDate } = useContext(daySelectionContext);
+  const { setDaySelectionId, selectedDate, setSelectedDate } = useContext(daySelectionContext);
   const { userId, setViewMode } = useContext(appContext);
+  const [calendarEvents, setCalendarEvents] = useState([]);
+  const [currentMonth, setCurrentMonth] = useState({
+    month: format(new Date(), 'MM'),
+    year: format(new Date(), 'yyyy')
+  });
 
+  const calendarRef = React.createRef();
 
+  //for calendar event list
+  useEffect(() => {
+    //retrieve monthly data and load to calendar
+    const { month, year } = currentMonth;
+    axios
+      .get(`/api/dayselection/calendar/${month}/${year}/${userId}`)
+      .then(res => {
+        const { calendarData } = res.data;
+        const moodList = calendarData[0];
+        const journalList = calendarData[1];
+        setCalendarEvents([]);
+        moodList.forEach(mood => {
+          const event = { title: mood.name, date: format(new Date(mood.day_selection_created_date), 'yyyy-MM-dd') };
+          setCalendarEvents(prev => [...prev, event]);
+        });
+        journalList.forEach(journal => {
+          if (journal.journal_id) {
+            const event = { title: '2.journal', date: format(new Date(journal.day_selection_created_date), 'yyyy-MM-dd') };
+            setCalendarEvents(prev => [...prev, event]);
+          }
+        });
+      })
+      .catch(err => console.error(err));
+  }, [currentMonth]);
+
+  //for setting daySelectionId
   useEffect(() => {
     if (userId && selectedDate) {
       //make axios call to check if selected date and user_id exists in day_selection table
@@ -49,14 +82,34 @@ function DaySelectionCalendar() {
     }
   }, [selectedDate]);
 
-
   const renderEventContent = (eventInfo) => {
-    const mood = eventInfo.event.title;
+    const name = eventInfo.event.title;
     return (
       <Icon
-        imgUrl={`images/${mood}.png`}
+        imgUrl={`images/${name}.png`}
       />
     );
+  };
+
+  const getRef = () => {
+    if (calendarRef.current) {
+      //get current view first date
+      let calendarApi = calendarRef.current.getApi();
+      const startOfTheMonth = calendarApi.currentData.dateProfile.currentRange.start + 1;
+      const addedDay = addDays(new Date(startOfTheMonth), 1);
+
+      //format to get month and year
+      const calendarMonth = format(new Date(addedDay), 'MM');
+      const calendarYear = format(new Date(addedDay), 'yyyy');
+
+      //udpate state if selected month is different
+      if (currentMonth.month !== calendarMonth || currentMonth.year !== calendarYear) {
+        setCurrentMonth({
+          month: calendarMonth,
+          year: calendarYear
+        });
+      }
+    }
   };
 
   return (
@@ -67,15 +120,10 @@ function DaySelectionCalendar() {
         dateClick={(arg) => setSelectedDate(arg.dateStr)}
         initialView="dayGridMonth"
         eventContent={renderEventContent}
-        events={[
-          { title: "1.sun", date: '2023-03-20' },
-          { title: "2.journal", date: '2023-03-20' },
-          { title: "3.checklist", date: '2023-03-20' },
-          { title: "happy", date: '2023-03-20' },
-          { title: "relax", date: '2023-03-20' },
-          { title: "tired", date: '2023-03-20' }
-        ]}
+        events={calendarEvents}
         eventDisplay="list-item"
+        ref={calendarRef}
+        datesSet={getRef}
       />
     </section>
   );

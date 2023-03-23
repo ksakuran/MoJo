@@ -35,6 +35,35 @@ router.get("/:dayId", (req, res) => {
     });
 });
 
+
+
+
+router.post("/selection/delete", (req, res) => {
+  
+  const dayId = req.body.dayId;
+  const moodId = req.body.moodId;
+
+
+  moodQueries.getMoodSelectionId(moodId, dayId)
+  .then((idToDelete) => {
+    console.log("idToDelete:", idToDelete);
+    return moodQueries.deleteMoodSelectionById(idToDelete)
+  })
+  .then((deletedSelection) => {
+    return res.json({deletedSelection})
+  })
+  .catch((err) => {
+    res.status(418).json({ error: err.message });
+  });
+
+  
+  // moodQueries.deleteMoodSelectionById()
+
+})
+
+
+
+
 router.post("/selection", (req, res) => {
   //User chooses mood selections for the day
 
@@ -44,8 +73,8 @@ router.post("/selection", (req, res) => {
   //gives a count of how many moods are selected for the day
   const countPromise = moodQueries.dailyMoodSelectionsCount(dayId);
 
-  // //gives the most recent mood_selection_id for current day
-  const idPromise = moodQueries.lastestMoodSelectionByDayId(dayId);
+  // //gives the olds mood_selection_id for current day
+  const idPromise = moodQueries.oldestMoodSelectionByDayId(dayId);
 
   Promise.all([countPromise, idPromise])
     .then((results) => {

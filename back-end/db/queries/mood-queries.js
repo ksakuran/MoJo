@@ -34,13 +34,13 @@ const getMoodSelectionByDayId = (dayId) => {
     });
 };
 
-const lastestMoodSelectionByDayId = (dayId) => {
+const oldestMoodSelectionByDayId = (dayId) => {
   return db
     .query(
       `
   SELECT id FROM mood_selections
   WHERE day_selection_id = $1
-  ORDER BY created_date DESC
+  ORDER BY created_date ASC
   LIMIT 1;
   `,
       [dayId]
@@ -103,11 +103,30 @@ const insertMoodSelection = (moodId, dayId) => {
     });
 };
 
+
+const getMoodSelectionId = ( moodId, dayId) => {
+
+  return db
+  .query(
+    `SELECT id FROM mood_selections WHERE day_selection_id = $1
+    AND mood_id = $2 LIMIT 1;`, 
+    [dayId, moodId]
+  )
+  .then((data) => {
+    return data.rows[0].id;
+  })
+  .catch((err) => {
+    return console.error(err);
+  });
+}
+
+
 module.exports = {
   getAllMoods,
   getMoodSelectionByDayId,
   dailyMoodSelectionsCount,
   deleteMoodSelectionById,
   insertMoodSelection,
-  lastestMoodSelectionByDayId,
+  oldestMoodSelectionByDayId,
+  getMoodSelectionId
 };

@@ -10,8 +10,8 @@ const MoodBox = (props) => {
 
   const [moods, setMoods] = useState([]);
   const [ moodSelections, setMoodSelections] = useState([]);
-  const [ updateSelection, setUpdateSelections ] = useState(false)
-
+  const [ updateMoods, setUpdateMoods ] = useState(false)
+  const [ newMoodSelectionId, setNewMoodSelectionId ] = useState(null)
 
   useEffect(() => {
     const dayId = 1;
@@ -35,26 +35,34 @@ const MoodBox = (props) => {
       .catch((err) => {
         console.log("error from axios call to get all moods", err);
       });
-  }, []);
+  }, [updateMoods]);
 
   console.log("moods outside axios", moods);
 
 
   const onSelect = (id) => {
     console.log(`clicked mood ${id}`)
-    setUpdateSelections(true);
+    setNewMoodSelectionId(id);
+    
   }
 
 
   useEffect(() => {
-    const moodId = 5
-    const dayId
+    const moodId = newMoodSelectionId
+    const dayId = 1
+    console.log("new mood id for post req", moodId)
     axios.post(`/api/mood/selection`, {
       dayId,
       moodId,
-   
-    }).
-  })
+    })
+    .then((results) => {
+      console.log("results from axios post to update selection",results)
+      setUpdateMoods(!updateMoods);
+    })
+    .catch((err) => {
+      console.log("error", err)
+    })
+  },[newMoodSelectionId])
 
 
   const moodItems = moods.map((mood) => {
@@ -62,6 +70,8 @@ const MoodBox = (props) => {
       <MoodBoxItem key={mood.id} name={mood.name} selected={mood.selected} id={mood.id} onClick={onSelect}/>
     );
   });
+
+
 
   return (
     <article className={MoodBoxClass}>

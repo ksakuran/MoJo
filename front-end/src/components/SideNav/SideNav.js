@@ -1,6 +1,7 @@
 import React from 'react';
 import classNames from "classnames";
 import "./../../styles/SideNav.scss";
+
 import UserInfo from "./UserInfo";
 import ChangeDate from "./ChangeDate";
 import CurrentWeather from "./CurrentWeather";
@@ -9,8 +10,11 @@ import Moodify from "./Moodify";
 
 function SideNav() {
 
+  const sideNavClass = classNames("sideNav")
+
+
   return (
-    <section className="sideNav">
+    <section className={sideNavClass}>
       <UserInfo />
       <ChangeDate />
       <CurrentWeather />

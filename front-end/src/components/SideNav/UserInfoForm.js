@@ -12,7 +12,9 @@ function UserInfoForm(props) {
   const { updateUser } = useContext(appContext);
 
 
-  const handleSaveClick = function() {
+  const handleSaveClick = function(event) {
+    event.preventDefault();
+
     const form = document.getElementById("updateInfoForm");
     const firstName = form.elements["formFirstName"].value;
     const lastName = form.elements["formLastName"].value;
@@ -21,6 +23,9 @@ function UserInfoForm(props) {
 
     updateUser(firstName, lastName, city, picture);
     // POST request is made in AppProvider via updateUser function
+    
+    props.toggle()
+    //insert Toast here for "saved!" message
   };
   
 

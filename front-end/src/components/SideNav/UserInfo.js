@@ -26,7 +26,7 @@ function UserInfo() {
     <div>
       <img src="images/profile_user.png" alt="profile" width="40" height="40" />
       <div className={nameDisplayClass}>
-        <h4>Andy {firstName}</h4>
+        <h4>{firstName}</h4>
         <Button onClickHandler={toggleFormModal}>
           <img className={editButtonClass} src="images/pencil_icon.png" alt="info-edit" height="20"
             width="20" />

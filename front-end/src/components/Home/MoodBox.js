@@ -1,4 +1,5 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
+import { daySelectionContext } from '../../providers/DaySelectionProvider';
 import "./../../styles/MoodBox.scss";
 import classNames from "classnames";
 import MoodBoxItem from "./MoodBoxItem";
@@ -7,6 +8,9 @@ const { moodInfoFormatter } = require("../../helpers/mood_formatter");
 
 const MoodBox = (props) => {
   const MoodBoxClass = classNames("mood-box");
+
+  const { daySelectionId } = useContext(daySelectionContext);
+
 
   const [moods, setMoods] = useState([]);
   const [moodSelections, setMoodSelections] = useState([]);
@@ -21,12 +25,12 @@ const MoodBox = (props) => {
   const onSelect = (id, selected, name) => {
     console.log(`clicked mood ${id} selected = ${selected} ${name}`);
     console.log("moods selections length", moodSelections.length)
-    if (selected) {
+    if (selected === true) {
       setRemoveMoodId(id);
       setRemoveSelecion(!removeSelection);
     }
 
-    if (!selected){
+    if (selected === false){
       setNewMoodSelectionId(id);
       setUpdateSelections(!updateSelections);
     }
@@ -35,7 +39,7 @@ const MoodBox = (props) => {
 
   //gets all the moods to display the moodbox items
   useEffect(() => {
-    const dayId = 1;
+    const dayId = daySelectionId;
     //need to get dayId from state
 
     Promise.all([axios.get("/api/mood/"), axios.get(`/api/mood/${dayId}`)])
@@ -61,7 +65,7 @@ const MoodBox = (props) => {
     const moodId = newMoodSelectionId;
 
     // need to get day id from provider
-    const dayId = 1;
+    const dayId = daySelectionId;
 
     if (moodId === null) {
       return;
@@ -87,7 +91,7 @@ const MoodBox = (props) => {
   useEffect(() => {
     const moodId = removeMoodId;
     // need to get day id from provider
-    const dayId = 1;
+    const dayId = daySelectionId;
 
     if (moodId === null) {
       return;

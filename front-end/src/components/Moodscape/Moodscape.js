@@ -1,21 +1,19 @@
-import React, { useState } from "react";
+import React, { useState, useContext, useEffect } from "react";
+import axios from "axios";
+import { appContext } from "../../providers/AppProvider";
 import "../../styles/Moodscape.scss";
 import classNames from "classnames";
 import DateSelectionForm from "./DateSelectionForm";
-
+import Button from "../Common/Button";
 import { Chart } from "chart.js/auto";
 import DoughnutChart from "./DoughnutChart";
-
+import getCurrentDate from "../../helpers/moodscape_date";
+import { summaryContext } from "../../providers/SummaryProvider";
+import { getDonutChartData } from "../../helpers/mood_summary"
 
 
 const Moodscape = (props) => {
-  const moodscapeClass = classNames("moodscape-page");
 
-  const [showForm, setShowForm] = useState(false);
-
-  const clickShowForm = () => {
-    setShowForm(!showForm);
-  };
 
   const donutChartData = {
     labels: [
@@ -94,11 +92,51 @@ const Moodscape = (props) => {
     ],
   };
 
+  
+  const { userId, setViewMode } = useContext(appContext);
+  const { updateDates, selectedStartDate, selectedEndDate } = useContext(summaryContext)
+
+  const moodscapeClass = classNames("moodscape-page");
+
+  const [showForm, setShowForm] = useState(false);
+  const [ chartData , setChartData ] = useState(donutChartData)
+  
+  const currentDate = getCurrentDate();
+
+  useEffect(() => {
+    
+    let startDate = selectedStartDate ? selectedStartDate : currentDate;
+    let endDate = selectedEndDate ? selectedEndDate : currentDate;
+    console.log("COFFEE CUP")
+    axios
+      .get(`/api/moodscape/summary/${startDate}/${endDate}/${userId}`)
+      .then((results) => {
+        setChartData(getDonutChartData(results.data));
+      })
+      .catch((err) => {
+        console.log("error", err);
+      });
+  }, [updateDates]);
+
+
+
+
+  const clickShowForm = () => {
+    setShowForm(!showForm);
+  };
+
+  
+
+
+  
+
   return (
     <section className={moodscapeClass}>
-      <button className={moodscapeClass} onClick={clickShowForm}>select date range</button>
-      {showForm && <DateSelectionForm />}
-      <DoughnutChart chartData={donutChartData} />
+      <div className={moodscapeClass}>
+      <Button btnId={moodscapeClass} onClickHandler={clickShowForm}>select date range</Button>
+      {showForm && <DateSelectionForm/>}
+      </div>
+      <DoughnutChart chartData={chartData} />
     </section>
   );
 };

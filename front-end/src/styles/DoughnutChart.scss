@@ -1,11 +1,17 @@
 div.chart {
-  width: 25rem;
-  background-color: rgba(255, 255, 255, 0.6);
+  width: 47%;
+  background-color: rgba(255, 255, 255, 0.15);
   border-radius: 1.9rem;
   border-style: solid;
   border-width: 0.1rem;
-  border-color: rgba(255, 255, 255, 0.816);
-  padding: 0.8rem;
+  border-color: rgba(255, 255, 255, 0.419);
+  padding: 2rem;
   margin: 0.5rem;
+  font-family: 'Syne', serif;
+  color: white;
+}
 
+canvas {
+  font-family: 'Syne', serif;
+  color: white;
 }

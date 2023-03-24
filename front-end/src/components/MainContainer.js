@@ -8,6 +8,7 @@ import Moodscape from "./Moodscape/Moodscape";
 import classNames from "classnames";
 import '../styles/MainContainer.scss';
 import { appContext } from '../providers/AppProvider';
+import SummaryProvider from '../providers/SummaryProvider';
 
 function MainContainer() {
 
@@ -43,7 +44,8 @@ function MainContainer() {
 
       {
         viewMode === 'MOODSCAPE' && (
-          <Moodscape />
+          <SummaryProvider><Moodscape /></SummaryProvider>
+          
         )
       }
 

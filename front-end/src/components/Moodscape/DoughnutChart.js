@@ -9,13 +9,44 @@ const DoughnutChart = (props) => {
       <Doughnut
         data={props.chartData}
         options={{
+          
           plugins: {
             title: {
+              position: "top",
+              align: "start",
               display: true,
-              text: "Moodscape",
+              padding: -15,
+              text: "your moodscape",
+              color: "white",
+              font: {
+                family: "Syne",
+                size: "45px",
+              }
             },
             legend: {
               display: true,
+              padding: 20,
+              useBorderRadius: true,
+              borderRadius: 25,
+              position: "left",
+              titleFont: {
+                family: "Syne",
+                color: "white"
+              },
+              labels: {
+                color: "white",
+                font: {
+                  family: "Syne",
+                  size: "20px"
+                },
+                tooltip: {
+                  bodyFont: {
+                    family: "Syne",
+                    color: "white"
+                  },
+                  
+                },
+              }
             },
           },
         }}

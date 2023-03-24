@@ -1,23 +1,54 @@
 form.date-selector-form {
-  background-color: rgba(238, 210, 248, 0.6);
-  border-radius: 1.8rem;
+  background-color: rgba(255, 255, 255, 0);
+  border-radius: 1.5rem;
   border-style: solid;
   border-width: 0.1rem;
-  border-color: rgb(196, 196, 196);
+  border-color: rgba(196, 196, 196, 0);
   padding: 1.25rem;
-  margin: 0.5rem;
-  display: inline-block;
+  padding-left: 0.5rem;
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: left;
   
   
 }
 
-button.date-selector-form {
-  background-color: rgba(244, 244, 244, 0.6);
-  border-radius: 1.8rem;
+form label {
+  padding-right: 0.5rem;
+  font-size: large;
+}
+
+form input {
+  background: transparent;
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 1.9rem;
+  border-color: rgba(255, 255, 255, 0.49);
+  height: 2rem;
+  width: 11rem;
+  padding: 0.5rem;
+  font-size: large;
+  font-family: "Syne", serif;
+  color:white;
+}
+
+button#date-selector-form {
+  background-color: rgba(244, 244, 244, 0.307);
+  border-radius: 2rem;
   border-style: solid;
   border-width: 0.1rem;
-  border-color: rgb(196, 196, 196);
-  padding: 0.7rem;
+  border-color: rgba(255, 255, 255, 0.503);
+  padding: 0.5rem;
+  margin-top: 0.5rem;
   margin-left: 0.5em;
+  font-size: medium;
+  font-family: 'Syne', serif;
+  color: white;
+  width: 6rem;
+  height: 3rem;
+}
 
+button#date-selector-form:hover{
+  background-color: white;
+  color: black;
 }

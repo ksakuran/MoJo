@@ -12,6 +12,8 @@ router.get(`/summary/:startDate/:endDate/:userId`, (req, res) => {
   const startDate = req.params.startDate;
   const endDate = req.params.endDate;
 
+  console.log("startDate:", startDate)
+  console.log("endDate:", startDate)
 
   //returns an array of moodInfo objects with an id and name
   moodscapeQueries.getMoodNameId()

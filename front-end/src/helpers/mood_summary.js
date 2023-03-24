@@ -109,4 +109,6 @@ const getDonutChartData = (dataset) => {
   return donutChartData
 };
 
-console.log(getDonutChartData(data));
+// console.log(getDonutChartData(data));
+
+module.exports = { getDonutChartData };

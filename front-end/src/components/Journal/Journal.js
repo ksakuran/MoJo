@@ -7,15 +7,16 @@ import JournalPrompt from "./JournalPrompt";
 import JournalTextBox from "./JournalTextBox";
 import Button from "../Common/Button";
 import { daySelectionContext } from '../../providers/DaySelectionProvider';
+import { appContext } from './../../providers/AppProvider';
 
 
 
 function Journal() {
 
   const journalClass = classNames("journal");
-  const promptButtonClass = classNames("btn-prompt")
+  const promptButtonClass = classNames("btn-prompt");
 
-  const generateNewPrompt = function () {
+  const generateNewPrompt = function() {
     const prompts = ["What is something you are grateful for today?", "Tell me about your morning.", "What is one thing you can do today to make you feel good?", "When do you feel most in tune with yourself?", "What can wait until next week?"];
     const randomPrompt = prompts[Math.floor(Math.random() * prompts.length)];
     return randomPrompt;
@@ -23,7 +24,10 @@ function Journal() {
 
   const [prompt, setPrompt] = useState(generateNewPrompt());
   const [showPrompt, setShowPrompt] = useState(false);
-  const [journalEntry, setJournalEntry] = useState(false);
+  const [journalEntry, setJournalEntry] = useState("");
+  const [saveJournalEntry, setSaveJournalEntry] = useState(false);
+  const [initialValue, setInitialValue] = useState("");
+  const { setViewMode } = useContext(appContext);
 
   const { daySelectionId } = useContext(daySelectionContext);
 
@@ -35,21 +39,38 @@ function Journal() {
     setPrompt(generateNewPrompt());
   };
 
+  useEffect(() => {
+    if (journalEntry) {
 
+      console.log("journal entry: ", journalEntry);
+      console.log("daySelectionId: ", daySelectionId);
+      axios
+        .post(`/api/journal/`, {
+          daySelectionId: daySelectionId,
+          body: journalEntry
+        })
+        .then(response => {
+          console.log("entry saved: ", response);
+          setViewMode('HOME');
+        })
+        .catch(err => {
+          console.log("error", err);
+        });
+    }
+  }, [saveJournalEntry]);
+
+  //get existing journal entry
+  console.log("daySelectionId: ", daySelectionId);
   useEffect(() => {
     axios
-      .post(`/api/journal/`, {
-        daySelectionId: daySelectionId,
-        body: "Example body" // {journal entry text}
-      })
-      .then(response => {
-        console.log("entry saved: ", response);
-      })
-      .catch(err => {
-        console.log("error", err);
+      .get(`/api/journal/${daySelectionId}`)
+      .then(res => {
+        console.log("result!! ", res);
+        if (res.data) {
+          setInitialValue(res.data.body);
+        }
       });
-  }, [journalEntry]);
-
+  }, [initialValue]);
 
   return (
     <article className={journalClass}>
@@ -62,10 +83,10 @@ function Journal() {
       </header>
       <br />
 
-      <JournalTextBox />
+      <JournalTextBox onChange={setJournalEntry} initialValue={initialValue} />
 
       <footer>
-        <Button onClick={() => setJournalEntry(true)}>Save</Button>
+        <Button onClickHandler={() => setSaveJournalEntry(true)}>Save</Button>
       </footer>
     </article>
   );

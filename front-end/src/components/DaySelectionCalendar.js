@@ -125,7 +125,7 @@ function DaySelectionCalendar() {
 
   const handleDateClick = (arg) => {
     const selectedDateString = arg.dateStr;
-    const formattedDate = new Date(selectedDateString);
+    const formattedDate = addDays(new Date(selectedDateString), 1);
     const todayDate = new Date();
     if (formattedDate < todayDate) {
       setSelectedDate(selectedDateString);

@@ -17,7 +17,7 @@ router.get('/:city/:date', (req, res) => {
       const weather = {
         text: responseData.condition.text,
         icon: responseData.condition.icon,
-        date: df.formatDate(date)
+        date: df.formatDate(fns.addDays(new Date(date), 1))
       };
       return res.json({ weather });
     })

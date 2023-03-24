@@ -3,7 +3,7 @@ import classNames from "classnames";
 import "../../styles/CurrentWeather.scss";
 import axios from 'axios';
 import Icon from '../Common/Icon';
-import { format } from 'date-fns';
+import { format, addDays, isEqual } from 'date-fns';
 import { daySelectionContext } from './../../providers/DaySelectionProvider';
 
 
@@ -18,7 +18,19 @@ function CurrentWeather() {
 
   useEffect(() => {
     //make getCurrentWeather API call to backend and pass userID and date with it
-    const url = selectedDate ? `/api/weather/${city.toLowerCase()}/${selectedDate}` : `api/weather/${city}`;
+
+    let needToFetchHistory = true;
+
+    if (selectedDate) {
+      //if selected date is same as today date, don't fetch history data
+      const formattedSelectedDate = new Date(selectedDate).toISOString().slice(0, 10);
+      const todayDate = addDays(new Date(), -1).toISOString().slice(0, 10);
+      if (formattedSelectedDate == todayDate) {
+        needToFetchHistory = false;
+      }
+    }
+
+    const url = needToFetchHistory ? `/api/weather/${city.toLowerCase()}/${selectedDate}` : `api/weather/${city}`;
     axios
       .get(url)
       .then(res => {

@@ -20,7 +20,7 @@
     "react-dom": "^16.9.0",
     "react-scripts": "3.4.4",
     "sass": "^1.59.3",
-    "spotify-web-api-node": "^5.0.2",
+    "spotify-web-api-js": "^1.5.2",
     "web-vitals": "^2.1.4"
   },
   "scripts": {

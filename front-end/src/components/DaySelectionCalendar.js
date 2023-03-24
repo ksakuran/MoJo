@@ -56,8 +56,8 @@ function DaySelectionCalendar() {
   useEffect(() => {
     if (userId && selectedDate) {
       //make axios call to check if selected date and user_id exists in day_selection table
-      axios.
-        get(`/api/dayselection/${selectedDate}/${userId}`)
+      axios
+        .get(`/api/dayselection/${selectedDate}/${userId}`)
         .then(res => {
           const { data } = res;
 

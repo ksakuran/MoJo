@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext } from 'react';
 import classNames from "classnames";
 import "../styles/TopNav.scss";
 import Button from './Common/Button';

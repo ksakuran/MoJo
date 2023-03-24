@@ -1,8 +1,7 @@
 import React, { useRef, useEffect } from "react";
-import classNames from "classnames";
 import "./../../styles/JournalTextBox.scss";
 import 'draft-js/dist/Draft.css';
-import { Editor, EditorState, getDefaultKeyBinding, RichUtils, ContentState, convertFromHTML, convertToRaw, convertFromRaw } from "draft-js";
+import { Editor, EditorState, getDefaultKeyBinding, RichUtils, convertToRaw, convertFromRaw } from "draft-js";
 
 function JournalTextBox(props) {
 

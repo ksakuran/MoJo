@@ -38,7 +38,7 @@ function formatDate(date) {
   ];
 
   const currentDate = date ? new Date(date) : new Date();
-  const dd = currentDate.getDate() + 1;
+  const dd = currentDate.getDate();
   const MM = monthNames[currentDate.getMonth()];
   var yyyy = currentDate.getFullYear();
 

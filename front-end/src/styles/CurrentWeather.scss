@@ -1,7 +1,33 @@
 .current-weather {
+  background-color: rgba(255, 255, 255, 0.095);
+  border-radius: 1.5rem;
+  border-style: solid;
+  border-width: 0.1rem;
+  border-color: rgba(255, 255, 255, 0.508);
   display: flex;
   width: 100%;
   justify-content: space-evenly;
   align-items: center;
-  background-color: #2d9caa;
+}
+
+.first-box {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+}
+
+.first-box div {
+  display: flex;
+}
+
+.second-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 50%;
+}
+
+.current-weather p {
+  margin: 1rem;
 }

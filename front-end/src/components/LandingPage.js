@@ -1,5 +1,4 @@
 import React, { useContext } from "react";
-import classNames from "classnames";
 import "../styles/LandingPage.scss";
 import { appContext } from '../providers/AppProvider';
 import Button from './Common/Button';
@@ -8,10 +7,6 @@ import Button from './Common/Button';
 const LandingPage = () => {
 
   const { setUserId } = useContext(appContext);
-
-  const onClickTest = () => {
-    console.log("clicked");
-  };
 
   return (
     <>

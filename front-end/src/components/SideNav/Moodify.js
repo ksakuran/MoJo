@@ -58,7 +58,7 @@ function Moodify(props) {
 // ** Dont forget to swap the selectPlaylistUrl call on line 64 to use props.moods  
   return (
     <div className={moodifyClass}>
-      <h3>Listen to something while you're here</h3>
+      <h4>Listen to something while you're here</h4>
         {!loggedIn && <a href={loginUrl}>Sign in to Spotify</a>}
         {loggedIn && (
           <iframe title="spotify-player" style={{ borderRadius: "12px" }} src={selectPlaylistUrl(props.moods)} width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>

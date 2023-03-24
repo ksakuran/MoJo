@@ -61,3 +61,12 @@ button#login:hover {
   color: black;
   cursor: pointer;
 }
+
+button.btn-disabled {
+  color: rgba(137, 137, 137, 0.624);
+}
+
+button.btn-disabled:hover  {
+  color: rgba(137, 137, 137, 0.624);
+}
+

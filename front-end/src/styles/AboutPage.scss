@@ -1,0 +1,26 @@
+#about{
+  margin-top: 5%;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content:first baseline;
+  align-items: center;
+  min-height: 80vh;
+  text-align: center;
+  color: rgb(255, 255, 255);
+  z-index: 800;
+  font-family: 'Syne', serif;
+  font-weight: 400;
+}
+
+h3.about-page{
+  font-size: 400%;
+  font-family: 'Fraunces', sans-serif;
+  text-align: center;
+  line-height: 0px;
+  text-shadow: 2px 5px 10px rgba(0, 0, 0, 0.284);
+}
+
+section#mojo-features {
+  display: inline-block;
+}

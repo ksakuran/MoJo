@@ -19,7 +19,7 @@ function CurrentMood(props) {
   //Switch interpolations below to {mood.name} if mood_selections are objects
     return (
     <li className={moodListClass} key={mood.id}>
-      <Icon imgUrl={`images/${mood}.png`} iconSize="small"></Icon><h4>{mood}</h4>
+      <Icon imgUrl={`images/${mood}.png`} iconSize="small"></Icon><h2>{mood}</h2>
     </li>
     );
   });

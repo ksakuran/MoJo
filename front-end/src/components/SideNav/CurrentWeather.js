@@ -61,8 +61,8 @@ function CurrentWeather() {
       <div className='second-box'>
         <Icon
           imgUrl={todayWeather.icon}
-          iconSize='x-large'
-          iconStyle="padding"
+          iconSize='large'
+          
         />
         <p>{todayWeather.text}</p>
       </div>

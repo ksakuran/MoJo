@@ -16,10 +16,12 @@
 li.current-mood-list {
   display: flex;
   flex-direction: row;
+  align-items: center;
   margin:0;
   font-weight: 400;
   list-style-type: none;
   padding-left: 8%;
+  margin-bottom: 2%;
 }
 
 h3.current-mood-list{

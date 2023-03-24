@@ -4,7 +4,13 @@ import { Doughnut } from "react-chartjs-2";
 
 
 const DoughnutChart = (props) => {
+  let titleDates = ''
+  if(props.start && props.end) {
+    titleDates = `from ${props.start} to ${props.end}`
+  }
+
   return (
+      
     <div className="chart">
       <Doughnut
         data={props.chartData}
@@ -15,12 +21,24 @@ const DoughnutChart = (props) => {
               position: "top",
               align: "start",
               display: true,
-              padding: -15,
-              text: "your moodscape",
+              padding: -5,
+              text: `your moodscape`,
               color: "white",
               font: {
                 family: "Syne",
-                size: "45px",
+                size: "35px",
+              }
+            },
+            subtitle: {
+              position: "top",
+              align: "start",
+              display: true,
+              
+              text: `${titleDates}`,
+              color: "white",
+              font: {
+                family: "Syne",
+                size: "25px",
               }
             },
             legend: {
@@ -52,6 +70,7 @@ const DoughnutChart = (props) => {
         }}
       />
       </div>
+
   );
 };
 

@@ -1,5 +1,5 @@
 section.moodscape-page {
-  margin: 2em;
+  
   display: flex;
   flex-direction: row;
   align-items: flex-start;
@@ -20,15 +20,30 @@ button#moodscape-page {
   font-family: 'Syne', serif;
   color: white;
   font-size: large;
+  cursor: pointer;
 }
 
 button#moodscape-page:hover {
   background-color: rgb(255, 255, 255);
   color: black;
+  cursor: pointer;
 }
 
 div.moodscape-page {
+  margin-top: 3.75rem;
+  margin-left: 1rem;
   display: flex;
   flex-direction: column;
 
+}
+
+div#chart-p {
+  width: 55%;
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+div#chart-p p {
+  margin: 1rem;
 }

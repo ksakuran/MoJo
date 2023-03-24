@@ -17,7 +17,8 @@ nav.top-nav {
 }
 
 nav h1 {
-  font-size: 2.2rem;
+  font-size: 2.6rem;
+  text-shadow: 2px 5px 10px rgba(0, 0, 0, 0.2);
 }
 
 nav ul{
@@ -33,12 +34,18 @@ nav li {
   list-style-type: none;
 }
 
+.btn-nav:hover {
+  color: black;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
 .btn-nav {
   background: transparent;
   border-style: none;
   color: white;
   font-family: 'Syne', serif;
-  font-size: 1.2rem;
+  font-size: 1.4rem;
   padding-left: 1rem;
   padding-right: 0.5rem;
 }

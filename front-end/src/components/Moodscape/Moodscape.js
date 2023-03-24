@@ -9,12 +9,9 @@ import { Chart } from "chart.js/auto";
 import DoughnutChart from "./DoughnutChart";
 import getCurrentDate from "../../helpers/moodscape_date";
 import { summaryContext } from "../../providers/SummaryProvider";
-import { getDonutChartData } from "../../helpers/mood_summary"
-
+import { getDonutChartData } from "../../helpers/mood_summary";
 
 const Moodscape = (props) => {
-
-
   const donutChartData = {
     labels: [
       "happy",
@@ -37,77 +34,76 @@ const Moodscape = (props) => {
       {
         label: [],
         data: [
-          "2",
-          "2",
-          "2",
-          "2",
-          "2",
-          "2",
-          "2",
-          "2",
-          "2",
-          "2",
-          "2",
-          "2",
-          "2",
-          "2",
-          "2",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
         ],
         borderColor: [
-          "#FFDD47",
-          "#B35681",
-          "#C1FBA4",
-          "#FEA971",
-          "#81EED8",
-          "#CBD0C8",
-          "#B298DC",
-          "#391763",
-          "#496629",
-          "#5F0F40",
-          "#224E6D",
-          "#DA4B1B",
-          "#CE6BEF",
-          "#981F2F",
-          "#454E9E",
+          "#FFEB3B", // happy - yellow
+          "#FF9800", // grateful - orange
+          "#FF5722", // excited - deep orange
+          "#F44336", // confident - red
+          "#E91E63", // motivated - pink
+          "#9C27B0", // neutral - purple
+          "#673AB7", // relaxed - deep purple
+          "#3F51B5", // tired - indigo
+          "#2196F3", // uncertain - blue
+          "#03A9F4", // bored - light blue
+          "#00BCD4", // sad - cyan
+          "#009688", // stressed - teal
+          "#4CAF50", // anxious - green
+          "#8BC34A", // angry - lime green
+          "#CDDC39", // depressed - yellow-green
         ],
         backgroundColor: [
-          "#FFDD47",
-          "#B35681",
-          "#C1FBA4",
-          "#FEA971",
-          "#81EED8",
-          "#CBD0C8",
-          "#B298DC",
-          "#391763",
-          "#496629",
-          "#5F0F40",
-          "#224E6D",
-          "#DA4B1B",
-          "#CE6BEF",
-          "#981F2F",
-          "#454E9E",
+          "#FFEB3B", // happy - yellow
+          "#FF9800", // grateful - orange
+          "#FF5722", // excited - deep orange
+          "#F44336", // confident - red
+          "#E91E63", // motivated - pink
+          "#9C27B0", // neutral - purple
+          "#673AB7", // relaxed - deep purple
+          "#3F51B5", // tired - indigo
+          "#2196F3", // uncertain - blue
+          "#03A9F4", // bored - light blue
+          "#00BCD4", // sad - cyan
+          "#009688", // stressed - teal
+          "#4CAF50", // anxious - green
+          "#8BC34A", // angry - lime green
+          "#CDDC39", // depressed - yellow-green
         ],
         borderWidth: 3,
       },
     ],
   };
 
-  
   const { userId, setViewMode } = useContext(appContext);
-  const { updateDates, selectedStartDate, selectedEndDate } = useContext(summaryContext)
+  const { updateDates, selectedStartDate, selectedEndDate } =
+    useContext(summaryContext);
 
   const moodscapeClass = classNames("moodscape-page");
 
   const [showForm, setShowForm] = useState(false);
-  const [ chartData , setChartData ] = useState(donutChartData)
-  
+  const [chartData, setChartData] = useState(donutChartData);
+
   const currentDate = getCurrentDate();
 
   useEffect(() => {
-    
     let startDate = selectedStartDate ? selectedStartDate : currentDate;
     let endDate = selectedEndDate ? selectedEndDate : currentDate;
-    console.log("COFFEE CUP")
+    console.log("COFFEE CUP");
     axios
       .get(`/api/moodscape/summary/${startDate}/${endDate}/${userId}`)
       .then((results) => {
@@ -118,25 +114,26 @@ const Moodscape = (props) => {
       });
   }, [updateDates]);
 
-
-
-
   const clickShowForm = () => {
     setShowForm(!showForm);
   };
 
-  
-
-
-  
-
   return (
     <section className={moodscapeClass}>
-      <div className={moodscapeClass}>
-      <Button btnId={moodscapeClass} onClickHandler={clickShowForm}>select date range</Button>
-      {showForm && <DateSelectionForm/>}
+      <div id="chart-p">
+        <p>summary of your mood selections</p>
+        <DoughnutChart
+          start={selectedStartDate}
+          end={selectedEndDate}
+          chartData={chartData}
+        />
       </div>
-      <DoughnutChart chartData={chartData} />
+      <div className={moodscapeClass}>
+        <Button btnId={moodscapeClass} onClickHandler={clickShowForm}>
+          select date range
+        </Button>
+        {showForm && <DateSelectionForm />}
+      </div>
     </section>
   );
 };

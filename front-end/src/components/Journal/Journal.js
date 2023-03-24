@@ -7,19 +7,13 @@ import JournalPrompt from "./JournalPrompt";
 import JournalTextBox from "./JournalTextBox";
 import Button from "../Common/Button";
 import { daySelectionContext } from '../../providers/DaySelectionProvider';
-
+import { generateNewPrompt } from '../../helpers/generate_prompt';
 
 
 function Journal() {
 
   const journalClass = classNames("journal");
   const promptButtonClass = classNames("btn-prompt")
-
-  const generateNewPrompt = function () {
-    const prompts = ["What is something you are grateful for today?", "Tell me about your morning.", "What is one thing you can do today to make you feel good?", "When do you feel most in tune with yourself?", "What can wait until next week?"];
-    const randomPrompt = prompts[Math.floor(Math.random() * prompts.length)];
-    return randomPrompt;
-  };
 
   const [prompt, setPrompt] = useState(generateNewPrompt());
   const [showPrompt, setShowPrompt] = useState(false);

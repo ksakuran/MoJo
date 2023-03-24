@@ -8,11 +8,14 @@
 }
 
 .day-selection-calendar {
-  width: 70%;
+  width: 65%;
+  height: 50%;
+  font-weight: 400;
 }
 
 .day-selection-calendar h1 {
   margin: 0;
+  font-weight: 400;
 }
 
 .alert {
@@ -29,4 +32,14 @@
 
 .fc .fc-toolbar.fc-header-toolbar {
   margin: 0.5rem !important;
+  
 }
+
+.fc .fc-toolbar-title {
+  font-weight: 400;
+}
+
+th {
+  font-weight: 400;
+}
+

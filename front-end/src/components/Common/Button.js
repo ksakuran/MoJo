@@ -4,12 +4,13 @@ import "../../styles/Button.scss";
 
 
 function Button(props) {
-  const { btnType, onClickHandler, btnId, children } = props;
+  const { btnType, onClickHandler, btnId, children, disabled } = props;
 
   const btnClass = classNames("btn", {
     'btn-small': btnType === 'small',
     'btn-medium': btnType === 'medium',
-    'btn-nav': btnType === 'nav',
+    'btn-nav': btnType === 'nav' && !disabled,
+    'btn-disabled': disabled === true,
   });
 
   return (
@@ -17,6 +18,7 @@ function Button(props) {
       id={btnId}
       className={btnClass}
       onClick={onClickHandler}
+      disabled={disabled}
     >
       {children}
     </button>

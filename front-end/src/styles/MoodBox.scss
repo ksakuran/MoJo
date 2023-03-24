@@ -16,13 +16,18 @@ article.mood-box {
 
   header {
     font-size: large;
-    padding: 0.8rem;
+    padding: 2%;
+    padding-left: 10%;
     font-family: "Syne", serif;
     
   }
 
-  div {
-    display: inline-block;
+  div.mood-box {
+    width:95%;
+    padding-left: 8%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-self: center;
   }
 
 }

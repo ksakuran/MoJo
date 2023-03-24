@@ -1,0 +1,19 @@
+form#login {
+  margin-top: 3%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+
+
+  input {
+    margin-bottom: 5%;
+    color: white;
+    width: 15rem;
+  }
+
+  ::placeholder {
+    color: white;
+  }
+}

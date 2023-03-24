@@ -8,12 +8,19 @@
   width: 100%;
   justify-content: space-evenly;
   align-items: center;
+
 }
+
 
 .first-box {
   display: flex;
   flex-direction: column;
-  width: 50%;
+  width: 60%;
+  padding-top: 1%;
+  margin-right: 5%;
+  p {
+    font-size: large;
+  }
 }
 
 .first-box div {
@@ -23,11 +30,15 @@
 .second-box {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
-  width: 50%;
+  width: 40%;
+  
+  p {
+    font-size: medium;
+   }
 }
 
 .current-weather p {
-  margin: 1rem;
+  margin: 0.8rem;
 }

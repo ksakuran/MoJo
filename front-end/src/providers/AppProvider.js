@@ -6,7 +6,7 @@ export const appContext = createContext();
 export default function AppProvider(props) {
 
   const [viewMode, setViewMode] = useState("CALENDAR");
-  const [userId, setUserId] = useState("1");
+  const [userId, setUserId] = useState("");
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [userCity, setUserCity] = useState("");

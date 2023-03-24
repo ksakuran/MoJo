@@ -22,7 +22,7 @@ const MoodBoxItem = (props) => {
     <button onClick={() => {onClick(id, selected, name)}} className={MoodBoxItemClass}>
       {/* <img src={icon}/> */}
       <Icon imgUrl={icon} iconSize={"medium"}/>
-      <small>{name}</small>
+      <small>&nbsp;{name}</small>
     </button>
   )
 }

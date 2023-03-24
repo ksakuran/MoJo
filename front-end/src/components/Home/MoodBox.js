@@ -4,19 +4,19 @@ import "./../../styles/MoodBox.scss";
 import classNames from "classnames";
 import MoodBoxItem from "./MoodBoxItem";
 import axios from "axios";
+import { moodSelectionContext } from "../../providers/MoodSelectionProvider";
 const { moodInfoFormatter } = require("../../helpers/mood_formatter");
 
 const MoodBox = (props) => {
   const MoodBoxClass = classNames("mood-box");
 
   const { daySelectionId } = useContext(daySelectionContext);
+  const { moodSelections, setMoodSelections } = useContext(moodSelectionContext);
 
-
-  const [moods, setMoods] = useState([]);
-  const [moodSelections, setMoodSelections] = useState([]);
-  const [updateMoods, setUpdateMoods] = useState(false);
-  const [newMoodSelectionId, setNewMoodSelectionId] = useState(null);
-  const [updateSelections, setUpdateSelections] = useState(false);
+  const [ moods, setMoods ] = useState([]);
+  const [ updateMoods, setUpdateMoods ] = useState(false);
+  const [ newMoodSelectionId, setNewMoodSelectionId ] = useState(null);
+  const [ updateSelections, setUpdateSelections ] = useState(false);
   const [ removeMoodId , setRemoveMoodId ] = useState(null);
   const [ removeSelection, setRemoveSelecion ] = useState(false);
 
@@ -128,7 +128,7 @@ const MoodBox = (props) => {
   return (
     <article className={MoodBoxClass}>
       <header>how are you feeling today? select 3</header>
-      <div>{moodItems}</div>
+      <div className={MoodBoxClass}>{moodItems}</div>
     </article>
   );
 };

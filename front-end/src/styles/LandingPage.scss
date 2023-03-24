@@ -14,20 +14,20 @@
 }
 
 #landing h1{
-  font-size: 5rem;
+  font-size: 560%;
   text-align: center;
   line-height: 0px;
-  text-shadow: 2px 5px 10px rgba(0, 0, 0, 0.2);
+  text-shadow: 2px 5px 10px rgba(0, 0, 0, 0.284);
 }
 
 #landing small{
   font-family: 'Syne', sans-serif;
-  font-size: medium;
+  font-size: x-large;
 }
 
 #landing p {
   font-family: 'Syne', sans-serif;
-  font-size: larger;
+  font-size: x-large;
 }
 
 button#get-started {
@@ -37,8 +37,7 @@ button#get-started {
   border-width: 0.1rem;
   border-color: rgba(255, 255, 255, 0.497);
   padding: 1rem;
-  margin: 1rem;
-  width: 9rem;
+  width: 10%;
   font-family: 'Syne', sans-serif;
   font-size: large;
   color: white;

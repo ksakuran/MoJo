@@ -14,9 +14,59 @@
 }
 
 .btn p {
-  margin: 1rem;
+  margin: 0;
+  font-size: large;
 }
 
-.btn-nav {
-  margin: 1rem;
+.btn#change-date {
+  display: inline-flex;
 }
+
+
+.btn-nav:hover {
+  color: black;
+  font-size: 1.65rem;
+  cursor: pointer;
+}
+
+  .btn-nav {
+    background: transparent;
+    border-style: none;
+    color: white;
+    font-family: 'Syne', serif;
+    font-weight: 400;
+    font-size: 1.6rem;
+    padding-left: 1rem;
+    padding-right: 0.5rem;
+  }
+
+.btn#login{
+  margin-top: 5%;
+  background-color: rgba(255, 255, 255, 0);
+  border-radius: 1.9rem;
+  border-style: solid;
+  border-width: 0.1rem;
+  border-color: rgba(255, 255, 255, 0.497);
+  padding: 1rem;
+  width: 50%;
+  margin-left: 10%;
+  margin-right: 10%;
+  font-family: 'Syne', sans-serif;
+  font-size: large;
+  color: white;
+}
+
+button#login:hover {
+  background-color: white;
+  color: black;
+  cursor: pointer;
+}
+
+button.btn-disabled {
+  color: rgba(137, 137, 137, 0.624);
+}
+
+button.btn-disabled:hover  {
+  color: rgba(137, 137, 137, 0.624);
+}
+

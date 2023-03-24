@@ -34,21 +34,6 @@ const Moodscape = (props) => {
       {
         label: [],
         data: [
-          "0",
-          "0",
-          "0",
-          "0",
-          "0",
-          "0",
-          "0",
-          "0",
-          "0",
-          "0",
-          "0",
-          "0",
-          "0",
-          "0",
-          "0",
         ],
         borderColor: [
           "#FFEB3B", // happy - yellow

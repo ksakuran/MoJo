@@ -92,6 +92,7 @@ function DaySelectionCalendar() {
       <Icon
         imgUrl={imageUrl}
         iconSize="medium"
+        iconStyle="marg"
       />
     );
   };

@@ -24,7 +24,7 @@ function CurrentWeather() {
     if (selectedDate) {
       //if selected date is same as today date, don't fetch history data
       const formattedSelectedDate = new Date(selectedDate).toISOString().slice(0, 10);
-      const todayDate = addDays(new Date(), -1).toISOString().slice(0, 10);
+      const todayDate = new Date().toISOString().slice(0, 10);
       if (formattedSelectedDate == todayDate) {
         needToFetchHistory = false;
       }

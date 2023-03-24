@@ -98,7 +98,6 @@ function DaySelectionCalendar() {
 
   const getRef = () => {
     if (calendarRef.current) {
-      // calendarRef.current.calendar.updateSize();
       //get current view first date
       let calendarApi = calendarRef.current.getApi();
       const startOfTheMonth = calendarApi.currentData.dateProfile.currentRange.start;
@@ -121,15 +120,16 @@ function DaySelectionCalendar() {
   useEffect(() => {
     const timer = setTimeout(() => {
       setShowAlert(false);
-    }, 2000);
+    }, 3000);
     return () => clearTimeout(timer);
   }, [showAlert]);
 
   const handleDateClick = (arg) => {
     const selectedDateString = arg.dateStr;
-    const formattedDate = addDays(new Date(selectedDateString), 1);
-    const todayDate = new Date();
-    if (formattedDate < todayDate) {
+    const formattedDate = new Date(selectedDateString).toISOString().slice(0, 10);
+    const todayDate = new Date().toISOString().slice(0, 10);
+
+    if (formattedDate <= todayDate) {
       setSelectedDate(selectedDateString);
     }
     else {
@@ -141,7 +141,7 @@ function DaySelectionCalendar() {
   return (
     <section className={calendarClass}>
       {showAlert && (
-        <div class="alert alert-danger" role="alert">
+        <div className="alert alert-danger" role="alert">
           please only select today or older dates!
         </div>
       )}

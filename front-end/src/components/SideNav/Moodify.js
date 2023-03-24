@@ -9,8 +9,7 @@ const moodifyClass = classNames("moodify")
 const spotifyApi = new SpotifyWebApi();
 
 const client_id = 'daab3cd4c0964c93ba725710faa3cfb3'; // Your client id
-const client_secret = 'c9eeed838956447893ee87ec4e925b7f'; 
-const redirect_uri = 'http://localhost:3000/'; // Your redirect uri
+const redirect_uri = `${window.location.protocol}//${window.location.hostname}:${window.location.port}/`;
 const authEndpoint = "http://accounts.spotify.com/authorize";
 
 export const loginUrl = `${authEndpoint}?
@@ -34,7 +33,6 @@ function Moodify(props) {
 
     //Authentication
     const [spotifyToken, setSpotifyToken] = useState("");
-    const [nowPlaying, setNowPlaying] = useState({});
     const [loggedIn, setLoggedIn] = useState(false);
 
     useEffect(() => {
@@ -53,12 +51,12 @@ function Moodify(props) {
           });
         setLoggedIn(true);
       };
-    });
+    }, []);
 
 // ** Dont forget to swap the selectPlaylistUrl call on line 64 to use props.moods  
   return (
     <div className={moodifyClass}>
-      <h4>Listen to something while you're here</h4>
+      <h4>Listen to something that matches today's mood</h4>
         {!loggedIn && <a href={loginUrl}>Sign in to Spotify</a>}
         {loggedIn && (
           <iframe title="spotify-player" style={{ borderRadius: "12px" }} src={selectPlaylistUrl(props.moods)} width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>

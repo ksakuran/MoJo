@@ -20,9 +20,9 @@ function UserInfoForm(props) {
     const picture = form.elements["formPicture"].value;
 
     updateUser(firstName, lastName, city, picture);
+    // POST request is made in AppProvider via updateUser function
   };
   
-  // POST request is made in AppProvider via updateUser function
 
   return (
     <>

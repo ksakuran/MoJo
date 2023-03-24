@@ -1,4 +1,4 @@
-import React, { useEffect, useContext } from 'react';
+import React, { useContext } from 'react';
 import classNames from "classnames";
 import "./../../styles/CurrentMood.scss";
 
@@ -16,7 +16,7 @@ function CurrentMood(props) {
   let moods = props.moods;
   
   const moodList = moods.map(mood => {
-  console.log('moods-url:', `images/${mood}.png`); //Switch interpolations below to {mood.name} if mood_selections are objects
+  //Switch interpolations below to {mood.name} if mood_selections are objects
     return (
     <li className={moodListClass} key={mood.id}>
       <Icon imgUrl={`images/${mood}.png`} iconSize="small"></Icon><h4>{mood}</h4>

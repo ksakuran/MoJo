@@ -8,7 +8,7 @@ import SpotifyWebApi from "spotify-web-api-js";
 
  const client_id = 'daab3cd4c0964c93ba725710faa3cfb3'; // Your client id
 const client_secret = 'c9eeed838956447893ee87ec4e925b7f'; // Your secret
-const redirect_uri = 'http://localhost:3000/callback/'; // Your redirect uri
+const redirect_uri = 'http://localhost:3000/'; // Your redirect uri
 
 const authEndpoint = "http://accounts.spotify.com/authorize";
 
@@ -37,7 +37,6 @@ function Moodify() {
     const [loggedIn, setLoggedIn] = useState(false);
 
 
-                                    //  Atempt #1
     useEffect(() => {
       console.log("token from the URL: ", getTokenFromUrl());
       const spotifyToken = getTokenFromUrl().access_token;

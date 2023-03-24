@@ -4,6 +4,7 @@ import "./../../styles/UserInfo.scss";
 
 import UserInfoForm from "./UserInfoForm";
 import Button from "../Common/Button";
+// import Icon from "../Common/Icon";
 import { appContext } from '../../providers/AppProvider';
 
 function UserInfo() {

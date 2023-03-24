@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import SideNav from "./SideNav/SideNav";
 import DaySelectionCalendar from "./DaySelectionCalendar";
+import AboutPage from "./AboutPage";
 import HomePage from "./Home/HomePage";
 import JournalPage from "./Journal/JournalPage";
 import Moodscape from "./Moodscape/Moodscape";
@@ -19,6 +20,7 @@ function MainContainer() {
 
   return (
     <main className={mainContainerClass}>
+        
       <MoodSelectionProvider>
         {/* Always display on the left */}
         <SideNav />
@@ -29,6 +31,7 @@ function MainContainer() {
         {viewMode === "HOME" && <HomePage />}
 
         {viewMode === "JOURNAL" && <JournalPage />}
+
 
         {viewMode === "MOODSCAPE" && (
           <SummaryProvider>

@@ -6,17 +6,19 @@ import MainContainer from './components/MainContainer';
 import { appContext } from './providers/AppProvider';
 import DaySelectionProvider from './providers/DaySelectionProvider';
 import Background from './components/Background';
+import AboutPage from './components/AboutPage';
 
 function App() {
-  const { userId } = useContext(appContext);
+  const { userId, viewMode } = useContext(appContext);
+ 
 
   return (
     <>
       <TopNav />
       <Background/>
 
-      {!userId && <LandingPage />}
-
+      {!userId && viewMode !== 'ABOUT' && <LandingPage />}
+      { viewMode === 'ABOUT' && <AboutPage/>}
       {userId && <DaySelectionProvider> <MainContainer /> </DaySelectionProvider>}
     </>
   );

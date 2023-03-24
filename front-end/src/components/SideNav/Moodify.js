@@ -2,14 +2,15 @@ import React from "react";
 import classNames from "classnames";
 import "./../../styles/Moodify.scss";
 import { useState, useEffect } from "react";
+import { selectPlaylistUrl } from "../../helpers/selectPlaylistUrl";
 import SpotifyWebApi from "spotify-web-api-js";
 
- const spotifyApi = new SpotifyWebApi();
+const moodifyClass = classNames("moodify")
+const spotifyApi = new SpotifyWebApi();
 
- const client_id = 'daab3cd4c0964c93ba725710faa3cfb3'; // Your client id
-const client_secret = 'c9eeed838956447893ee87ec4e925b7f'; // Your secret
+const client_id = 'daab3cd4c0964c93ba725710faa3cfb3'; // Your client id
+const client_secret = 'c9eeed838956447893ee87ec4e925b7f'; 
 const redirect_uri = 'http://localhost:3000/'; // Your redirect uri
-
 const authEndpoint = "http://accounts.spotify.com/authorize";
 
 export const loginUrl = `${authEndpoint}?
@@ -29,13 +30,12 @@ const getTokenFromUrl = () => {
     }, {});
 };
 
-function Moodify() {
+function Moodify(props) {
 
     //Authentication
     const [spotifyToken, setSpotifyToken] = useState("");
     const [nowPlaying, setNowPlaying] = useState({});
     const [loggedIn, setLoggedIn] = useState(false);
-
 
     useEffect(() => {
       console.log("token from the URL: ", getTokenFromUrl());
@@ -55,12 +55,13 @@ function Moodify() {
       };
     });
 
-
+// ** Dont forget to swap the selectPlaylistUrl call on line 64 to use props.moods  
   return (
-    <div>
+    <div className={moodifyClass}>
+      <h3>Listen to something while you're here</h3>
         {!loggedIn && <a href={loginUrl}>Sign in to Spotify</a>}
         {loggedIn && (
-          <iframe title="spotify-player" style={{ borderRadius: "12px" }} src="https://open.spotify.com/embed/playlist/37i9dQZF1DX0UrRvztWcAU?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+          <iframe title="spotify-player" style={{ borderRadius: "12px" }} src={selectPlaylistUrl(['happy', 'tired', 'bored'])} width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
         )}
     </div>
   );

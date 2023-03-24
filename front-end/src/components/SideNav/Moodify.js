@@ -2,9 +2,21 @@ import React from "react";
 import classNames from "classnames";
 import "./../../styles/Moodify.scss";
 import { useState, useEffect } from "react";
-// import SpotifyWebApi from "spotify-web-api-js";
+import SpotifyWebApi from "spotify-web-api-js";
 
-// const spotifyApi = new SpotifyWebApi();
+ const spotifyApi = new SpotifyWebApi();
+
+ const client_id = 'daab3cd4c0964c93ba725710faa3cfb3'; // Your client id
+const client_secret = 'c9eeed838956447893ee87ec4e925b7f'; // Your secret
+const redirect_uri = 'http://localhost:3000/callback/'; // Your redirect uri
+
+const authEndpoint = "http://accounts.spotify.com/authorize";
+
+export const loginUrl = `${authEndpoint}?
+client_id=${client_id}
+&redirect_uri=${redirect_uri}
+&response_type=token
+&show_dialog=true`
 
 const getTokenFromUrl = () => {
   return window.location.hash
@@ -19,52 +31,38 @@ const getTokenFromUrl = () => {
 
 function Moodify() {
 
-  //   // //Authentication
-  //   // const [spotifyToken, setSpotifyToken] = useState("");
-  //   // const [nowPlaying, setNowPlaying] = useState({});
-  //   // const [loggedIn, setLoggedIn] = useState(false);
+    //Authentication
+    const [spotifyToken, setSpotifyToken] = useState("");
+    const [nowPlaying, setNowPlaying] = useState({});
+    const [loggedIn, setLoggedIn] = useState(false);
 
-  //   // useEffect(() => {
-  //   //   console.log("token from the URL: ", getTokenFromUrl());
-  //   //   const spotifyToken = getTokenFromUrl().access_token;
-  //   //   window.location.hash = "";
-  //   //   console.log("Spotify token: ", spotifyToken);
 
-  //   //   if (spotifyToken) {
-  //   //     setSpotifyToken(spotifyToken);
-  //   //     //use Spotify API
-  //   //     spotifyApi.setAccesToken(spotifyToken);
-  //   //     spotifyApi.getMe()
-  //   //       .then((user) => {
-  //   //         console.log('user', user);
-  //   //       });
-  //   //     setLoggedIn(true);
-  //   //   };
-  //   // });
+                                    //  Atempt #1
+    useEffect(() => {
+      console.log("token from the URL: ", getTokenFromUrl());
+      const spotifyToken = getTokenFromUrl().access_token;
+      window.location.hash = "";
+      console.log("Spotify token: ", spotifyToken);
 
-  //   // const getNowPlaying = () => {
-  //   //   spotifyApi.getMyCurrentPlaybackState()
-  //   //     .then((response) => {
-  //   //       setNowPlaying({
-  //   //         name: response.item.name,
-  //   //         albumArt: response.item.album.images[0].url
-  //   //       });
-  //   //     });
-  //   // };
+      if (spotifyToken) {
+        setSpotifyToken(spotifyToken);
+        //use Spotify API
+        spotifyApi.setAccessToken(spotifyToken);
+        spotifyApi.getMe()
+          .then((user) => {
+            console.log('user', user);
+          });
+        setLoggedIn(true);
+      };
+    });
+
 
   return (
     <div>
-  //       {/* I think this localhost needs to be unqiue from our front-end or back-end server as it's where the Spotify authentication goes. It will redirect back to our front-end */}
-      {/* //       {!loggedIn && <a href="http://localhost:5005">Sign in to Spotify</a>}
-         {loggedIn && ( */}
-      {/* //         <>
-  //           <div>Now Playing: {nowPlaying.name}</div>
-  //           <img src={nowPlaying.albumArt} style={{ height: 25 }} />
-  //         </>
-  //       )}
-  //       {loggedIn && (
-  //         <iframe title="spotify-player" style={{ borderRadius: "12px" }} src="https://open.spotify.com/embed/playlist/37i9dQZF1DX0UrRvztWcAU?utm_source=generator&theme=0" width="50%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-  //       )} */}
+        {!loggedIn && <a href={loginUrl}>Sign in to Spotify</a>}
+        {loggedIn && (
+          <iframe title="spotify-player" style={{ borderRadius: "12px" }} src="https://open.spotify.com/embed/playlist/37i9dQZF1DX0UrRvztWcAU?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+        )}
     </div>
   );
 };

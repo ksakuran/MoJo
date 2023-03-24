@@ -1,10 +1,44 @@
 .formModal, .overlay {
-  width: 12em;
-  height: 20em;
-  top: 6em;
-  left: 13em;
+  width: 14rem;
+  height: 25rem;
+  top: 9rem;
+  left: 15rem;
   right: 0;
   bottom: 0;
+  z-index: 100;
   position: fixed;
-  background-color: rgba(255, 255, 255, 0.482);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+
+    //background-color: rgb(215, 215, 215);
+    background-image: linear-gradient(to bottom, rgb(209, 160, 209), rgb(162, 105, 169));
+    border-radius: 1.5rem;
+    // border-style: solid;
+    // border-width: 0.1rem;
+    border-color: rgba(255, 255, 255, 0.889);
+  }
+
+
+.formModal:after, .overlay:after {
+	content: '';
+	position: absolute;
+	left: 0;
+	top: 10%;
+	width: 0;
+	height: 0;
+	border: 19px solid transparent;
+	border-right-color:  rgb(209, 160, 209);
+	border-left: 0;
+	margin-top: -15px;
+	margin-left: -19px;
+}
+
+
+.btn-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
 }

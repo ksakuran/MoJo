@@ -23,14 +23,22 @@ export default function AppProvider(props) {
   };
 
   useEffect(() => {
+
+    let searchParams = {
+      first_name: firstName,
+      last_name: lastName,
+      city: userCity,
+      profile_picture: userPicture,
+      email: "test@mail.com",
+      password: "456"
+    };
+
     axios
-      .post(`/api/user/${userId}`, {
-        first_name: firstName,
-        last_name: lastName,
-        city: userCity,
-        profile_picture: userPicture,
-        email: "test@mail.com",
-        password: "456"
+      .post(`/api/user/${userId}`, searchParams, {
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        data: JSON.stringify(searchParams)
       })
       .then(response => {
         console.log("update user axios response:", response);

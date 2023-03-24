@@ -38,10 +38,10 @@ function Moodify(props) {
     const [loggedIn, setLoggedIn] = useState(false);
 
     useEffect(() => {
-      console.log("token from the URL: ", getTokenFromUrl());
+      // console.log("token from the URL: ", getTokenFromUrl());
       const spotifyToken = getTokenFromUrl().access_token;
       window.location.hash = "";
-      console.log("Spotify token: ", spotifyToken);
+      // console.log("Spotify token: ", spotifyToken);
 
       if (spotifyToken) {
         setSpotifyToken(spotifyToken);
@@ -61,7 +61,7 @@ function Moodify(props) {
       <h3>Listen to something while you're here</h3>
         {!loggedIn && <a href={loginUrl}>Sign in to Spotify</a>}
         {loggedIn && (
-          <iframe title="spotify-player" style={{ borderRadius: "12px" }} src={selectPlaylistUrl(['happy', 'tired', 'bored'])} width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+          <iframe title="spotify-player" style={{ borderRadius: "12px" }} src={selectPlaylistUrl(props.moods)} width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
         )}
     </div>
   );

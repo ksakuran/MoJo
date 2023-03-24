@@ -68,7 +68,7 @@ function DaySelectionCalendar() {
             //if not exists then create new daySelectionId 
             return axios.post(`/api/dayselection/new`, {
               created_date: selectedDate,
-              userId: userId
+              user_id: userId
             });
           }
         })

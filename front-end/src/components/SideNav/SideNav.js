@@ -35,10 +35,10 @@ function SideNav() {
   return (
     <section className={sideNavClass}>
       <UserInfo />
-      <ChangeDate />
       <CurrentWeather />
-      <CurrentMood key="1" moods={moods}/>
-      <Moodify key="2" moods={moods}/>
+      <ChangeDate />
+      <CurrentMood moods={moods}/>
+      <Moodify moods={moods}/>
     </section>
   );
 };

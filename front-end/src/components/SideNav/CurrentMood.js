@@ -18,7 +18,7 @@ function CurrentMood(props) {
   const moodList = moods.map(mood => {
   console.log('moods-url:', `images/${mood}.png`); //Switch interpolations below to {mood.name} if mood_selections are objects
     return (
-    <li className={moodListClass}>
+    <li className={moodListClass} key={mood.id}>
       <Icon imgUrl={`images/${mood}.png`} iconSize="small"></Icon><h4>{mood}</h4>
     </li>
     );

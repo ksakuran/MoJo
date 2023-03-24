@@ -1,0 +1,25 @@
+.current-mood-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: left;
+
+  width: 10rem
+}
+
+.current-mood-list {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+h3{
+  display: flex;
+  justify-content: center;
+  margin: 1.5rem 0 0 0 ;
+  }
+
+h4{
+  display: flex;
+  justify-content: center;
+  margin-left: 0.2rem;
+  }

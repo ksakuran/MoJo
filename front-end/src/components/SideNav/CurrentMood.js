@@ -8,28 +8,27 @@ import { appContext } from '../../providers/AppProvider';
 
 function CurrentMood(props) {
 
+  const moodContainerClass = classNames("current-mood-container");
   const moodListClass = classNames("current-mood-list");
-  const { daySelectionId } = useContext(appContext);
+
+  //const { daySelectionId } = useContext(appContext);
   
   let moods = props.moods;
   
   const moodList = moods.map(mood => {
-  console.log('moods-url:', `images/${mood}.png`); //Removing the .name causes an error
+  console.log('moods-url:', `images/${mood}.png`); //Switch interpolations below to {mood.name} if mood_selections are objects
     return (
     <li className={moodListClass}>
-      <Icon imgUrl={`images/${mood}.png`} iconSize="small"></Icon><p>{mood}</p>
+      <Icon imgUrl={`images/${mood}.png`} iconSize="small"></Icon><h4>{mood}</h4>
     </li>
     );
   });
 
 
   return (
-    <div>
-      <h4>current mood</h4>
+    <div className={moodContainerClass}>
+      <h3>current mood</h3>
       <ul>
-        {/* <li>Happy</li>
-        <li>Motivated</li>
-        <li>Grateful</li> */}
         {moodList}
       </ul>
     </div>

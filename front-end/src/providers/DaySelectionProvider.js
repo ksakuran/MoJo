@@ -1,8 +1,10 @@
-import React, { createContext, useState } from 'react';
+import React, { createContext, useState, useContext } from 'react';
+import { appContext } from './AppProvider';
 
 export const daySelectionContext = createContext();
 
 export default function DaySelectionProvider(props) {
+
 
   const [daySelectionId, setDaySelectionId] = useState("");
   const [selectedDate, setSelectedDate] = useState("");

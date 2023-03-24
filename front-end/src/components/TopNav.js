@@ -6,10 +6,10 @@ import { appContext } from '../providers/AppProvider';
 
 function TopNav() {
 
-  const { setViewMode, userId, setUserId } = useContext(appContext);
+  const { setViewMode, userId, setUserId, isDaySelected } = useContext(appContext);
 
   const handleSetView = (view) => {
-    if (userId) {
+    if (userId && isDaySelected) {
       setViewMode(view);
     }
   };

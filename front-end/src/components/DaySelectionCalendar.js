@@ -17,7 +17,7 @@ function DaySelectionCalendar() {
   const calendarClass = classNames("day-selection-calendar");
 
   const { setDaySelectionId, selectedDate, setSelectedDate } = useContext(daySelectionContext);
-  const { userId, setViewMode } = useContext(appContext);
+  const { userId, setViewMode, setIsDaySelected } = useContext(appContext);
   const [calendarEvents, setCalendarEvents] = useState([]);
   const [currentMonth, setCurrentMonth] = useState({
     month: format(new Date(), 'MM'),
@@ -64,6 +64,7 @@ function DaySelectionCalendar() {
           if (Object.keys(data).length > 0) {
             //if exists then set daySelectionId with that value
             setDaySelectionId(data.daySelection.id);
+            setIsDaySelected(true);
           } else {
             //if not exists then create new daySelectionId 
             return axios.post(`/api/dayselection/new`, {
@@ -76,6 +77,7 @@ function DaySelectionCalendar() {
           if (res) {
             //set state with newly created value
             setDaySelectionId(res.data.daySelection.id);
+            setIsDaySelected(true);
           }
           setViewMode('HOME');
         })

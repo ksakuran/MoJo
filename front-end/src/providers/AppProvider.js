@@ -12,6 +12,7 @@ export default function AppProvider(props) {
   const [userCity, setUserCity] = useState("");
   const [userPicture, setUserPicture] = useState("");
   const [needUpdate, setNeedUpdate] = useState(false);
+  const [isDaySelected, setIsDaySelected] = useState(false);
 
   const updateUser = (firstName, lastName, city, picture) => {
     setFirstName(firstName);
@@ -40,7 +41,7 @@ export default function AppProvider(props) {
 
   }, [needUpdate]);
 
-  const providerData = { viewMode, setViewMode, userId, setUserId, updateUser, firstName, lastName, userCity, userPicture };
+  const providerData = { viewMode, setViewMode, userId, setUserId, updateUser, firstName, lastName, userCity, userPicture, isDaySelected, setIsDaySelected };
 
   return (
     <appContext.Provider value={providerData}>

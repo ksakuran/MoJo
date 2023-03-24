@@ -6,6 +6,7 @@ section.moodscape-page {
   justify-content: center;
   width: 70%;
   font-family: 'Syne', serif;
+  font-weight: 400;
 }
 
 button#moodscape-page {
@@ -20,6 +21,7 @@ button#moodscape-page {
   font-family: 'Syne', serif;
   color: white;
   font-size: large;
+  font-weight: 400;
   cursor: pointer;
 }
 
@@ -34,7 +36,7 @@ div.moodscape-page {
   margin-left: 1rem;
   display: flex;
   flex-direction: column;
-
+  font-weight: 400;
 }
 
 div#chart-p {
@@ -46,4 +48,5 @@ div#chart-p {
 
 div#chart-p p {
   margin: 1rem;
+  font-weight: 400;
 }

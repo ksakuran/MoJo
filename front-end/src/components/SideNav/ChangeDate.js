@@ -23,10 +23,11 @@ function ChangeDate() {
   return (
     <div className={changeDateClass}>
       <Button
+        btnId={changeDateClass}
         onClickHandler={handleChangeDate}
       >
-        <p>Change Date</p>
-        <Icon imgUrl='images/icons/change_date_3.png' iconStyle="padding" />
+        <p>change date</p>
+        <Icon iconSize="medium" imgUrl='images/icons/change_date_3.png' iconStyle="padding" />
       </Button>
 
     </div>

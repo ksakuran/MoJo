@@ -27,6 +27,7 @@ const DoughnutChart = (props) => {
               font: {
                 family: "Syne",
                 size: "35px",
+                weight: 400,
               }
             },
             subtitle: {

@@ -14,9 +14,28 @@
 }
 
 .btn p {
-  margin: 1rem;
+  margin: 0;
+  font-size: large;
 }
 
-.btn-nav {
-  margin: 1rem;
+.btn#change-date {
+  display: inline-flex;
 }
+
+
+.btn-nav:hover {
+  color: black;
+  font-size: 1.65rem;
+  cursor: pointer;
+}
+
+  .btn-nav {
+    background: transparent;
+    border-style: none;
+    color: white;
+    font-family: 'Syne', serif;
+    font-weight: 400;
+    font-size: 1.6rem;
+    padding-left: 1rem;
+    padding-right: 0.5rem;
+  }

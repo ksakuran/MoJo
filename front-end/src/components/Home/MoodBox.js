@@ -128,7 +128,7 @@ const MoodBox = (props) => {
   return (
     <article className={MoodBoxClass}>
       <header>how are you feeling today? select 3</header>
-      <div>{moodItems}</div>
+      <div className={MoodBoxClass}>{moodItems}</div>
     </article>
   );
 };

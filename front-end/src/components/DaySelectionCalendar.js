@@ -10,7 +10,6 @@ import { daySelectionContext } from '../providers/DaySelectionProvider';
 import { appContext } from '../providers/AppProvider';
 import axios from 'axios';
 import { format, addDays } from 'date-fns';
-import { title } from 'process';
 
 function DaySelectionCalendar() {
 
@@ -24,6 +23,7 @@ function DaySelectionCalendar() {
     month: format(new Date(), 'MM'),
     year: format(new Date(), 'yyyy')
   });
+  const [showAlert, setShowAlert] = useState(false);
 
   const calendarRef = React.createRef();
 
@@ -116,12 +116,39 @@ function DaySelectionCalendar() {
     }
   };
 
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setShowAlert(false);
+    }, 2000);
+    return () => clearTimeout(timer);
+  }, [showAlert]);
+
+  const handleDateClick = (arg) => {
+    const selectedDateString = arg.dateStr;
+    const formattedDate = new Date(selectedDateString);
+    const todayDate = new Date();
+    if (formattedDate < todayDate) {
+      setSelectedDate(selectedDateString);
+    }
+    else {
+      setShowAlert(true);
+    }
+  };
+
+
   return (
     <section className={calendarClass}>
+      {showAlert && (
+        <div class="alert alert-danger" role="alert">
+          please only select today or older dates!
+        </div>
+      )}
       <h1>navigate your entries by selecting a day</h1>
+
+
       <FullCalendar
         plugins={[dayGridPlugin, interactionPlugin]}
-        dateClick={(arg) => setSelectedDate(arg.dateStr)}
+        dateClick={handleDateClick}
         initialView="dayGridMonth"
         eventContent={renderEventContent}
         events={calendarEvents}

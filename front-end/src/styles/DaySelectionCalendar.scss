@@ -14,3 +14,19 @@
 .day-selection-calendar h1 {
   margin: 0;
 }
+
+.alert {
+  width: 31%;
+  border-radius: 0.5rem;
+  padding: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.alert-danger {
+  background-color: rgba(213, 11, 11, 0.314);
+  color: white;
+}
+
+.fc .fc-toolbar.fc-header-toolbar {
+  margin: 0.5rem !important;
+}

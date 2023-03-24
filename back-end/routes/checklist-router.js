@@ -1,5 +1,4 @@
 const express = require('express');
-const { addCustomChecklistItem } = require('../db/queries/checklist-queries');
 const router = express.Router();
 const checklistQueries = require('../db/queries/checklist-queries');
 

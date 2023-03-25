@@ -1,6 +1,9 @@
 import React, { useContext } from 'react';
+import { ToastContainer, toast } from 'react-toastify';
+
 import classNames from "classnames";
 import "./../../styles/UserInfoForm.scss";
+import 'react-toastify/dist/ReactToastify.css';
 
 import Button from '../Common/Button';
 import { appContext } from '../../providers/AppProvider';
@@ -11,6 +14,17 @@ function UserInfoForm(props) {
   const buttonContainerClass = classNames("btn-container")
   const { updateUser } = useContext(appContext);
 
+  const saveAlert = () => toast.success('Info saved!', {
+    position: "top-center",
+    autoClose: 2500,
+    hideProgressBar: true,
+    closeOnClick: true,
+    pauseOnHover: true,
+    draggable: true,
+    progress: undefined,
+    theme: "light",
+    zIndex: "100"
+    });
 
   const handleSaveClick = function(event) {
     event.preventDefault();
@@ -23,9 +37,9 @@ function UserInfoForm(props) {
 
     updateUser(firstName, lastName, city, picture);
     // POST request is made in AppProvider via updateUser function
-    
-    props.toggle()
-    //insert Toast here for "saved!" message
+
+    saveAlert()
+    .then(props.toggle())
   };
   
 
@@ -57,6 +71,7 @@ function UserInfoForm(props) {
       </div>
     </form>
     </div>
+    <ToastContainer />
     </>
   );
 };

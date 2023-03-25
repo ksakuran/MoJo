@@ -49,7 +49,21 @@ const MoodBox = (props) => {
         const all = results[0].data;
         const selected = results[1].data;
 
-        setMoodSelections(selected);
+        console.log("mood selection BUBBLETEA",results[1].data)
+        if (selected.selectedMoods.length === 0 || !selected.selectedMoods) {
+          setMoodSelections({
+            selectedMoods: [
+              {
+                name: "none",
+                mood_id: 0,
+                created_date: "",
+                rating: 1,
+              },
+            ],
+          });
+        } else {
+          setMoodSelections(selected);
+        }
         // mood info formatter adds the selection boolean to each mood object
         // after comparing the current selections
         setMoods(moodInfoFormatter(all, selected));

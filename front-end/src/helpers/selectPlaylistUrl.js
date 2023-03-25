@@ -3,7 +3,7 @@
 const happy = { name: 'happy', url: "37i9dQZF1DXdPec7aLTmlC" };
 const grateful = { name: 'grateful', url: "58bDiQI2UuQiZZ6LkJjxhg" };
 const excited = { name: 'excited', url: "37i9dQZF1DX8a1tdzq5tbM" };
-const confident = { name: 'confident', url: "h37i9dQZF1DX4fpCWaHOned" };
+const confident = { name: 'confident', url: "37i9dQZF1DX4fpCWaHOned" };
 const motivated = { name: 'motivated', url: "2n8DQM3uPZT2dtrytRY4Mw" };
 
 const neutral = { name: 'neutral', url: "37i9dQZF1DX3Ogo9pFvBkY" };
@@ -18,7 +18,9 @@ const anxious = { name: 'anxious', url: "0uCjaUdAss2kM3gHIOBrY8" };
 const angry = { name: 'angry', url: "7LYPJDo1dDuw79MHJ4B25z" };
 const depressed = { name: 'depressed', url: "6O1ZnUG2mtmeEqxxPa5OWn" };
 
-const allMoods = [happy, grateful, excited, confident, motivated, neutral, relaxed, tired, uncertain, bored, sad, stressed, anxious, angry, depressed];
+const none = {name: 'none', url: "37i9dQZF1DXcBWIGoYBM5M"};
+
+const allMoods = [happy, grateful, excited, confident, motivated, neutral, relaxed, tired, uncertain, bored, sad, stressed, anxious, angry, depressed, none];
 
 const selectPlaylistUrl = function (moodSelections) {
   let todayMoods = allMoods.filter(mood => moodSelections.includes(mood.name)); // array of today's moods
@@ -29,3 +31,5 @@ const selectPlaylistUrl = function (moodSelections) {
 
 
 export { selectPlaylistUrl };
+
+<iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>

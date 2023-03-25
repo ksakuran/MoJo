@@ -49,7 +49,7 @@ const MoodBox = (props) => {
         const selected = results[1].data;
 
         console.log("mood selection BUBBLETEA",results[1].data)
-        if (selected.selectedMoods.length === 0) {
+        if (selected.selectedMoods.length === 0 || !selected.selectedMoods) {
           setMoodSelections({
             selectedMoods: [
               {

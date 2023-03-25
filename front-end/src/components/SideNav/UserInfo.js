@@ -14,7 +14,6 @@ function UserInfo() {
   const modalContainerClass = classNames("modal-container");
 
   const { firstName } = useContext(appContext);
-  console.log('firstName', firstName);
 
   const [formModal, setFormModal] = useState(false);
 

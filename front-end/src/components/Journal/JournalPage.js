@@ -22,8 +22,9 @@ function JournalPage() {
           <JournalChecklist />
           <Button
             onClickHandler={() => setIsCustomize(true)}
+            btnType="border"
           >
-            <Icon iconSize="medium" imgUrl='images/icons/customize.png' iconStyle="padding" />
+            <Icon iconSize="medium" imgUrl='images/icons/customize_checklist.png' iconStyle="padding" />
             <p>customize checklist</p>
           </Button>
         </section>

@@ -9,6 +9,7 @@ function Button(props) {
   const btnClass = classNames("btn", {
     'btn-small': btnType === 'small',
     'btn-medium': btnType === 'medium',
+    'btn-border': btnType === 'border',
     'btn-nav': btnType === 'nav' && !disabled,
     'btn-disabled': disabled === true,
   });

@@ -69,7 +69,7 @@ router.post("/selection", (req, res) => {
 
   const dayId = req.body.dayId;
   const newMoodId = req.body.moodId;
-  
+
   //gives a count of how many moods are selected for the day
   const countPromise = moodQueries.dailyMoodSelectionsCount(dayId);
 

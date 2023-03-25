@@ -5,26 +5,26 @@ import Icon from "../Common/Icon";
 
 
 const MoodBoxItem = (props) => {
-  const { name, selected, id, onClick } = props
+  const { name, selected, id, onClick } = props;
 
   const MoodBoxItemClass = classNames("mood-box-item", {
-    
+
     "button--selected": selected,
   });
-  
-  const icon = `images/${name}.png`
+
+  const icon = `images/${name}.png`;
 
   // const clickCheck = (name) => {
   //   console.log(`${name} has been clicked`)
   // }
 
-  return(
-    <button onClick={() => {onClick(id, selected, name)}} className={MoodBoxItemClass}>
+  return (
+    <button onClick={() => { onClick(id, selected, name); }} className={MoodBoxItemClass}>
       {/* <img src={icon}/> */}
-      <Icon imgUrl={icon} iconSize={"medium"}/>
+      <Icon imgUrl={icon} iconSize={"medium"} />
       <small>&nbsp;{name}</small>
     </button>
-  )
-}
+  );
+};
 
-export default MoodBoxItem
+export default MoodBoxItem;

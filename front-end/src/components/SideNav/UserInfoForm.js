@@ -47,27 +47,27 @@ function UserInfoForm(props) {
     <>
     <div onClickHandler={props.toggle} className="overlay">
 
-    <h3>Update your details</h3>
+    <h3>update your details</h3>
     <form classNames={userInfoClass} id="updateInfoForm">
-      <label htmlFor="formFirstName">First name:</label><br />
+      <label htmlFor="formFirstName">first name:</label><br />
       <input type="text" name="formFirstName"></input><br />
 
-      <label htmlFor="formLastName">Last name:</label><br />
+      <label htmlFor="formLastName">last name:</label><br />
       <input type="text" name="formLastName"></input><br />
 
-      <label htmlFor="formCity">City:</label><br />
+      <label htmlFor="formCity">city:</label><br />
       <input type="text" name="formCity"></input><br />
 
-      <label htmlFor="formPicture">Picture (url):</label><br />
+      <label htmlFor="formPicture">picture (url):</label><br />
       <input type="text" name="formPicture"></input><br /><br />
 
       <div className={buttonContainerClass}>
       <Button
         onClickHandler={handleSaveClick}
-      >Save</Button>
+      >save</Button>
       <Button
         onClickHandler={props.toggle}
-      >Cancel</Button>
+      >cancel</Button>
       </div>
     </form>
     </div>

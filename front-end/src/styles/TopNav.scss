@@ -30,6 +30,7 @@ nav ul {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  align-items: center;
 
 }
 
@@ -37,4 +38,7 @@ nav li {
   list-style-type: none;
 }
 
+nav li:hover {
+ cursor: pointer;
+}
 

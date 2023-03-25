@@ -1,0 +1,57 @@
+.add-checklist {
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem;
+  width: 100%;
+}
+
+.item-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 1rem;
+  border-style: solid;
+  border-width: 0.1rem;
+  border-color: rgba(255, 255, 255, 0.497);
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+  // padding: 0.3rem;
+  padding-left: 1rem;
+}
+
+.checklist-items {
+  background-color: rgba(86, 83, 80, 0.215);
+  border-radius: 1.9rem;
+  padding: 1rem;
+  margin: 1rem;
+  width: 90%;
+}
+
+.add-checklist>input {
+  background-color: rgba(255, 255, 255, 0.657);
+  border-radius: 1rem;
+  border-style: solid;
+  border-width: 0.1rem;
+  border-color: rgba(255, 255, 255, 0.508);
+  width: 70%;
+  padding: 1rem;
+  margin: 1rem;
+  margin-bottom: 0rem;
+}
+
+.add-checklist>.btn {
+  width: 10%;
+  padding-right: 2rem;
+  padding-top: 1rem;
+}
+
+.customize-checklist {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 1rem;
+}
+
+.customize-checklist>footer {
+  width: 70%;
+}

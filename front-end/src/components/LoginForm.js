@@ -5,9 +5,12 @@ import "../styles/LoginForm.scss";
 
 const LoginForm = () => {
 
-  const { setUserId } = useContext(appContext);
+  const { setUserId, setViewMode } = useContext(appContext);
   
-
+  const handleSetView = (view) => {
+      setViewMode(view);
+      setUserId("1")
+  };
   
   return (
     <form id="login">
@@ -18,7 +21,7 @@ const LoginForm = () => {
   
       <input type="password" id="password" name="password" placeholder="password"/>
 
-      <Button btnId="login" onClickHandler={() => setUserId("1")} type="submit">login</Button>
+      <Button btnId="login" onClickHandler={() => handleSetView('CALENDAR')} type="submit">login</Button>
     </form>
   );
 };

@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useContext } from "react";
-import { daySelectionContext } from '../../providers/DaySelectionProvider';
+import { daySelectionContext } from "../../providers/DaySelectionProvider";
 import "./../../styles/MoodBox.scss";
 import classNames from "classnames";
 import MoodBoxItem from "./MoodBoxItem";
@@ -11,31 +11,30 @@ const MoodBox = (props) => {
   const MoodBoxClass = classNames("mood-box");
 
   const { daySelectionId } = useContext(daySelectionContext);
-  const { moodSelections, setMoodSelections } = useContext(moodSelectionContext);
+  const { moodSelections, setMoodSelections } =
+    useContext(moodSelectionContext);
 
-  const [ moods, setMoods ] = useState([]);
-  const [ updateMoods, setUpdateMoods ] = useState(false);
-  const [ newMoodSelectionId, setNewMoodSelectionId ] = useState(null);
-  const [ updateSelections, setUpdateSelections ] = useState(false);
-  const [ removeMoodId , setRemoveMoodId ] = useState(null);
-  const [ removeSelection, setRemoveSelecion ] = useState(false);
-
+  const [moods, setMoods] = useState([]);
+  const [updateMoods, setUpdateMoods] = useState(false);
+  const [newMoodSelectionId, setNewMoodSelectionId] = useState(null);
+  const [updateSelections, setUpdateSelections] = useState(false);
+  const [removeMoodId, setRemoveMoodId] = useState(null);
+  const [removeSelection, setRemoveSelecion] = useState(false);
 
   //on click handler for the mood box items
   const onSelect = (id, selected, name) => {
     console.log(`clicked mood ${id} selected = ${selected} ${name}`);
-    console.log("moods selections length", moodSelections.length)
+    console.log("moods selections length", moodSelections.length);
     if (selected === true) {
       setRemoveMoodId(id);
       setRemoveSelecion(!removeSelection);
     }
 
-    if (selected === false){
+    if (selected === false) {
       setNewMoodSelectionId(id);
       setUpdateSelections(!updateSelections);
     }
   };
-
 
   //gets all the moods to display the moodbox items
   useEffect(() => {
@@ -73,7 +72,7 @@ const MoodBox = (props) => {
       });
   }, [updateMoods]);
 
-  // sets a mood to be selected on click, 
+  // sets a mood to be selected on click,
   // sends request to remove the least recent selection and add the new one
   useEffect(() => {
     const moodId = newMoodSelectionId;
@@ -99,8 +98,6 @@ const MoodBox = (props) => {
       });
   }, [updateSelections]);
 
-
-
   // removes mood from mood_selections if it is currently selected when clicked by on click handler
   useEffect(() => {
     const moodId = removeMoodId;
@@ -124,7 +121,6 @@ const MoodBox = (props) => {
         console.log("error", err);
       });
   }, [removeSelection]);
-
 
   // transforms mood into mood box items
   const moodItems = moods.map((mood) => {

@@ -33,8 +33,8 @@ function getStartAndEndDayInMonth(year, month) {
 }
 
 function formatDate(date) {
-  const monthNames = ["January", "February", "March", "April", "May", "June",
-    "July", "August", "September", "October", "November", "December"
+  const monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun",
+    "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"
   ];
 
   const currentDate = date ? new Date(date) : new Date();

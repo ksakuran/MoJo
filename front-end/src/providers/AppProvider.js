@@ -5,6 +5,7 @@ export const appContext = createContext();
 
 export default function AppProvider(props) {
 
+  const [darkMode, setDarkMode] = useState(false)
   const [viewMode, setViewMode] = useState("CALENDAR");
   const [userId, setUserId] = useState("");
   const [firstName, setFirstName] = useState("Jane");
@@ -13,6 +14,7 @@ export default function AppProvider(props) {
   const [userPicture, setUserPicture] = useState("");
   const [needUpdate, setNeedUpdate] = useState(false);
   const [isDaySelected, setIsDaySelected] = useState(false);
+  const [spotifyToken, setSpotifyToken] = useState("");
 
   const updateUser = (firstName, lastName, city, picture) => {
     setFirstName(firstName);
@@ -21,6 +23,14 @@ export default function AppProvider(props) {
     setUserPicture(picture);
     setNeedUpdate(true);
   };
+
+  if(darkMode) {
+    document.body.classList.add('dark-mode');
+  }
+
+  if(!darkMode) {
+    document.body.classList.remove('dark-mode');
+  }
 
   useEffect(() => {
 
@@ -49,7 +59,8 @@ export default function AppProvider(props) {
 
   }, [needUpdate]);
 
-  const providerData = { viewMode, setViewMode, userId, setUserId, updateUser, firstName, lastName, userCity, userPicture, isDaySelected, setIsDaySelected };
+  
+  const providerData = { spotifyToken, setSpotifyToken, viewMode, setViewMode, userId, setUserId, updateUser, firstName, lastName, userCity, userPicture, isDaySelected, setIsDaySelected, setDarkMode, darkMode };
 
   return (
     <appContext.Provider value={providerData}>

@@ -7,9 +7,9 @@ export default function AppProvider(props) {
 
   const [viewMode, setViewMode] = useState("CALENDAR");
   const [userId, setUserId] = useState("");
-  const [firstName, setFirstName] = useState("");
+  const [firstName, setFirstName] = useState("Jane");
   const [lastName, setLastName] = useState("");
-  const [userCity, setUserCity] = useState("");
+  const [userCity, setUserCity] = useState("Calgary");
   const [userPicture, setUserPicture] = useState("");
   const [needUpdate, setNeedUpdate] = useState(false);
   const [isDaySelected, setIsDaySelected] = useState(false);

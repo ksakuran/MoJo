@@ -11,7 +11,7 @@
   flex-direction: column;
   justify-content: space-evenly;
   align-items: center;
-
+  font-weight: 400;
     //background-color: rgb(215, 215, 215);
     background-image: linear-gradient(to bottom, rgb(209, 160, 209), rgb(162, 105, 169));
     border-radius: 1.5rem;
@@ -33,6 +33,10 @@
 	border-left: 0;
 	margin-top: -15px;
 	margin-left: -19px;
+}
+
+h3 {
+  font-weight: 400;
 }
 
 

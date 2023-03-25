@@ -24,7 +24,7 @@
 
 
 .btn-nav:hover {
-  color: black;
+  color: rgb(80, 186, 232);
   font-size: 1.65rem;
   cursor: pointer;
 }
@@ -63,7 +63,7 @@ button#login:hover {
 }
 
 button.btn-disabled {
-  color: rgba(137, 137, 137, 0.624);
+  color: rgba(255, 255, 255, 0.494);
   background: transparent;
     border-style: none;
     font-family: 'Syne', serif;
@@ -74,7 +74,7 @@ button.btn-disabled {
 }
 
 button.btn-disabled:hover  {
-  color: rgba(137, 137, 137, 0.624);
+  color: rgba(255, 255, 255, 0.494);
   background: transparent;
     border-style: none;
     font-family: 'Syne', serif;

@@ -14,9 +14,6 @@ function TopNav() {
     }
   };
 
-  // const disabledNav = isDaySelected ? 'enabled' : 'disabled'; 
-
-
 
   const handleLogOut = () => {
     setUserId('');
@@ -30,9 +27,9 @@ function TopNav() {
     <nav className={topNavClass}>
       <h1>mojo</h1>
       <ul className={topNavClass}>
-        { userId && (<li><Button disabled={isDaySelected} btnType="nav" onClickHandler={() => handleSetView('HOME')}>home</Button></li>)}
-        { userId && (<li><Button disabled={isDaySelected} btnType="nav" onClickHandler={() => handleSetView('JOURNAL')}>journal</Button></li>)}
-        { userId && (<li><Button disabled={isDaySelected} btnType="nav" onClickHandler={() => handleSetView('MOODSCAPE')}>moodscape</Button></li>)}
+        { userId && (<li><Button disabled={!isDaySelected} btnType="nav" onClickHandler={() => handleSetView('HOME')}>home</Button></li>)}
+        { userId && (<li><Button disabled={!isDaySelected} btnType="nav" onClickHandler={() => handleSetView('JOURNAL')}>journal</Button></li>)}
+        { userId && (<li><Button disabled={!isDaySelected} btnType="nav" onClickHandler={() => handleSetView('MOODSCAPE')}>moodscape</Button></li>)}
         {!isDaySelected && !userId && ((<li><Button btnType="nav" onClickHandler={() => setViewMode('LANDING')} >welcome</Button></li>))}
         {!isDaySelected && !userId && ((<li><Button btnType="nav" onClickHandler={() => setViewMode('ABOUT')} >about</Button></li>))}
         {userId && (<li><Button btnType="nav" onClickHandler={handleLogOut}>logout</Button></li>)}

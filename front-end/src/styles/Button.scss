@@ -64,9 +64,23 @@ button#login:hover {
 
 button.btn-disabled {
   color: rgba(137, 137, 137, 0.624);
+  background: transparent;
+    border-style: none;
+    font-family: 'Syne', serif;
+    font-weight: 400;
+    font-size: 1.6rem;
+    padding-left: 1rem;
+    padding-right: 0.5rem;
 }
 
 button.btn-disabled:hover  {
   color: rgba(137, 137, 137, 0.624);
+  background: transparent;
+    border-style: none;
+    font-family: 'Syne', serif;
+    font-weight: 400;
+    font-size: 1.6rem;
+    padding-left: 1rem;
+    padding-right: 0.5rem;
 }
 

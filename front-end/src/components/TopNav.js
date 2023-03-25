@@ -6,7 +6,7 @@ import { appContext } from '../providers/AppProvider';
 
 function TopNav() {
 
-  const { setViewMode, userId, setUserId, isDaySelected } = useContext(appContext);
+  const { setViewMode, userId, setUserId, isDaySelected, setIsDaySelected } = useContext(appContext);
 
   const handleSetView = (view) => {
     if (userId && isDaySelected) {
@@ -21,6 +21,8 @@ function TopNav() {
   const handleLogOut = () => {
     setUserId('');
     setViewMode('CALENDAR');
+    setIsDaySelected(false);
+    window.location.search = "";
   };
 
   //potential styles

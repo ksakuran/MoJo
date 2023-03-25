@@ -13,6 +13,7 @@ export default function AppProvider(props) {
   const [userPicture, setUserPicture] = useState("");
   const [needUpdate, setNeedUpdate] = useState(false);
   const [isDaySelected, setIsDaySelected] = useState(false);
+  const [spotifyToken, setSpotifyToken] = useState("");
 
   const updateUser = (firstName, lastName, city, picture) => {
     setFirstName(firstName);
@@ -49,7 +50,7 @@ export default function AppProvider(props) {
 
   }, [needUpdate]);
 
-  const providerData = { viewMode, setViewMode, userId, setUserId, updateUser, firstName, lastName, userCity, userPicture, isDaySelected, setIsDaySelected };
+  const providerData = { spotifyToken, setSpotifyToken, viewMode, setViewMode, userId, setUserId, updateUser, firstName, lastName, userCity, userPicture, isDaySelected, setIsDaySelected };
 
   return (
     <appContext.Provider value={providerData}>

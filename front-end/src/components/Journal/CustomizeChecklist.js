@@ -23,7 +23,8 @@ function CustomizeChecklist(props) {
         <Button
           onClickHandler={addChecklistItem}
         >
-          <Icon iconSize="medium" imgUrl='images/icons/plus-1.png' iconStyle="padding" /> </Button>
+          <Icon
+            isLocal={true} iconSize="medium" imgUrl='images/icons/plus-1.png' iconStyle="padding" /> </Button>
       </div>
 
 
@@ -35,7 +36,8 @@ function CustomizeChecklist(props) {
             <Button
               onClickHandler={addChecklistItem}
             >
-              <Icon iconSize="small" imgUrl='images/icons/minus-2.png' iconStyle="padding" />
+              <Icon
+                isLocal={true} iconSize="small" imgUrl='images/icons/minus-2.png' iconStyle="padding" />
             </Button>
           </div>
           <div className="item-container">
@@ -43,7 +45,8 @@ function CustomizeChecklist(props) {
             <Button
               onClickHandler={addChecklistItem}
             >
-              <Icon iconSize="small" imgUrl='images/icons/minus-2.png' iconStyle="padding" />
+              <Icon
+                isLocal={true} iconSize="small" imgUrl='images/icons/minus-2.png' iconStyle="padding" />
             </Button>
           </div>
         </div>
@@ -56,7 +59,8 @@ function CustomizeChecklist(props) {
             <Button
               onClickHandler={addChecklistItem}
             >
-              <Icon iconSize="small" imgUrl='images/icons/plus-2.png' iconStyle="padding" />
+              <Icon
+                isLocal={true} iconSize="small" imgUrl='images/icons/plus-2.png' iconStyle="padding" />
             </Button>
           </div>
           <div className="item-container">

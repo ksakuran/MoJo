@@ -24,17 +24,17 @@ function UserInfo() {
 
   return (
     <div>
-      <img src="images/profile_user.png" alt="profile" width="40" height="40" />
+      <img src="http://localhost:3000/images/profile_user.png" alt="profile" width="40" height="40" />
       <div className={nameDisplayClass}>
         <h4>{firstName}</h4>
         <Button onClickHandler={toggleFormModal}>
-          <img className={editButtonClass} src="images/pencil_icon.png" alt="info-edit" height="20"
+          <img className={editButtonClass} src="http://localhost:3000/images/pencil_icon.png" alt="info-edit" height="20"
             width="20" />
         </Button>
-          <div classNames={modalContainerClass}>
-            {formModal && (<UserInfoForm toggle={toggleFormModal}></UserInfoForm>)}
-          </div>
+        <div classNames={modalContainerClass}>
+          {formModal && (<UserInfoForm toggle={toggleFormModal}></UserInfoForm>)}
         </div>
+      </div>
     </div>
   );
 };

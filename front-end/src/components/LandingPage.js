@@ -1,32 +1,40 @@
-import React , {useState} from "react";
+import React, { useState } from "react";
 import "../styles/LandingPage.scss";
 
 import Button from './Common/Button';
 import LoginForm from "./LoginForm";
+import Moodify from "./SideNav/Moodify";
 
-const LandingPage = () => {
+const LandingPage = (props) => {
 
-  
-  const [showForm, setShowForm] = useState(false);
+  const { loginUrl } = props;
 
-  const clickShowForm = () => {
-    setShowForm(!showForm);
-  };
+  // const [showForm, setShowForm] = useState(false);
+
+  // const clickShowForm = () => {
+  //   setShowForm(!showForm);
+  // };
 
   return (
     <>
       <section id="landing">
-        
+
         <small>a better way to connect with yourself</small>
         <h1>find your mojo</h1>
         <p>a daily mood journaling app built for self exploration and self care</p>
-        <Button
+        {/* <Button
           onClickHandler={() => clickShowForm()}
           btnType="" btnId="get-started">
           get started
+        </Button> */}
+
+        <Button
+          btnType="" btnId="get-started">
+          <a href={loginUrl}>sign in with Spotify</a>
         </Button>
 
-        {showForm && <LoginForm />}
+
+        {/* {showForm && <LoginForm />} */}
 
       </section>
     </>

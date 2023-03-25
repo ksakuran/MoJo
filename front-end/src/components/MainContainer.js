@@ -20,7 +20,7 @@ function MainContainer() {
 
   return (
     <main className={mainContainerClass}>
-        
+
       <MoodSelectionProvider>
         {/* Always display on the left */}
         <SideNav />

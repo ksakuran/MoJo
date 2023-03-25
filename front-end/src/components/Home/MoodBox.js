@@ -13,29 +13,28 @@ const MoodBox = (props) => {
   const { daySelectionId } = useContext(daySelectionContext);
   const { moodSelections, setMoodSelections } = useContext(moodSelectionContext);
 
-  const [ moods, setMoods ] = useState([]);
-  const [ updateMoods, setUpdateMoods ] = useState(false);
-  const [ newMoodSelectionId, setNewMoodSelectionId ] = useState(null);
-  const [ updateSelections, setUpdateSelections ] = useState(false);
-  const [ removeMoodId , setRemoveMoodId ] = useState(null);
-  const [ removeSelection, setRemoveSelecion ] = useState(false);
+  const [moods, setMoods] = useState([]);
+  const [updateMoods, setUpdateMoods] = useState(false);
+  const [newMoodSelectionId, setNewMoodSelectionId] = useState(null);
+  const [updateSelections, setUpdateSelections] = useState(false);
+  const [removeMoodId, setRemoveMoodId] = useState(null);
+  const [removeSelection, setRemoveSelecion] = useState(false);
 
 
   //on click handler for the mood box items
   const onSelect = (id, selected, name) => {
     console.log(`clicked mood ${id} selected = ${selected} ${name}`);
-    console.log("moods selections length", moodSelections.length)
+    console.log("moods selections length", moodSelections.length);
     if (selected === true) {
       setRemoveMoodId(id);
       setRemoveSelecion(!removeSelection);
     }
 
-    if (selected === false){
+    if (selected === false) {
       setNewMoodSelectionId(id);
       setUpdateSelections(!updateSelections);
     }
   };
-
 
   //gets all the moods to display the moodbox items
   useEffect(() => {
@@ -49,7 +48,21 @@ const MoodBox = (props) => {
         const all = results[0].data;
         const selected = results[1].data;
 
-        setMoodSelections(selected);
+        console.log("mood selection BUBBLETEA", results[1].data);
+        if (selected.selectedMoods.length === 0 || !selected.selectedMoods) {
+          setMoodSelections({
+            selectedMoods: [
+              {
+                name: "none",
+                mood_id: 0,
+                created_date: "",
+                rating: 1,
+              },
+            ],
+          });
+        } else {
+          setMoodSelections(selected);
+        }
         // mood info formatter adds the selection boolean to each mood object
         // after comparing the current selections
         setMoods(moodInfoFormatter(all, selected));

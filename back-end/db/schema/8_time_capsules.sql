@@ -1,0 +1,7 @@
+DROP TABLE IF EXISTS time_capsules CASCADE;
+CREATE TABLE time_capsules (
+  id SERIAL PRIMARY KEY NOT NULL,
+  body VARCHAR(500),
+  send_date DATE NOT NULL,
+  user_id INTEGER REFERENCES users(id) ON DELETE CASCADE 
+)

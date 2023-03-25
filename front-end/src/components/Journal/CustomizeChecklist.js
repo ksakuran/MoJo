@@ -35,7 +35,7 @@ function CustomizeChecklist(props) {
             <Button
               onClickHandler={addChecklistItem}
             >
-              <Icon iconSize="small" imgUrl='images/icons/minus.png' iconStyle="padding" />
+              <Icon iconSize="small" imgUrl='images/icons/minus-2.png' iconStyle="padding" />
             </Button>
           </div>
           <div className="item-container">
@@ -43,7 +43,7 @@ function CustomizeChecklist(props) {
             <Button
               onClickHandler={addChecklistItem}
             >
-              <Icon iconSize="small" imgUrl='images/icons/minus.png' iconStyle="padding" />
+              <Icon iconSize="small" imgUrl='images/icons/minus-2.png' iconStyle="padding" />
             </Button>
           </div>
         </div>
@@ -56,7 +56,7 @@ function CustomizeChecklist(props) {
             <Button
               onClickHandler={addChecklistItem}
             >
-              <Icon iconSize="small" imgUrl='images/icons/plus.png' iconStyle="padding" />
+              <Icon iconSize="small" imgUrl='images/icons/plus-2.png' iconStyle="padding" />
             </Button>
           </div>
           <div className="item-container">
@@ -64,7 +64,7 @@ function CustomizeChecklist(props) {
             <Button
               onClickHandler={addChecklistItem}
             >
-              <Icon iconSize="small" imgUrl='images/icons/plus.png' iconStyle="padding" />
+              <Icon iconSize="small" imgUrl='images/icons/plus-2.png' iconStyle="padding" />
             </Button>
           </div>
         </div>
@@ -73,10 +73,8 @@ function CustomizeChecklist(props) {
       <footer>
         <Button
           onClickHandler={() => setIsCustomize(false)}
-          btnType="border"
         >
-          <Icon iconSize="medium" imgUrl='images/icons/confirm_customize.png' iconStyle="padding" />
-          <p>confirm selections</p>
+          <p>confirm</p>
         </Button>
       </footer>
     </article>

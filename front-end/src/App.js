@@ -9,16 +9,16 @@ import Background from './components/Background';
 import AboutPage from './components/AboutPage';
 
 function App() {
-  const { userId, viewMode } = useContext(appContext);
- 
+  const { userId, setUserId, viewMode } = useContext(appContext);
+  setUserId(1);
 
   return (
     <>
       <TopNav />
-      <Background/>
+      <Background />
 
-      {!userId && viewMode !== 'ABOUT' && <LandingPage />}
-      { viewMode === 'ABOUT' && <AboutPage/>}
+      {/* {!userId && viewMode !== 'ABOUT' && <LandingPage />}
+      {viewMode === 'ABOUT' && <AboutPage />} */}
       {userId && <DaySelectionProvider> <MainContainer /> </DaySelectionProvider>}
     </>
   );

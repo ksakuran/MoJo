@@ -22,13 +22,13 @@ function JournalCheckist(props) {
     setNewItem(true);
   };
 
-  //get active list data, 
+  //get active and inactive list data, 
   useEffect(() => {
     axios
       .get(`/api/item/${userId}`)
       .then(res => {
         console.log('res', res);
-        setChecklist(res.data[0]);
+        setChecklist(res.data);
       })
       .catch(err => {
         console.log("error", err);
@@ -42,7 +42,7 @@ function JournalCheckist(props) {
       .get(`/api/selection/${daySelectionId}`)
       .then(results => {
         console.log('results', results);
-        setSelectedItems(results.data[0]); //[0] because [1] is the inactive ones
+        setSelectedItems(results.data); //[0] because [1] is the inactive ones
       })
       .catch(err => {
         console.log("error", err);
@@ -55,7 +55,7 @@ function JournalCheckist(props) {
     axios
       .put(`/api/selection/new`, {
         daySelectionId: daySelectionId,
-        itemId: checklist.id
+        checklistItemId: checklist.checklistItemId
       })
       .then(response => {
         console.log("checklist item selected!", response);
@@ -65,8 +65,24 @@ function JournalCheckist(props) {
       });
   }, [newItem]);
 
+  
+  // deselect a selected item
+  useEffect(() => {
+    axios
+      .post(`/selection/${checklist.checklistItemId}/delete`, {
+        daySelectionId: daySelectionId,
+        checklistItemId: checklist.checklistItemId
+      })
+      .then(response => {
+        console.log("checklist item deselected", response);
+      })
+      .catch(err => {
+        console.log("error", err);
+      });
+  }, [newItem]);
 
-  // picks through checklist, returns true if item is selected, and false if not
+
+  // goes through checklist, returns true if item is selected, and false if not
   const determineIsSelected = () => {
     return checklist.some(item => selectedItems.includes(item));
   };

@@ -4,7 +4,7 @@ import "./../../styles/UserInfo.scss";
 
 import UserInfoForm from "./UserInfoForm";
 import Button from "../Common/Button";
-// import Icon from "../Common/Icon";
+import Icon from "../Common/Icon";
 import { appContext } from '../../providers/AppProvider';
 
 function UserInfo() {
@@ -24,9 +24,9 @@ function UserInfo() {
 
   return (
     <div>
-      <img src="http://localhost:3000/images/profile_user.png" alt="profile" width="40" height="40" />
+      <Icon imgUrl="images/profile_user.png" alt="profile" iconSize={"large"}/>
       <div className={nameDisplayClass}>
-        <h4>{firstName}</h4>
+        <h2>{firstName}</h2>
         <Button onClickHandler={toggleFormModal}>
           <img className={editButtonClass} src="http://localhost:3000/images/pencil_icon.png" alt="info-edit" height="20"
             width="20" />

@@ -63,9 +63,11 @@ function UserInfoForm(props) {
 
       <div className={buttonContainerClass}>
       <Button
+      btnId ='user-form'
         onClickHandler={handleSaveClick}
       >save</Button>
       <Button
+      btnId ='user-form'
         onClickHandler={props.toggle}
       >cancel</Button>
       </div>

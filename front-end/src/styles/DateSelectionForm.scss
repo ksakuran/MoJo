@@ -15,6 +15,8 @@ form.date-selector-form {
 form label {
   padding-right: 0.5rem;
   font-size: large;
+  text-shadow: -1px 1px 4px rgba(0, 0, 0, 0.736); 
+
 }
 
 form input {
@@ -29,6 +31,7 @@ form input {
   font-size: large;
   font-family: "Syne", serif;
   color:white;
+  text-shadow: -1px 1px 4px rgba(0, 0, 0, 0.736); 
 }
 
 button#date-selector-form {
@@ -48,6 +51,8 @@ button#date-selector-form {
 }
 
 button#date-selector-form:hover{
-  background-color: white;
-  color: black;
+  background-color: rgba(255, 255, 255, 0.866);
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.736);
+  color:black;
+  cursor: pointer;
 }

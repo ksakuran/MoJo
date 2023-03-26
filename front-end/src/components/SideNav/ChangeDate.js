@@ -26,8 +26,8 @@ function ChangeDate() {
       onClickHandler={handleChangeDate}
       btnType="border"
     >
-      <p>change date</p>
       <Icon iconSize="medium" imgUrl='images/icons/change_date_3.png' iconStyle="padding" />
+      <p id="change-date">change date</p>
     </Button>
   );
 

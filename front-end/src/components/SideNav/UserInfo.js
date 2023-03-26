@@ -13,7 +13,7 @@ function UserInfo() {
   const editButtonClass = classNames("edit-btn");
   const modalContainerClass = classNames("modal-container");
 
-  const { firstName } = useContext(appContext);
+  const { firstName, lastName } = useContext(appContext);
   console.log('firstName', firstName);
 
   const [formModal, setFormModal] = useState(false);
@@ -23,13 +23,13 @@ function UserInfo() {
   };
 
   return (
-    <div>
-      <img src="http://localhost:3000/images/profile_user.png" alt="profile" width="40" height="40" />
+    <div className='user-info'>
+      <img src="http://localhost:3002/images/profile_user.png" alt="profile" width="40" height="40" />
+        <h4>{firstName} {lastName}</h4>
       <div className={nameDisplayClass}>
-        <h4>{firstName}</h4>
         <Button onClickHandler={toggleFormModal}>
-          <img className={editButtonClass} src="http://localhost:3000/images/pencil_icon.png" alt="info-edit" height="20"
-            width="20" />
+          <img className={editButtonClass} src="http://localhost:3002/images/pencil.png" alt="info-edit"
+            width="30" />
         </Button>
         <div className={modalContainerClass}>
           {formModal && (<UserInfoForm toggle={toggleFormModal}></UserInfoForm>)}

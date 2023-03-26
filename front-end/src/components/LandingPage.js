@@ -1,9 +1,9 @@
-import React, { useState } from "react";
+import React from "react";
 import "../styles/LandingPage.scss";
 
 import Button from './Common/Button';
-import LoginForm from "./LoginForm";
-import Moodify from "./SideNav/Moodify";
+
+import Icon from './Common/Icon'
 
 const LandingPage = (props) => {
 
@@ -30,7 +30,8 @@ const LandingPage = (props) => {
 
         <Button
           btnType="" btnId="get-started">
-          <a href={loginUrl}>sign in with Spotify</a>
+          <img id='spotify' src='images/spotify.png'></img>
+          <a href={loginUrl}>sign in with spotify</a>
         </Button>
 
 

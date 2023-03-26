@@ -15,7 +15,8 @@ const DoughnutChart = (props) => {
       <Doughnut
         data={props.chartData}
         options={{
-          
+          responsive: true,
+          maintainAspectRatio: true,
           plugins: {
             title: {
               position: "top",
@@ -47,6 +48,7 @@ const DoughnutChart = (props) => {
               padding: 20,
               useBorderRadius: true,
               borderRadius: 25,
+              boxWidth: 10,
               position: "left",
               titleFont: {
                 family: "Syne",

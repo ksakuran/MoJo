@@ -76,4 +76,18 @@ router.post('/selection/new', (req, res) => {
     });
 });
 
+//remove checklist selection info for current user
+router.post('/selection/:checklistItemId/delete', (req, res) => {
+  const body = req.body;
+  checklistQueries.deselectChecklistSelection(body)
+    .then(checklistSelection => {
+      res.json({ checklistSelection });
+    })
+    .catch(err => {
+      res
+        .status(500)
+        .json({ error: err.message });
+    });
+});
+
 module.exports = router;

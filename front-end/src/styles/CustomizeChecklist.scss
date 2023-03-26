@@ -1,7 +1,11 @@
 .add-checklist {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   padding: 1rem;
+  width: 100%;
+}
+
+.item-list-container {
   width: 100%;
 }
 
@@ -9,14 +13,13 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-radius: 1rem;
-  border-style: solid;
-  border-width: 0.1rem;
-  border-color: rgba(255, 255, 255, 0.497);
-  margin-top: 0.5rem;
-  margin-bottom: 0.5rem;
-  // padding: 0.3rem;
-  padding-left: 1rem;
+  // border-radius: 1rem;
+  // border-style: solid;
+  // border-width: 0.1rem;
+  // border-color: rgba(255, 255, 255, 0.497);
+  // margin-top: 0.5rem;
+  // margin-bottom: 0.5rem;
+  padding: 0.5rem;
 }
 
 .checklist-items {
@@ -24,7 +27,7 @@
   border-radius: 1.9rem;
   padding: 1rem;
   margin: 1rem;
-  width: 90%;
+  width: 35%;
 }
 
 .add-checklist>input {
@@ -33,7 +36,7 @@
   border-style: solid;
   border-width: 0.1rem;
   border-color: rgba(255, 255, 255, 0.508);
-  width: 70%;
+  width: 50%;
   padding: 1rem;
   margin: 1rem;
   margin-bottom: 0rem;
@@ -50,8 +53,12 @@
   flex-direction: column;
   align-items: flex-start;
   padding: 1rem;
+  width: 100%;
 }
 
-.customize-checklist>footer {
-  width: 70%;
+.checklist-item-list {
+  display: flex;
+  justify-content: space-evenly;
+  padding: 1rem;
+  width: 100%;
 }

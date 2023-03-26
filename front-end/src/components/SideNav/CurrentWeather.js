@@ -51,7 +51,7 @@ function CurrentWeather() {
         }
       })
       .then(result => {
-        console.log("result: ", result);
+        // console.log("result: ", result);
       })
       .catch(err => console.error(err));
   }, [daySelectionId]);

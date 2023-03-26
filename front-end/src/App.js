@@ -1,5 +1,5 @@
 import './App.scss';
-import React, { useContext, useState } from 'react';
+import React, { useContext } from 'react';
 import TopNav from './components/TopNav';
 import LandingPage from './components/LandingPage';
 import MainContainer from './components/MainContainer';

@@ -22,8 +22,8 @@ function Journal() {
   const [journalEntry, setJournalEntry] = useState("");
   const [saveJournalEntry, setSaveJournalEntry] = useState(false);
   const [initialValue, setInitialValue] = useState("");
-  const { setViewMode } = useContext(appContext);
 
+  const { setViewMode } = useContext(appContext);
   const { daySelectionId } = useContext(daySelectionContext);
 
 
@@ -36,16 +36,12 @@ function Journal() {
 
   useEffect(() => {
     if (journalEntry) {
-
-      console.log("journal entry: ", journalEntry);
-      console.log("daySelectionId: ", daySelectionId);
       axios
         .post(`/api/journal/`, {
           daySelectionId: daySelectionId,
           body: journalEntry
         })
         .then(response => {
-          console.log("entry saved: ", response);
           setViewMode('HOME');
         })
         .catch(err => {
@@ -55,12 +51,10 @@ function Journal() {
   }, [saveJournalEntry]);
 
   //get existing journal entry
-  console.log("daySelectionId: ", daySelectionId);
   useEffect(() => {
     axios
       .get(`/api/journal/${daySelectionId}`)
       .then(res => {
-        console.log("result!! ", res);
         if (res.data) {
           setInitialValue(res.data.body);
         }

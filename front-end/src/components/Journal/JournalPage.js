@@ -15,19 +15,21 @@ function JournalPage() {
 
   return (
     <section className={journalPageClass} id="journal-page">
-      <Journal />
 
       {!isCustomize && (
-        <section>
-          <JournalChecklist />
-          <Button
-            onClickHandler={() => setIsCustomize(true)}
-            btnType="border"
-          >
-            <Icon iconSize="medium" imgUrl='images/icons/customize_checklist.png' iconStyle="padding" />
-            <p>customize checklist</p>
-          </Button>
-        </section>
+        <>
+          <Journal />
+          <section>
+            <JournalChecklist />
+            <Button
+              onClickHandler={() => setIsCustomize(true)}
+              btnType="border"
+            >
+              <Icon iconSize="medium" imgUrl='images/icons/customize_checklist.png' iconStyle="padding" />
+              <p>customize checklist</p>
+            </Button>
+          </section>
+        </>
       )}
 
       {isCustomize && (

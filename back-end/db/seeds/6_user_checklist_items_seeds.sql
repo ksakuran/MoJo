@@ -1,6 +1,13 @@
--- INSERT INTO favourites
--- (user_id,map_id)
--- VALUES
--- (8,3),(8,2),
--- (10,1),(10,2),(10,3),(10,4),
--- (16,3),(8,4),(11,1),(12,4),(12,2);
+INSERT INTO user_checklist_items
+(checklist_item_description,user_id)
+VALUES
+('meditated',1),
+('hugged someone',1),
+('made some tea',1),
+('called a friend',1),
+('read a book',1),
+('snacked healthy',1),
+('went outside',1),
+('complimented me',1),
+('power nap',1),
+('showed kindness',1);

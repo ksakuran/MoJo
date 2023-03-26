@@ -12,7 +12,6 @@ function JournalTextBox(props) {
   );
 
   useEffect(() => {
-    console.log("initialValue: ", initialValue);
     if (initialValue) {
       setEditorState(() =>
         EditorState.createWithContent(convertFromRaw(JSON.parse(initialValue)))

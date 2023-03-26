@@ -1,0 +1,26 @@
+.checklist-item {
+  display: flex;
+  flex-direction: row;
+  justify-content: left;
+  font: inherit;
+}
+
+//When un-checked
+.checkbox {
+  appearance: none;
+  height: 1.3rem;
+  width: 1.3rem;
+
+  border: 0.15em solid currentColor;
+  border-radius: 0.15em;
+  border-color: white;
+  margin: 0 1rem 1rem 0;
+
+  background-color: transparent;
+  //opacity: 0;
+}
+
+//When checked
+input[type="checkbox"]:checked {
+  background-color: white;
+}

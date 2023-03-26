@@ -28,7 +28,7 @@ function Icon(props) {
   return (
     <img
 
-      src={`http://localhost:3000/${imgUrl}`}
+      src={`${window.location.protocol}//${window.location.hostname}:${window.location.port}/${imgUrl}`}
       className={iconClass}
       alt='icon'
     >

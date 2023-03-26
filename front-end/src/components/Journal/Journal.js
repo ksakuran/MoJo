@@ -70,18 +70,18 @@ function Journal() {
   return (
     <article className={journalClass}>
       <header className={promptButtonClass}>
-        {showPrompt && (<JournalPrompt prompt={prompt} />)}
-        <Button
+        <Button btnId="prompt"
           onClickHandler={togglePrompt}>
           give me a prompt
         </Button>
+            {showPrompt && (<JournalPrompt prompt={prompt} />)}
       </header>
       <br />
 
       <JournalTextBox onChange={setJournalEntry} initialValue={initialValue} />
 
       <footer>
-        <Button onClickHandler={() => setSaveJournalEntry(true)}>Save</Button>
+        <Button btnId="save-journal" onClickHandler={() => setSaveJournalEntry(true)}>save</Button>
       </footer>
     </article>
   );

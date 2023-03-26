@@ -48,6 +48,8 @@ button#date-selector-form {
 }
 
 button#date-selector-form:hover{
-  background-color: white;
-  color: black;
+  background-color: rgba(255, 255, 255, 0.866);
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.736);
+  color:black;
+  cursor: pointer;
 }

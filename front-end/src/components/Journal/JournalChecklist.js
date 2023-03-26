@@ -91,9 +91,8 @@ function JournalCheckist(props) {
   // const checklistItems = checklist.map((item) => {
   //     return <JournalChecklistItem
   //
-  // What are the value in the checklist object that's returned from the DB?
-  //       id={checklist.item_id}
-  //       description={checklist.description}
+  //       id={checklist.daySelectionId}
+  //       description={checklist.checklist_item_description}
   //       user={checklist.user_id}
   //       isSelected={() => determineIsSelected()}
   //       isActive={checklist.active}

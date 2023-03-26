@@ -20,7 +20,7 @@ function TopNav() {
     setUserId('');
     setViewMode('CALENDAR');
     setIsDaySelected(false);
-    window.location.search = "";
+    document.cookie = "isLoggedIn=false";
   };
 
   //potential styles
@@ -36,7 +36,7 @@ function TopNav() {
         {!isDaySelected && !userId && ((<li><Button btnType="nav" onClickHandler={() => setViewMode('LANDING')} >welcome</Button></li>))}
         {!isDaySelected && !userId && ((<li><Button btnType="nav" onClickHandler={() => setViewMode('ABOUT')} >about</Button></li>))}
         {userId && ((<li><Button btnType="nav" onClickHandler={handleLogOut}>logout</Button></li>))}
-        <li><Button btnType="nav" onClickHandler={() => setDarkMode(!darkMode)}><Icon imgUrl="images/day-and-night.png" iconSize={"large"}/></Button></li>
+        <li><Button btnType="nav" onClickHandler={() => setDarkMode(!darkMode)}><Icon imgUrl="images/day-and-night.png" iconSize={"large"} /></Button></li>
       </ul>
     </nav >
   );

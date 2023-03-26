@@ -31,7 +31,7 @@ function UserInfo() {
           <img className={editButtonClass} src="http://localhost:3000/images/pencil_icon.png" alt="info-edit" height="20"
             width="20" />
         </Button>
-        <div classNames={modalContainerClass}>
+        <div className={modalContainerClass}>
           {formModal && (<UserInfoForm toggle={toggleFormModal}></UserInfoForm>)}
         </div>
       </div>

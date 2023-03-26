@@ -18,11 +18,11 @@ const anxious = { name: 'anxious', url: "0uCjaUdAss2kM3gHIOBrY8" };
 const angry = { name: 'angry', url: "7LYPJDo1dDuw79MHJ4B25z" };
 const depressed = { name: 'depressed', url: "6O1ZnUG2mtmeEqxxPa5OWn" };
 
-const none = {name: 'none', url: "37i9dQZF1DXcBWIGoYBM5M"};
+const none = { name: 'none', url: "37i9dQZF1DXcBWIGoYBM5M" };
 
 const allMoods = [happy, grateful, excited, confident, motivated, neutral, relaxed, tired, uncertain, bored, sad, stressed, anxious, angry, depressed, none];
 
-const selectPlaylistUrl = function (moodSelections) {
+const selectPlaylistUrl = function(moodSelections) {
   let todayMoods = allMoods.filter(mood => moodSelections.includes(mood.name)); // array of today's moods
   let randomIndex = Math.floor(Math.random() * moodSelections.length); // randomize an index
   let url = `https://open.spotify.com/embed/playlist/${todayMoods[randomIndex].url}?utm_source=generator`;
@@ -31,5 +31,3 @@ const selectPlaylistUrl = function (moodSelections) {
 
 
 export { selectPlaylistUrl };
-
-<iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>

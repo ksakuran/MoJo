@@ -14,19 +14,16 @@ function App() {
   const { userId, setUserId, viewMode, setSpotifyToken } = useContext(appContext);
 
   const client_id = 'daab3cd4c0964c93ba725710faa3cfb3'; // Your client id
-  const redirect_uri = `${window.location.protocol}//${window.location.hostname}:${window.location.port}/?loggedIn=true/`;
+  const redirect_uri = `${window.location.protocol}//${window.location.hostname}:${window.location.port}/`;
   const authEndpoint = "http://accounts.spotify.com/authorize";
 
   const loginUrl = `${authEndpoint}?client_id=${client_id}&redirect_uri=${redirect_uri}&response_type=token&show_dialog=true`;
 
-  const urlParam = window.location.search;
+  const urlHash = window.location.hash;
 
-  if (urlParam) {
-    //if user logged in by spotify, set default userId
-    setUserId(1);
-
+  if (urlHash.length > 1) {
     //get spotify token from URL and save it in app context
-    const tokenFromUrl = window.location.hash
+    const tokenFromUrl = urlHash
       .substring(1)
       .split("&")
       .reduce((initial, item) => {
@@ -36,6 +33,27 @@ function App() {
       }, {});
 
     setSpotifyToken(tokenFromUrl.access_token);
+  }
+
+  //check if there is an existing cookies and set login value
+  let login = false;
+  const cookie = document.cookie;
+  if (cookie) {
+    const currentCookie = cookie.split("=");
+    if (currentCookie[0] === "isLoggedIn" && currentCookie[1] === "true") {
+      login = true;
+    }
+  }
+
+  //set cookie and default user
+  if ((urlHash.length > 1 && !login) || login) {
+    //set cookie for the first time log in
+    document.cookie = "isLoggedIn=true";
+
+    //set default user
+    setUserId(1);
+
+    //clean up url link
     window.location.hash = "";
   }
 

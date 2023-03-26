@@ -121,6 +121,24 @@ const addChecklistSelection = (body) => {
     });
 };
 
+//remove checklist selection for current user
+const deselectChecklistSelection = (body) => {
+  const { daySelectionId, checklistItemId } = body;
+  const sql = `
+  DELETE FROM checklist_selections
+  WHERE day_selection_id = $1
+  AND user_checklist_item_id = $2 
+  RETURNING *;
+  `;
+
+  return db.query(sql, [daySelectionId, checklistItemId])
+    .then(data => {
+      return data.rows;
+    })
+    .catch(err => {
+      return console.error(err);
+    });
+};
 
 
 module.exports = {
@@ -129,5 +147,6 @@ module.exports = {
   addCustomChecklistItem,
   addChecklistItem,
   updateChecklistItemStatus,
-  addChecklistSelection
+  addChecklistSelection,
+  deselectChecklistSelection
 };

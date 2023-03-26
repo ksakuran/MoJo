@@ -28,21 +28,6 @@ function SideNav() {
     moods.push(moodSelection.name)
   }
 
-  // ------- Once I have pulled completed mood selection feature, uncomment useEffect below and remove hard-coded moods above
-  // useEffect(() => {
-  //   axios
-  //     .get(`/api/mood/${daySelectionId}`)
-  //       .then(response => {
-  //         console.log("user's moods today: ", response);
-  //         moods.push(response);
-  //       })
-  //       .catch(err => {
-  //         console.log("error:", err.message);
-  //       });
-  // }, [daySelectionId, moods]);
-
-
-
   return (
     <section className={sideNavClass}>
       <UserInfo />

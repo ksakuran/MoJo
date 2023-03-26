@@ -1,11 +1,11 @@
 #about{
-  margin-top: 5%;
+  width: 90vw;
+  margin-top: 4%;
+  margin-left: 5vw;
   position: relative;
   display: flex;
   flex-direction: column;
-  justify-content:first baseline;
   align-items: center;
-  min-height: 80vh;
   text-align: center;
   color: rgb(255, 255, 255);
   z-index: 800;
@@ -14,13 +14,78 @@
 }
 
 h3.about-page{
-  font-size: 400%;
+  font-size: 350%;
   font-family: 'Fraunces', sans-serif;
   text-align: center;
   line-height: 0px;
   text-shadow: 2px 5px 10px rgba(0, 0, 0, 0.284);
 }
 
-section#mojo-features {
-  display: inline-block;
+span#change-desc{
+  display: flex;
+  flex-direction: row;
+}
+// section#mojo-features {
+//   display: inline-flex;
+//   flex-direction: row;
+
+// }
+
+button#about-button {
+  margin: 5%;
+  margin-top: 0;
+  background-color: rgba(255, 255, 255, 0);
+  border-radius: 1.9rem;
+  border-style: solid;
+  border-width: 0.1rem;
+  border-color: rgba(255, 255, 255, 0);
+  
+  padding: 0.5rem;
+  width: 10vw;
+  height: 5%;
+  font-family: 'Syne', sans-serif;
+  font-size: large;
+  color: rgba(255, 255, 255, 0.487);
+}
+
+
+button#about-button:hover {
+  background-color: rgba(255, 255, 255, 0.866);
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.736);
+  text-shadow: 5px 5px 10px rgba(0, 0, 0, 0);
+  color:black;
+  cursor: pointer;
+}
+
+div#features {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  row-gap: 15%;
+}
+
+div#team {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+div.team-desc {
+  padding: 1rem;
+  margin: 1rem;
+
+}
+
+div.feature-desc {
+  padding: 1rem;
+  margin: 1rem;
+}
+
+button#about-button.on {
+  color: white;
+  text-shadow: 5px 5px 10px rgba(0, 0, 0, 0.522);
 }

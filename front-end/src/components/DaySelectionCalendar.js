@@ -121,7 +121,7 @@ function DaySelectionCalendar() {
   useEffect(() => {
     const timer = setTimeout(() => {
       setShowAlert(false);
-    }, 3000);
+    }, 5000);
     return () => clearTimeout(timer);
   }, [showAlert]);
 
@@ -143,7 +143,7 @@ function DaySelectionCalendar() {
     <section className={calendarClass}>
       {showAlert && (
         <div className="alert alert-danger" role="alert">
-          please only select today or older dates!
+          please only select today or previous dates!
         </div>
       )}
       <h1>navigate your entries by selecting a day</h1>

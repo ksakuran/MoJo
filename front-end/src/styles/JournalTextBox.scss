@@ -2,20 +2,43 @@
   // background: #fff;
   // border: 1px solid #ddd;
   font-family: 'Syne', serif;
-  font-size: 14px;
-  background-color: rgba(255, 255, 255, 0.535);
+  font-size: 22px;
+  background-color: rgba(255, 255, 255, 0.618);
   border-radius: 1.5rem;
   border-style: solid;
   border-width: 0.1rem;
   border-color: rgba(255, 255, 255, 0.508);
   padding: 15px;
   color: rgb(0, 0, 0);
+  overflow-y: auto;
+}
+
+::-webkit-scrollbar {
+  width: 5%;
+  height: 80%;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px rgba(128, 128, 128, 0.421); 
+  border-radius: 10px;
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.606); 
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #140de87b; 
 }
 
 .RichEditor-editor {
-  border-top: 1px solid rgba(255, 255, 255, 0.508);
+  border-top: 1px solid rgba(255, 255, 255, 0.348);
   cursor: text;
-  font-size: 16px;
+  font-size: 22px;
   margin-top: 1rem;
 }
 
@@ -36,7 +59,7 @@
 
 .RichEditor-editor .RichEditor-blockquote {
   border-left: 5px solid #eee;
-  color: #666;
+  color: rgb(49, 49, 49);
   font-family: 'Fraunces', serif;
   font-style: italic;
   margin: 16px 0;
@@ -52,7 +75,7 @@
 
 .RichEditor-controls {
   font-family: 'Syne', serif;
-  font-size: 14px;
+  font-size: 18px;
   margin-bottom: 5px;
   user-select: none;
 }

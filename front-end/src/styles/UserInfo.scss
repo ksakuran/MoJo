@@ -3,3 +3,23 @@
   flex-direction: row;
   align-items: center;
 }
+
+div.user-info {
+  background-color: rgba(255, 255, 255, 0.097);
+  border-radius: 1.3rem;
+  border-style: solid;
+  border-width: 0.1rem;
+  border-color: rgba(255, 255, 255, 0.508);
+  display: flex;
+  width: 90%;
+  justify-content: space-evenly;
+  align-items: center;
+  margin-bottom: 4%;
+  font-weight: 400;
+
+  h4 {
+    padding-right: 0;
+    font-weight: 400;
+    font-size: 110%;
+  }
+}

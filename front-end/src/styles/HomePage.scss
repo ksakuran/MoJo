@@ -11,9 +11,10 @@ section.home-page {
   font-family: 'Syne', serif;
   padding-right: 3rem;
   width: 70%;
-}
-
-p {
-  margin: 2.5rem;
-  font-size: x-large;
+  p {
+    margin: 2.5rem;
+    font-size: x-large;
+    text-shadow: -1px 1px 4px rgba(0, 0, 0, 0.736); 
+  
+  }
 }

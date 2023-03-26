@@ -1,5 +1,5 @@
 .current-mood-container {
-  width: 100%;
+  width: 90%;
   background-color: rgba(255, 255, 255, 0.095);
   border-radius: 1.3rem;
   border-style: solid;
@@ -36,6 +36,7 @@ h3.current-mood-list{
 h4.current-mood-list{
   margin:0;
   padding-left: 5%;
+  font-weight: 400;
   }
 
 ul.current-mood-list {

@@ -100,6 +100,10 @@ button.btn-disabled:hover  {
   margin: 1rem;
 }
 
+.btn#change-date {
+  width: 89%;
+}
+
 .btn#change-date:hover {
   background-color: rgba(255, 255, 255, 0.866);
   box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.736);
@@ -109,7 +113,7 @@ button.btn-disabled:hover  {
 
 .btn#prompt { 
   margin-bottom: 4%;
-  background-color: rgba(255, 255, 255, 0.266);
+  background-color: rgba(255, 255, 255, 0.097);
   border-radius: 1.9rem;
   border-style: solid;
   border-width: 0.1rem;
@@ -123,7 +127,7 @@ button.btn-disabled:hover  {
 
 .btn#save-journal {
   margin-top: 4%;
-  background-color: rgba(255, 255, 255, 0.232);
+  background-color: rgba(255, 255, 255, 0.097);
   border-radius: 1.9rem;
   border-style: solid;
   border-width: 0.1rem;

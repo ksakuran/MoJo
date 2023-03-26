@@ -9,7 +9,7 @@ export default function AppProvider(props) {
   const [viewMode, setViewMode] = useState("CALENDAR");
   const [userId, setUserId] = useState("");
   const [firstName, setFirstName] = useState("Jane");
-  const [lastName, setLastName] = useState("");
+  const [lastName, setLastName] = useState("Doe");
   const [userCity, setUserCity] = useState("Calgary");
   const [userPicture, setUserPicture] = useState("");
   const [needUpdate, setNeedUpdate] = useState(false);

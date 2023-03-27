@@ -43,7 +43,6 @@ function CustomizeChecklist(props) {
         .post(`/api/checklist/item/new`, addItem)
         .then(res => {
           fetchData();
-          setItemDesc("");
         });
     }
   }, [addItem]);
@@ -75,28 +74,27 @@ function CustomizeChecklist(props) {
   const addChecklistItem = () => {
 
     let isAdd = true;
-    console.log("activeChecklistItemList: ", activeChecklistItemList);
     //check if existing item for this
     activeChecklistItemList.map(item => {
       if (item.checklist_item_description.toLowerCase() === itemDesc.toLowerCase()) {
         setShowAlert(true);
         isAdd = false;
+        setItemDesc("");
       }
     });
     inActiveChecklistItemList.map(item => {
       if (item.checklist_item_description.toLowerCase() === itemDesc.toLowerCase()) {
-        console.log("update status of existing item");
         setUpdateItem({
           isActive: !item.active,
           itemId: item.id,
           userId: userId
         });
         isAdd = false;
+        setItemDesc("");
       }
     });
 
     if (isAdd) {
-      console.log("add item");
       setAddItem({
         isInitial: false,
         checklistItemDesc: itemDesc,

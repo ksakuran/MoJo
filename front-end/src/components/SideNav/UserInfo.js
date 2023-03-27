@@ -23,12 +23,12 @@ function UserInfo() {
   };
 
   return (
-    <div>
-      <Icon imgUrl="images/profile_user.png" alt="profile" iconSize={"large"}/>
+    <div className='user-info'>
+      <Icon imgUrl="images/profile_user.png" alt="profile" iconSize={"medium"}/>
+        <h2>{firstName} {lastName}</h2>
       <div className={nameDisplayClass}>
-        <h2>{firstName}</h2>
         <Button onClickHandler={toggleFormModal}>
-        <Icon className={editButtonClass} imgUrl="images/pencil.png" iconSize={"medium"}/>
+          <Icon className={editButtonClass} imgUrl="images/pencil.png" iconSize={"medium"} />
         </Button>
         <div className={modalContainerClass}>
           {formModal && (<UserInfoForm toggle={toggleFormModal}></UserInfoForm>)}

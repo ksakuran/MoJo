@@ -20,16 +20,17 @@
 
 p#change-date {
   margin-left: 1.5%;
+  font-size: 70%;
 }
 
 .btn#change-date {
   display: inline-flex;
+  margin: 3%;
 }
 
 
 .btn-nav:hover {
-  color: rgb(80, 186, 232);
-  font-size: 1.65rem;
+  color: rgb(156, 167, 225);
   cursor: pointer;
 }
 
@@ -37,9 +38,9 @@ p#change-date {
   background: transparent;
   border-style: none;
   color: white;
-  font-family: 'Syne', serif;
+  font-family: 'Syne', sans-serif;
   font-weight: 400;
-  font-size: 1.6rem;
+  font-size: 105%;
   padding-left: 1rem;
   padding-right: 0.5rem;
 }
@@ -70,9 +71,9 @@ button.btn-disabled {
   color: rgba(255, 255, 255, 0.494);
   background: transparent;
     border-style: none;
-    font-family: 'Syne', serif;
+    font-family: 'Syne', sans-serif;
     font-weight: 400;
-    font-size: 1.6rem;
+    font-size: 105%;
     padding-left: 1rem;
     padding-right: 0.5rem;
 }
@@ -81,9 +82,9 @@ button.btn-disabled:hover  {
   color: rgba(255, 255, 255, 0.494);
   background: transparent;
     border-style: none;
-    font-family: 'Syne', serif;
+    font-family: 'Syne', sans-serif;
     font-weight: 400;
-    font-size: 1.6rem;
+    font-size: 105%;
     padding-left: 1rem;
     padding-right: 0.5rem;
 }
@@ -95,13 +96,18 @@ button.btn-disabled:hover  {
   background-color: rgba(255, 255, 255, 0.095);
   border-radius: 1.9rem;
   border-style: solid;
-  border-width: 0.1rem;
+  border-width: 0.06rem;
   border-color: rgba(255, 255, 255, 0.508);
-  margin: 1rem;
+  // margin: 1rem;
 }
 
 .btn#change-date {
-  width: 89%;
+  width: 95%;
+  border-radius: 1.9rem;
+  border-style: solid;
+  border-width: 0.06rem;
+  max-height: 6.5vh;
+
 }
 
 .btn#change-date:hover {
@@ -113,29 +119,31 @@ button.btn-disabled:hover  {
 
 .btn#prompt { 
   margin-bottom: 4%;
+  margin-left: 0.7%;
   background-color: rgba(255, 255, 255, 0.097);
   border-radius: 1.9rem;
   border-style: solid;
-  border-width: 0.1rem;
+  border-width: 0.06rem;
   border-color: rgba(255, 255, 255, 0.497);
-  padding: 0.5rem;
-  width: 40%;
+  padding: 1.4%;
+  width: 48%;
   font-family: 'Syne', sans-serif;
-  font-size: large;
+  font-size: 80%;
   color: white;
 }
 
 .btn#save-journal {
   margin-top: 4%;
+  margin-left: 1%;
   background-color: rgba(255, 255, 255, 0.097);
   border-radius: 1.9rem;
   border-style: solid;
-  border-width: 0.1rem;
+  border-width: 0.06rem;
   border-color: rgba(255, 255, 255, 0.497);
-  padding: 0.5rem;
-  width: 40%;
+  padding: 1%;
+  width: 20%;
   font-family: 'Syne', sans-serif;
-  font-size: large;
+  font-size: 70%;
   color: white;
 }
 

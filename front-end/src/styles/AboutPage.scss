@@ -14,11 +14,15 @@
 }
 
 h3.about-page{
-  font-size: 350%;
+  font-size: 200%;
   font-family: 'Fraunces', sans-serif;
   text-align: center;
   line-height: 0px;
   text-shadow: 2px 5px 10px rgba(0, 0, 0, 0.284);
+
+  p{
+    margin: 0;
+  }
 }
 
 span#change-desc{
@@ -31,29 +35,51 @@ span#change-desc{
 
 // }
 
-button#about-button {
-  margin: 5%;
+button#feature-button {
+  margin: 1%;
   margin-top: 0;
+  // margin-bottom: -12%;
   background-color: rgba(255, 255, 255, 0);
   border-radius: 1.9rem;
   border-style: solid;
-  border-width: 0.1rem;
+  border-width: 0.06rem;
   border-color: rgba(255, 255, 255, 0);
   
   padding: 0.5rem;
-  width: 10vw;
+  width: 11vw;
   height: 5%;
   font-family: 'Syne', sans-serif;
-  font-size: large;
-  color: rgba(255, 255, 255, 0.487);
+  font-size: 90%;
+  color: rgb(255, 255, 255);
+  text-shadow: 5px 5px 10px rgba(0, 0, 0, 0.522);
+}
+
+button#team-button {
+  margin: 1%;
+  margin-top: 0;
+  // margin-bottom: -12%;
+  background-color: rgba(255, 255, 255, 0);
+  border-radius: 1.9rem;
+  border-style: solid;
+  border-width: 0.06rem;
+  border-color: rgba(255, 255, 255, 0);
+  
+  padding: 0.5rem;
+  width: 11vw;
+  height: 5%;
+  font-family: 'Syne', sans-serif;
+  font-size: 90%;
+  color: rgb(255, 255, 255);
+  text-shadow: 5px 5px 10px rgba(0, 0, 0, 0.522);
 }
 
 
-button#about-button:hover {
-  background-color: rgba(255, 255, 255, 0.866);
-  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.736);
-  text-shadow: 5px 5px 10px rgba(0, 0, 0, 0);
-  color:black;
+button#feature-button:hover {
+  cursor: pointer;
+  
+}
+
+button#team-button:hover {
   cursor: pointer;
 }
 
@@ -61,31 +87,63 @@ div#features {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
-  row-gap: 15%;
+  padding-left: 2.5%;
+  padding-right: 2.5%;
 }
 
 div#team {
   display: flex;
   flex-direction: row;
-  flex-wrap: wrap;
   justify-content: center;
   align-items: center;
 }
 
 div.team-desc {
-  padding: 1rem;
-  margin: 1rem;
+  padding: 0.5%;
+  margin: 0.5%;
+  font-family: 'Syne', sans-serif;
+  width: 25vw;
+  display: inline-block;
+
+
+   img {
+    object-fit: cover;
+    width:10vw;
+    height: 10vw;
+    border-radius: 50%;
+    box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.273);
+   } 
+
+  p {
+    font-size: small;
+  }
 
 }
 
 div.feature-desc {
-  padding: 1rem;
-  margin: 1rem;
+  padding: 0.5%;
+  margin: 0.5%;
+  font-family: 'Syne', sans-serif;
 }
 
-button#about-button.on {
-  color: white;
+button#feature-button.on {
+  color: rgba(255, 255, 255, 0.563);
+  text-shadow: 5px 5px 10px rgba(0, 0, 0, 0.522);
+}
+
+button#team-button.on {
+  color: rgba(255, 255, 255, 0.588);
+  text-shadow: 5px 5px 10px rgba(0, 0, 0, 0.522);
+}
+
+button#team-button.on:hover {
+  color: rgb(255, 255, 255);
+  text-shadow: 5px 5px 10px rgba(0, 0, 0, 0.522);
+}
+
+button#feature-button.on:hover {
+  color: rgb(255, 255, 255);
   text-shadow: 5px 5px 10px rgba(0, 0, 0, 0.522);
 }

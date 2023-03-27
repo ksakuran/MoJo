@@ -1,8 +1,8 @@
 .formModal, .overlay {
-  width: 15%;
-  height: 25rem;
-  top: 14%;
-  left: 25%;
+  width: 18%;
+  height: 30vw;
+  top: 9%;
+  left: 24%;
   right: 0;
   bottom: 0;
   z-index: 100;
@@ -14,6 +14,7 @@
   font-weight: 400;
   box-shadow: -4px 4px 10px rgba(0, 0, 0, 0.682); 
   text-shadow: -1px 1px 4px rgba(0, 0, 0, 0.736); 
+  font-size: 85%;
     //background-color: rgb(215, 215, 215);
     background-image: linear-gradient(130deg, rgb(121, 174, 234), rgb(62, 92, 168));
     border-radius: 1.5rem;
@@ -31,7 +32,7 @@
 	width: 0;
 	height: 0;
 	border: 19px solid transparent;
-  border-right-color:  rgb(121, 174, 234);
+  border-right-color:  rgb(116, 171, 234);
 	border-left: 0;
 	margin-top: -5%;
 	margin-left: -5.7%;
@@ -51,9 +52,16 @@ h3 {
 }
 
 #user-form {
-  text-shadow: -2px 2px 4px rgba(0, 0, 0, 0.736); 
+  margin-left: 19%;
+  text-shadow: -2px 2px 4px rgba(0, 0, 0, 0.736);
+  font-size: 75%;
 }
 
 #user-form:hover {
   color: black;
+}
+
+#updateInfoForm {
+  width: 72%;
+  margin-left: -10%;
 }

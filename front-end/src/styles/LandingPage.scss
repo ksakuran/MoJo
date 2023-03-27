@@ -14,7 +14,7 @@
 }
 
 #landing h1{
-  font-size: 560%;
+  font-size: 420%;
   text-align: center;
   line-height: 0px;
   text-shadow: 2px 5px 10px rgba(0, 0, 0, 0.284);
@@ -22,27 +22,27 @@
 
 #landing small{
   font-family: 'Syne', sans-serif;
-  font-size: x-large;
+  font-size: 110%;
 }
 
 #landing p {
   font-family: 'Syne', sans-serif;
-  font-size: x-large;
+  font-size: 105%;
 }
 
 button#get-started {
   display:flex;
   flex-direction: row;
   background-color: rgba(255, 255, 255, 0);
-  border-radius: 3.6rem;
+  border-radius: 3.8rem;
   border-style: solid;
-  border-width: 0.106rem;
+  border-width: 0.06rem;
   border-color: rgba(255, 255, 255, 0.497);
-  padding: 15px;
-  max-width: 20%;
-  min-width: 17%;
+  padding: 0.5%;
+  max-width: 19%;
+  min-width: 16%;
   font-family: 'Syne', sans-serif;
-  font-size: x-large;
+  font-size: 90%;
 }
 
 button#get-started:hover {

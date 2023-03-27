@@ -1,12 +1,13 @@
 #breathe {
-  width: 10rem;
-  height: 10rem;
+  width: 12vw;
+  height: 12vw;
   -webkit-animation: breathing 6s ease-out infinite;
   animation: breathing 6s ease-out infinite;
   filter: blur(0.9rem);
   background: #ffffffef;
   border-radius: 50%;
   margin: .7rem;
+  margin-top: -2%;
   }
 
 

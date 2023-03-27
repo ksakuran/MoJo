@@ -30,7 +30,7 @@
   font-size: 105%;
 }
 
-button#get-started {
+button#get-started.btn {
   display:flex;
   flex-direction: row;
   background-color: rgba(255, 255, 255, 0);
@@ -38,6 +38,7 @@ button#get-started {
   border-style: solid;
   border-width: 0.06rem;
   border-color: rgba(255, 255, 255, 0.497);
+  margin-top: 3%;
   padding: 0.5%;
   max-width: 19%;
   min-width: 16%;
@@ -45,7 +46,7 @@ button#get-started {
   font-size: 90%;
 }
 
-button#get-started:hover {
+button#get-started.btn:hover {
   background-color: rgba(255, 255, 255, 0.866);
   box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.736);
   color:black;

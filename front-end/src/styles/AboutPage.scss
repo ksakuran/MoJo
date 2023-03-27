@@ -11,6 +11,7 @@
   z-index: 800;
   font-family: 'Syne', serif;
   font-weight: 400;
+  text-shadow: 2px 5px 10px rgba(0, 0, 0, 0.284);
 }
 
 h3.about-page{
@@ -20,9 +21,19 @@ h3.about-page{
   line-height: 0px;
   text-shadow: 2px 5px 10px rgba(0, 0, 0, 0.284);
 
+
+
   p{
     margin: 0;
+    text-shadow: 2px 5px 10px rgba(0, 0, 0, 0.284);
   }
+}
+
+h5 {
+  font-size: 110%;
+  margin: 0;
+  font-weight: 400;
+  text-shadow: 2px 5px 10px rgba(0, 0, 0, 0.284);
 }
 
 span#change-desc{
@@ -50,7 +61,7 @@ button#feature-button {
   height: 5%;
   font-family: 'Syne', sans-serif;
   font-size: 90%;
-  color: rgb(255, 255, 255);
+  color: rgba(255, 255, 255, 0.768);
   text-shadow: 5px 5px 10px rgba(0, 0, 0, 0.522);
 }
 
@@ -69,7 +80,7 @@ button#team-button {
   height: 5%;
   font-family: 'Syne', sans-serif;
   font-size: 90%;
-  color: rgb(255, 255, 255);
+  color: rgba(255, 255, 255, 0.766);
   text-shadow: 5px 5px 10px rgba(0, 0, 0, 0.522);
 }
 
@@ -86,9 +97,8 @@ button#team-button:hover {
 div#features {
   display: flex;
   flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  align-items: center;
+  align-items: flex-start;
+  justify-content: space-evenly;
   padding-left: 2.5%;
   padding-right: 2.5%;
 }
@@ -96,28 +106,39 @@ div#features {
 div#team {
   display: flex;
   flex-direction: row;
-  justify-content: center;
-  align-items: center;
+  justify-content: space-evenly;
+  align-items: flex-start;
 }
 
 div.team-desc {
   padding: 0.5%;
-  margin: 0.5%;
+  margin: 0.6%;
+  margin-top: 1%;
   font-family: 'Syne', sans-serif;
   width: 25vw;
-  display: inline-block;
-
-
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  // text-align: center;
+  text-shadow: 3px 3px 8px rgba(0, 0, 0, 0.522);
    img {
     object-fit: cover;
-    width:10vw;
-    height: 10vw;
+    width: 7vw;
+    height: 7vw;
     border-radius: 50%;
     box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.273);
    } 
 
+   h3 {
+    margin: 5%;
+    margin-bottom: 2%;
+   }
+
   p {
-    font-size: small;
+    font-size: 85%;
+    margin-left: 5%;
+    
   }
 
 }
@@ -126,24 +147,43 @@ div.feature-desc {
   padding: 0.5%;
   margin: 0.5%;
   font-family: 'Syne', sans-serif;
+
+  width: 20%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-shadow: 3px 3px 10px rgba(0, 0, 0, 0.522);
+
+  img {
+    object-fit: cover;
+    width: 15.1vw;
+    height: 12.5vw;
+    border-radius: 1.2rem;
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.273);
+   }
+
+  //  p {
+  //   margin: 3.5%;
+  //  }
 }
 
 button#feature-button.on {
-  color: rgba(255, 255, 255, 0.563);
-  text-shadow: 5px 5px 10px rgba(0, 0, 0, 0.522);
+  color: rgb(255, 255, 255);
+  text-shadow: 3px 3px 10px rgba(0, 0, 0, 0.522);
 }
 
 button#team-button.on {
-  color: rgba(255, 255, 255, 0.588);
-  text-shadow: 5px 5px 10px rgba(0, 0, 0, 0.522);
+  color: rgb(255, 255, 255);
+  text-shadow: 3px 3px 10px rgba(0, 0, 0, 0.522);
 }
 
 button#team-button.on:hover {
   color: rgb(255, 255, 255);
-  text-shadow: 5px 5px 10px rgba(0, 0, 0, 0.522);
+  text-shadow: 3px 3px 10px rgba(0, 0, 0, 0.522);
 }
 
 button#feature-button.on:hover {
   color: rgb(255, 255, 255);
-  text-shadow: 5px 5px 10px rgba(0, 0, 0, 0.522);
+  text-shadow: 3px 3px 10px rgba(0, 0, 0, 0.522);
 }

@@ -1,3 +1,7 @@
+section.day-selection-calendar {
+  margin-top:  -3%;
+}
+
 .fc-daygrid {
   height: 75%;
 }
@@ -5,11 +9,18 @@
 .fc-daygrid-day-events {
   display: flex;
   flex-wrap: wrap;
+  max-height: 0.8vw;
+}
+
+div.fc-daygrid-day-top {
+  max-height: 1.1vw;
+  font-size: 60%;
+  margin-bottom: 5.5%;
 }
 
 .day-selection-calendar {
   width: 65%;
-  height: 50%;
+  height: 45%;
   font-weight: 400;
 }
 
@@ -31,7 +42,7 @@
 }
 
 .fc .fc-toolbar.fc-header-toolbar {
-  margin: 0.5rem !important;
+  margin: 0.2rem !important;
   
 }
 
@@ -41,9 +52,21 @@
 
 th {
   font-weight: 400;
+  font-size: 80%;
 }
+
 
 .fc-daygrid-day-frame:hover{
 background: rgba(255, 255, 255, 0.574);
 }
 
+h1 {
+  padding-left: 0.5%;
+  font-size: 100%;
+  text-shadow: 5px 5px 10px rgba(0, 0, 0, 0.736);
+}
+
+.fc-toolbar-chunk {
+  font-size: 65%;
+  text-shadow: 5px 5px 10px rgba(0, 0, 0, 0.736);
+}

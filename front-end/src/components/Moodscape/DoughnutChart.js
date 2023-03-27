@@ -20,45 +20,43 @@ const DoughnutChart = (props) => {
           plugins: {
             title: {
               position: "top",
-              align: "start",
+              align: "end",
               display: true,
-              padding: -5,
+              padding: 1,
               text: `your moodscape`,
               color: "white",
               font: {
                 family: "Syne",
-                size: "35px",
+                size: "22vw",
                 weight: 400,
               }
             },
             subtitle: {
               position: "top",
-              align: "start",
+              align: "end",
               display: true,
               
               text: `${titleDates}`,
               color: "white",
               font: {
                 family: "Syne",
-                size: "25px",
+                size: "16vw",
               }
             },
             legend: {
               display: true,
-              padding: 20,
-              useBorderRadius: true,
-              borderRadius: 25,
-              boxWidth: 10,
               position: "left",
               titleFont: {
                 family: "Syne",
                 color: "white"
               },
               labels: {
+                padding: 10,
+                boxWidth: 13,
                 color: "white",
                 font: {
                   family: "Syne",
-                  size: "20px"
+                  size: "12vw"
                 },
                 tooltip: {
                   bodyFont: {

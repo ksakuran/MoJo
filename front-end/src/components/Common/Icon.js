@@ -3,7 +3,7 @@ import classNames from "classnames";
 import "../../styles/Icon.scss";
 
 function Icon(props) {
-  const { imgUrl, iconSize, children, iconStyle, isLocal } = props;
+  const { imgUrl, iconSize, children, iconStyle, onMouseEnter, onMouseLeave } = props;
 
   // console.log("imgUrl: ", imgUrl);
   // const [imageUrl, setImageUrl] = useState(imgUrl);
@@ -15,21 +15,14 @@ function Icon(props) {
     'icon-padding': iconStyle === 'padding',
     'icon-marg': iconStyle === 'marg'
   });
-  // useEffect(() => {
-  //   if (isLocal) {
-  //     console.log("isLocal: ", isLocal);
-  //     setImageUrl(`http://localhost:3000/${imgUrl}`);
-  //   }
-  // }, [isLocal]);
-
-
-  // console.log("imageUrl: ", imageUrl);
 
   return (
     <img
 
       src={`${window.location.protocol}//${window.location.hostname}:${window.location.port}/${imgUrl}`}
       className={iconClass}
+      onMouseEnter={onMouseEnter}
+      onMouseLeave={onMouseLeave}
       alt='icon'
     >
       {children}

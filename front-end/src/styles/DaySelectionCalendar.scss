@@ -1,9 +1,9 @@
 section.day-selection-calendar {
-  margin-top:  -3%;
+  margin-top: -3%;
 }
 
 .fc-daygrid {
-  height: 75%;
+  height: 76%;
 }
 
 .fc-daygrid-day-events {
@@ -43,7 +43,7 @@ div.fc-daygrid-day-top {
 
 .fc .fc-toolbar.fc-header-toolbar {
   margin: 0.2rem !important;
-  
+
 }
 
 .fc .fc-toolbar-title {
@@ -56,8 +56,8 @@ th {
 }
 
 
-.fc-daygrid-day-frame:hover{
-background: rgba(255, 255, 255, 0.574);
+.fc-daygrid-day-frame:hover {
+  background: rgba(255, 255, 255, 0.574);
 }
 
 h1 {
@@ -69,4 +69,19 @@ h1 {
 .fc-toolbar-chunk {
   font-size: 65%;
   text-shadow: 5px 5px 10px rgba(0, 0, 0, 0.736);
+}
+
+.hoverModal {
+  width: 5rem;
+  height: 1.5rem;
+  z-index: 100;
+  position: fixed;
+  font-weight: 400;
+  box-shadow: -4px 4px 10px rgba(0, 0, 0, 0.682);
+  text-shadow: -1px 1px 4px rgba(0, 0, 0, 0.736);
+  background-image: linear-gradient(130deg, rgb(121, 174, 234), rgb(62, 92, 168));
+  border-radius: 1.5rem;
+  border-color: rgba(255, 255, 255, 0.889);
+  padding: 0.5rem;
+  padding-left: 1.5rem;
 }

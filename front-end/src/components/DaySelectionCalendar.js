@@ -24,6 +24,7 @@ function DaySelectionCalendar() {
     year: format(new Date(), 'yyyy')
   });
   const [showAlert, setShowAlert] = useState(false);
+  const [showHover, setShowHover] = useState("");
 
   const calendarRef = React.createRef();
 
@@ -38,6 +39,7 @@ function DaySelectionCalendar() {
         const moodList = calendarData[0];
         const journalList = calendarData[1];
         setCalendarEvents([]);
+        console.log("calendarData: ", calendarData);
         journalList.forEach(journal => {
           if (journal.journal_id) {
             const event = { title: '2.journal', date: format(new Date(journal.day_selection_created_date), 'yyyy-MM-dd') };
@@ -85,6 +87,23 @@ function DaySelectionCalendar() {
     }
   }, [selectedDate]);
 
+  const onImgHover = (name) => {
+    if (name !== '2.journal' && name !== '1.checklist') {
+      setShowHover(name);
+      document.addEventListener("mouseover", function(e) {
+        const hovreDiv = document.getElementById("img-hover");
+        if (hovreDiv) {
+          hovreDiv.style.top = e.clientY + "px";
+          hovreDiv.style.left = e.clientX + "px";
+        }
+      });
+    }
+  };
+
+  const onImgLeave = () => {
+    setShowHover("");
+  };
+
   const renderEventContent = (eventInfo) => {
     const name = eventInfo.event.title;
     let imageUrl = `images/${name}.png`;
@@ -93,6 +112,8 @@ function DaySelectionCalendar() {
         imgUrl={imageUrl}
         iconSize="medium"
         iconStyle="marg"
+        onMouseEnter={() => onImgHover(name)}
+        onMouseLeave={onImgLeave}
       />
     );
   };
@@ -144,6 +165,11 @@ function DaySelectionCalendar() {
       {showAlert && (
         <div className="alert alert-danger" role="alert">
           please only select today or previous dates!
+        </div>
+      )}
+      {showHover && (
+        <div className='hoverModal' id='img-hover'>
+          {showHover}
         </div>
       )}
       <h1>navigate your entries by selecting a day</h1>

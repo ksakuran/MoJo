@@ -14,32 +14,101 @@ function CustomizeChecklist(props) {
 
   const [activeChecklistItemList, setActiveChecklistItemList] = useState([]);
   const [inActiveChecklistItemList, setInActiveChecklistItemList] = useState([]);
+  const [updateItem, setUpdateItem] = useState({});
+  const [addItem, setAddItem] = useState({});
+  const [itemDesc, setItemDesc] = useState("");
+  const [showAlert, setShowAlert] = useState(false);
 
-  console.log("activeChecklistItemList: ", activeChecklistItemList);
-  console.log("inActiveChecklistItemList: ", inActiveChecklistItemList);
+  //fetch data on load
+  useEffect(() => {
+    fetchData();
+  }, []);
+
+  //update status changes and refetch data
+  useEffect(() => {
+    if (Object.keys(updateItem).length > 0) {
+      axios
+        .post(`/api/checklist/item/status`, updateItem)
+        .then(res => {
+          fetchData();
+        });
+    }
+  }, [updateItem]);
+
+  //add new item and refetch data
+  useEffect(() => {
+    if (Object.keys(addItem).length > 0) {
+      //add new item
+      axios
+        .post(`/api/checklist/item/new`, addItem)
+        .then(res => {
+          fetchData();
+        });
+    }
+  }, [addItem]);
 
   useEffect(() => {
+    const timer = setTimeout(() => {
+      setShowAlert(false);
+    }, 5000);
+    return () => clearTimeout(timer);
+  }, [showAlert]);
+
+  const fetchData = () => {
     axios
       .get(`/api/checklist/item/${userId}`)
       .then(res => {
-        console.log("checklist items: ", res);
         setActiveChecklistItemList(res.data.checklistItems[0]);
         setInActiveChecklistItemList(res.data.checklistItems[1]);
       });
-  }, []);
+  };
 
-
+  const updateItemStatus = (itemId, status) => {
+    setUpdateItem({
+      isActive: !status,
+      itemId: itemId,
+      userId: userId
+    });
+  };
 
   const addChecklistItem = () => {
-    console.log("here to add new item");
+
+    let isAdd = true;
+    //check if existing item for this
+    activeChecklistItemList.map(item => {
+      if (item.checklist_item_description.toLowerCase() === itemDesc.toLowerCase()) {
+        setShowAlert(true);
+        isAdd = false;
+        setItemDesc("");
+      }
+    });
+    inActiveChecklistItemList.map(item => {
+      if (item.checklist_item_description.toLowerCase() === itemDesc.toLowerCase()) {
+        setUpdateItem({
+          isActive: !item.active,
+          itemId: item.id,
+          userId: userId
+        });
+        isAdd = false;
+        setItemDesc("");
+      }
+    });
+
+    if (isAdd) {
+      setAddItem({
+        isInitial: false,
+        checklistItemDesc: itemDesc,
+        userId: userId
+      });
+    }
   };
 
   const activeChecklistItems = activeChecklistItemList.map(item => {
     return (
-      <div className="item-container">
+      <div className="item-container" key={item.id}>
         {item.checklist_item_description}
         <Button
-          onClickHandler={addChecklistItem}
+          onClickHandler={() => updateItemStatus(item.id, item.active)}
         >
           <Icon
             isLocal={true} iconSize="small" imgUrl='images/icons/minus-2.png' />
@@ -48,19 +117,17 @@ function CustomizeChecklist(props) {
     );
   });
 
-
-
   const inActiveChecklistItems = inActiveChecklistItemList.map(item => {
     return (
-      <div className="item-container">
+      <div className="item-container" key={item.id}>
         {item.checklist_item_description}
         <Button
-          onClickHandler={addChecklistItem}
+          onClickHandler={() => updateItemStatus(item.id, item.active)}
         >
           <Icon
-            isLocal={true} iconSize="small" imgUrl='images/icons/plus-2.png' iconStyle="padding" />
+            isLocal={true} iconSize="small" imgUrl='images/icons/plus-2.png' />
         </Button>
-      </div>
+      </div >
     );
   });
 
@@ -68,28 +135,35 @@ function CustomizeChecklist(props) {
     <article className={CustomizeChecklist} >
       <header> my checklist</header>
       <div className="add-checklist">
-        <input type="text" placeholder="create peronsalized habit or activity..."></input>
+        <input
+          type="text"
+          value={itemDesc}
+          onChange={(event) => setItemDesc(event.target.value)}
+          placeholder="create peronsalized habit or activity..."></input>
         <Button
-          onClickHandler={addChecklistItem}
+          onClickHandler={() => addChecklistItem()}
         >
           <Icon
             isLocal={true} iconSize="medium" imgUrl='images/icons/plus-1.png' iconStyle="padding" /> </Button>
       </div>
-
-      <section className="checklist-item-list">
-        <article className="checklist-items">
+      {showAlert && (
+        <div className="alert alert-danger" role="alert">
+          item already exists in current checklist items!
+        </div>
+      )}
+      <section>
+        <article>
           <header>current checklist items</header>
-          <div className="item-list-container">
+          <div>
             {activeChecklistItems}
           </div>
         </article>
-        <article className="checklist-items">
+        <article>
           <header>inactive checklist items</header>
-          <div className="item-list-container">
+          <div>
             {inActiveChecklistItems}
           </div>
         </article>
-
       </section>
 
 
@@ -97,7 +171,7 @@ function CustomizeChecklist(props) {
         <Button
           onClickHandler={() => setIsCustomize(false)}
         >
-          <p>confirm</p>
+          <p>back</p>
         </Button>
       </footer>
     </article>

@@ -5,56 +5,58 @@ import axios from 'axios';
 import Icon from '../Common/Icon';
 import { format, addDays, isEqual } from 'date-fns';
 import { daySelectionContext } from './../../providers/DaySelectionProvider';
+import { appContext } from './../../providers/AppProvider';
 
 
 function CurrentWeather() {
 
   const currentWeatherClass = classNames("current-weather");
   const { daySelectionId, selectedDate } = useContext(daySelectionContext);
+  const { userCity } = useContext(appContext);
   const [todayWeather, setTodayWeather] = useState({});
 
-  //get these values from somwhere
-  const city = 'Calgary';
-
   useEffect(() => {
-    //make getCurrentWeather API call to backend and pass userID and date with it
+    if (userCity) {
+      console.log("here to fetch weather!", userCity);
+      //make getCurrentWeather API call to backend and pass userID and date with it
 
-    let needToFetchHistory = true;
+      let needToFetchHistory = true;
 
-    if (selectedDate) {
-      //if selected date is same as today date, don't fetch history data
-      const formattedSelectedDate = new Date(selectedDate).toISOString().slice(0, 10);
-      const todayDate = new Date().toISOString().slice(0, 10);
-      if (formattedSelectedDate == todayDate) {
-        needToFetchHistory = false;
-      }
-    }
-
-    const url = needToFetchHistory ? `/api/weather/${city.toLowerCase()}/${selectedDate}` : `api/weather/${city}`;
-    axios
-      .get(url)
-      .then(res => {
-        const { text, icon, date } = res.data.weather;
-        setTodayWeather({
-          icon,
-          text,
-          date: date ? date : format(new Date(), 'dd-MM-yyyy')
-        });
-
-        if (selectedDate) {
-          //insert today weather to daySelection table if it is not there yet
-          const body = {
-            weather_description: text,
-            weather_icon: icon
-          };
-          return axios.post(`/api/daySelection/update/${daySelectionId}`, body);
+      if (selectedDate) {
+        //if selected date is same as today date, don't fetch history data
+        const formattedSelectedDate = new Date(selectedDate).toISOString().slice(0, 10);
+        const todayDate = new Date().toISOString().slice(0, 10);
+        if (formattedSelectedDate == todayDate) {
+          needToFetchHistory = false;
         }
-      })
-      .then(result => {
-        // console.log("result: ", result);
-      })
-      .catch(err => console.error(err));
-  }, [daySelectionId]);
+      }
+
+      const url = needToFetchHistory ? `/api/weather/${userCity.toLowerCase()}/${selectedDate}` : `api/weather/${userCity}`;
+      axios
+        .get(url)
+        .then(res => {
+          const { text, icon, date } = res.data.weather;
+          setTodayWeather({
+            icon,
+            text,
+            date: date ? date : format(new Date(), 'dd-MM-yyyy')
+          });
+
+          if (selectedDate) {
+            //insert today weather to daySelection table if it is not there yet
+            const body = {
+              weather_description: text,
+              weather_icon: icon
+            };
+            return axios.post(`/api/daySelection/update/${daySelectionId}`, body);
+          }
+        })
+        .then(result => {
+          // console.log("result: ", result);
+        })
+        .catch(err => console.error(err));
+    }
+  }, [daySelectionId, userCity]);
 
   return (
     <div className={currentWeatherClass}>
@@ -82,7 +84,7 @@ function CurrentWeather() {
             iconSize='medium'
             iconStyle="padding"
           />
-          <p>{city} </p>
+          <p>{userCity} </p>
         </div>
       </div>
 

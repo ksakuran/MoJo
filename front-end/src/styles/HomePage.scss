@@ -1,12 +1,10 @@
-
-
 section.home-page {
   display: flex;
   align-items: center;
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  z-index: 900;
+  // z-index: 900;
   color: white;
   font-family: 'Syne', sans-serif;
   // padding-right: 2%;
@@ -18,7 +16,7 @@ section.home-page {
     margin: 2.2%;
     padding-top: 0.8%;
     font-size: 90%;
-    text-shadow: -1px 1px 4px rgba(0, 0, 0, 0.736); 
-  
+    text-shadow: -1px 1px 4px rgba(0, 0, 0, 0.736);
+
   }
 }

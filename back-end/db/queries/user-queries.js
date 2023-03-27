@@ -14,7 +14,7 @@ const getUserInfo = (userId) => {
     });
 };
 
-const updateUserInfo = (body) => {
+const updateUserInfo = (userId, body) => {
   return db.query(`
   UPDATE users 
   SET first_name = $1,
@@ -25,13 +25,13 @@ const updateUserInfo = (body) => {
   email = $6
   WHERE users.id = $7
   RETURNING *
-  ;`, [body.first_name, body.last_name, body.city, body.profile_image, body.password, body.email, body.id])
-  .then(data => {
-    return data.rows[0];
-  })
-  .catch(err => {
-    return console.error(err);
-  });
+  ;`, [body.first_name, body.last_name, body.city, body.profile_image, body.password, body.email, userId])
+    .then(data => {
+      return data.rows[0];
+    })
+    .catch(err => {
+      return console.error(err);
+    });
 };
 
 const registerUser = (body) => {
@@ -46,6 +46,6 @@ const registerUser = (body) => {
     .catch(err => {
       return console.error(err);
     });
-}
+};
 
 module.exports = { getUserInfo, updateUserInfo, registerUser };

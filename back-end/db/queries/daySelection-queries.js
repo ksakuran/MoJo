@@ -49,6 +49,23 @@ const getJournalDaySelectionByDay = (startDate, endDate, userId) => {
     });
 };
 
+const getChecklistSelectionByDay = (startDate, endDate, userId) => {
+  return db.query(`
+  SELECT checklist_selections.day_selection_id, day_selections.created_date
+  FROM day_selections  
+    JOIN checklist_selections ON day_selections.id = checklist_selections.day_selection_id
+  WHERE day_selections.created_date BETWEEN $1 AND $2 and day_selections.user_id = $3
+  GROUP BY checklist_selections.day_selection_id, day_selections.created_date
+  ORDER BY checklist_selections.day_selection_id;
+  `, [startDate, endDate, userId])
+    .then(data => {
+      return data.rows;
+    })
+    .catch(err => {
+      return console.error(err);
+    });
+};
+
 const addDaySelection = (body) => {
   const query = `
   INSERT INTO day_selections
@@ -91,6 +108,7 @@ module.exports = {
   getDaySelectionByDate,
   getMoodSelectionByDay,
   getJournalDaySelectionByDay,
+  getChecklistSelectionByDay,
   addDaySelection,
   updateDaySelection
 };

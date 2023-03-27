@@ -17,8 +17,9 @@
 li.current-mood-list {
   display: flex;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
-  margin-left: 6%;
+  margin-left: 13%;
   padding-right: 5%;
   font-weight: 400;
   list-style-type: none;
@@ -50,5 +51,6 @@ ul.current-mood-list {
   display: flex;
   flex-direction: row;
   justify-content: left;
+  row-gap: 9%;
 
 }

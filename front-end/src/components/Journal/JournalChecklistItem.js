@@ -11,8 +11,7 @@ function JournalChecklistItem(props) {
   return (
     <li className={checklistItemClass}>
       <input className={checkboxClass} type="checkbox" value="" id="checklistItemBox"/>
-      <label htmlFor="checklistItemBox">checklist item</label>
-      {/* {props.name} to go in label */}
+      <label htmlFor="checklistItemBox">{props.description}</label>
     </li>
   );
 }

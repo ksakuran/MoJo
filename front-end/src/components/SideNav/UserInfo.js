@@ -28,7 +28,7 @@ function UserInfo() {
       <div className={nameDisplayClass}>
         <h2>{firstName}</h2>
         <Button onClickHandler={toggleFormModal}>
-        <Icon className={editButtonClass} imgUrl="images/pencil.png" />
+        <Icon className={editButtonClass} imgUrl="images/pencil.png" iconSize={"medium"}/>
         </Button>
         <div className={modalContainerClass}>
           {formModal && (<UserInfoForm toggle={toggleFormModal}></UserInfoForm>)}

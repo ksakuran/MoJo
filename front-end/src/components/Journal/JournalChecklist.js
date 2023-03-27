@@ -14,48 +14,22 @@ function JournalCheckist(props) {
   const { userId } = useContext(appContext);
   const { daySelectionId } = useContext(daySelectionContext);
 
-  const [checklist, setChecklist] = useState("");
-  const [selectedItems, setSelectedItems] = useState("");
+  const [activeChecklist, setActiveChecklist] = useState([]);
+  const [inactiveChecklist, setInactiveChecklist] = useState([]);
+  const [selectedItems, setSelectedItems] = useState([]);
+      console.log('selectedItems', selectedItems);
   const [newItem, setNewItem] = useState(false);
 
   const updateListItems = () => {
     setNewItem(true);
   };
 
-  //get active and inactive list data, 
-  useEffect(() => {
-    axios
-      .get(`/api/item/${userId}`)
-      .then(res => {
-        console.log('res', res);
-        setChecklist(res.data);
-      })
-      .catch(err => {
-        console.log("error", err);
-      });
-  }, [newItem]);
-
-
-  // get selected list items 
-  useEffect(() => {
-    axios
-      .get(`/api/selection/${daySelectionId}`)
-      .then(results => {
-        console.log('results', results);
-        setSelectedItems(results.data); //[0] because [1] is the inactive ones
-      })
-      .catch(err => {
-        console.log("error", err);
-      });
-  }, [newItem]);
-
-
   // check off an item
   useEffect(() => {
     axios
-      .put(`/api/selection/new`, {
+      .post(`/api/checklist/selection/new`, {
         daySelectionId: daySelectionId,
-        checklistItemId: checklist.checklistItemId
+        checklistItemId: activeChecklist.checklistItemId
       })
       .then(response => {
         console.log("checklist item selected!", response);
@@ -65,13 +39,13 @@ function JournalCheckist(props) {
       });
   }, [newItem]);
 
-  
+
   // deselect a selected item
   useEffect(() => {
     axios
-      .post(`/selection/${checklist.checklistItemId}/delete`, {
+      .post(`/api/checklist/selection/${activeChecklist.checklistItemId}/delete`, {
         daySelectionId: daySelectionId,
-        checklistItemId: checklist.checklistItemId
+        checklistItemId: activeChecklist.checklistItemId
       })
       .then(response => {
         console.log("checklist item deselected", response);
@@ -82,24 +56,53 @@ function JournalCheckist(props) {
   }, [newItem]);
 
 
+  //get active and inactive list data, 
+  useEffect(() => {
+    axios
+      .get(`/api/checklist/item/${userId}`)
+      .then(res => {
+        console.log('CHECKLIST ITEMS:', res);
+        setActiveChecklist(res.data.checklistItems[0]);
+        setInactiveChecklist(res.data.checklistItems[1]);
+      })
+      .catch(err => {
+        console.log("error", err);
+      });
+  }, [newItem]);
+
+
+  // get selected list items 
+  useEffect(() => {
+    axios
+      .get(`/api/checklist/selection/${daySelectionId}`)
+      .then(results => {
+        console.log('results', results);
+        setSelectedItems(results.data); //[0] because [1] is the inactive ones
+      })
+      .catch(err => {
+        console.log("error", err);
+      });
+  }, [newItem]);
+
+
+
   // goes through checklist, returns true if item is selected, and false if not
   const determineIsSelected = () => {
-    return checklist.some(item => selectedItems.includes(item));
+    return activeChecklist.some(item => selectedItems.includes(item));
   };
 
 
-  // const checklistItems = checklist.map((item) => {
-  //     return <JournalChecklistItem
-  //
-  //       id={checklist.daySelectionId}
-  //       description={checklist.checklist_item_description}
-  //       user={checklist.user_id}
-  //       isSelected={() => determineIsSelected()}
-  //       isActive={checklist.active}
-  //       newItem={updateListItems}
-  //     />
-  //   }
-  // })
+  const checklistItems = activeChecklist.map((item) => {
+      return <JournalChecklistItem
+
+        id={item.id}
+        description={item.checklist_item_description}
+        user={item.user_id}
+        isSelected={() => determineIsSelected()}
+        isActive={true}
+        newItem={updateListItems}
+      />
+    })
 
 
   return (
@@ -107,10 +110,7 @@ function JournalCheckist(props) {
     <article className={checklistClass}>
       <h3>take note of what you did today</h3>
       <ul>
-        <JournalChecklistItem />
-        <JournalChecklistItem />
-        <JournalChecklistItem />
-        {/* {checklistItems} */}
+        {checklistItems}
       </ul>
     </article>
   );

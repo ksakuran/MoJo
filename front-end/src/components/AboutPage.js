@@ -30,7 +30,7 @@ const AboutPage = () => {
       <section id="about">
         <h3 class="about-page">about mojo</h3>
         <h5>our mission</h5>
-        <p>to create a  safe space for you to deepen your emotional awareness and connect to your thoughts, without the pressures of social media</p>
+        <p>to create a safe space for you to deepen your emotional awareness and connect to your thoughts, without the pressures of social media</p>
         <span id="change-desc">
           <button
             className={featureButton}
@@ -58,7 +58,7 @@ const AboutPage = () => {
               <p>Check in with yourself by selecting your daily moods, and keep track of how you are practicing self care.</p>
             </div>
             <div class="feature-desc">
-              <h3>journal</h3>
+              <h3>journaling</h3>
               <img src="images/journal.png"></img>
               <p>Build a daily journaling practice, or just come to this space whenever you need it. Get your thoughts out.</p>
             </div>
@@ -72,7 +72,13 @@ const AboutPage = () => {
               <img src="images/moodify.png"></img>
               <p>Listen to one of our recommended playlists based on your daily mood selection and connect with yourself.</p>
             </div>
+            <div class="feature-desc">
+              <h3>navigation calendar</h3>
+              <img src="images/calendar.png"></img>
+              <p>See an overview of your activity, mood selections, and navigate through past days entries.</p>
+            </div>
           </div>
+          
         )}
 
         {showTeam && (

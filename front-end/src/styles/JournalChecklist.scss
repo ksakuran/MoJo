@@ -8,7 +8,7 @@ section.checklist {
 }
 
 .checklist-container {
-  padding-top: 5%;
+  padding-top: 1%;
   padding-bottom: 6%;  
   width: 90%;
   background-color: rgba(255, 255, 255, 0.095);
@@ -17,7 +17,7 @@ section.checklist {
   border-width: 0.06rem;
   border-color: rgba(255, 255, 255, 0.508);
   margin-bottom: 6%;
-  max-height: 50.7vh;
+  height: 54.9vh;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -28,7 +28,7 @@ section.checklist {
 }
 
 h3 {
-  margin-top: 14%;
+  margin-top: 13%;
   display: flex;
   justify-content: center;
   font-size: 85%;

@@ -134,9 +134,11 @@ div.team-desc {
    h3 {
     margin: 5%;
     margin-bottom: 2%;
+    // font-family: 'Fraunces';
    }
 
   p {
+ 
     font-size: 85%;
     margin-left: 5%;
     
@@ -158,15 +160,17 @@ div.feature-desc {
 
   img {
     object-fit: cover;
-    width: 15.1vw;
-    height: 12.5vw;
+    width: 14vw;
+    height: 10vw;
     border-radius: 1.2rem;
     box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.273);
    }
 
-  //  p {
-  //   margin: 3.5%;
-  //  }
+   p {
+    font-size: 85%;
+    margin-left: 5%;
+    padding: 8%;
+   }
 }
 
 button#feature-button.on {

@@ -21,13 +21,14 @@ div.user-info {
     padding-right: 0;
     font-weight: 400;
     font-size: 85%;
+    margin-left: -5%;
   }
 
   #profile-image {
     object-fit: cover;
-    width: 4.3vw;
-    height: 4.3vw;
+    width: 3.9vw;
+    height: 3.9vw;
     border-radius: 50%;
-    padding: 1rem;
+    padding: 3%;
   }
 }

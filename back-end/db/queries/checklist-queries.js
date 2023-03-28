@@ -6,7 +6,8 @@ const getChecklistItemsByUserId = (userId, isActive) => {
   return db.query(`
   SELECT * 
   FROM user_checklist_items 
-  WHERE user_id = $1 and active = $2;
+  WHERE user_id = $1 and active = $2
+  ORDER BY updated_date_time desc;
 `, [userId, isActive])
     .then(data => {
       return data.rows;
@@ -71,7 +72,7 @@ const updateChecklistItemStatus = (body) => {
   const { isActive, itemId, userId } = body;
   const query = `
   UPDATE user_checklist_items
-  SET active = $1
+  SET active = $1, updated_date_time = NOW()
   WHERE id = $2 and user_id = $3
   RETURNING *;
   `;

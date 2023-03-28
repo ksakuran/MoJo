@@ -10,6 +10,7 @@ import SpotifyWebApi from "spotify-web-api-js";
 
 
 const moodifyClass = classNames("moodify");
+const moodifyContainer = classNames("moodify-container");
 const spotifyApi = new SpotifyWebApi();
 
 function Moodify(props) {
@@ -34,12 +35,26 @@ function Moodify(props) {
     setPlaylistUrl(selectPlaylistUrl(props.moods));
   }, [moodSelections]);
 
-  return (
-    <div className={moodifyClass}>
-      <iframe title="spotify-player" style={{ borderRadius: "1.2rem" }} src={playlistUrl} width="100%" height="152" frameBorder="0" allowFullScreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-      <h4 id="listen" >moodify: listen to something that matches today's mood</h4>
-    </div>
-  );
+  if (moodSelections.selectedMoods[0].name === "none"){
+    return (
+      <div className={moodifyClass}>
+        <div className={moodifyContainer}>
+          <h3>
+            select how you're feeling today to get a playlist that matches your mood
+          </h3>
+        </div>
+      </div>
+    );
+    }
+  
+    else {
+      return (
+        <div className={moodifyClass}>
+        <iframe title="spotify-player" style={{ borderRadius: "12px" }} src={playlistUrl} width="100%" height="152" frameBorder="0" allowFullScreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+        <h4 id="listen" >moodify: listen to something that matches today's mood</h4>
+      </div>
+      )
+    }
 };
 
 export default Moodify;

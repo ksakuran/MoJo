@@ -147,7 +147,7 @@ function JournalCheckist(props) {
   return (
 
     <article className={checklistClass}>
-      <h3>take note of what you did today</h3>
+      <h3>how did you take care of yourself today?</h3>
       <ul>
         {checklistItems}
       </ul>

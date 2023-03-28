@@ -35,9 +35,11 @@ function UserInfoForm(props) {
     event.preventDefault();
     updateUser(formFirstName, formLastName, formCity, formPicture); // POST request is made in AppProvider via updateUser function
     props.toggle();
-
     // saveAlert()
-    //   .then(props.toggle());
+
+    // setTimeout(() => {
+    //   props.toggle();
+    // }, 1000);
   };
 
 

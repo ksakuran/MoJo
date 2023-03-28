@@ -170,11 +170,15 @@ button.btn-disabled:hover  {
   border-style: solid;
   border-width: 0.06rem;
   border-color: rgba(255, 255, 255, 0.497);
-  padding-right: 1.5%;
-  width: 65%;
+  padding: 2%;
+  width: 45%;
   font-family: 'Syne', sans-serif;
-  font-size: 60%;
+  font-size: 70%;
   color: white;
+
+  img {
+    padding-right: 5%;
+  }
 }
 
 .btn#customize:hover {

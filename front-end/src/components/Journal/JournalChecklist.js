@@ -146,12 +146,14 @@ function JournalCheckist(props) {
 
   return (
 
-    <article className={checklistClass}>
-      <h3>how did you take care of yourself today?</h3>
-      <ul>
-        {checklistItems}
-      </ul>
-    </article>
+<section className='checklist'>
+        <h3>how did you take care of yourself today?</h3>
+      <article className={checklistClass}>
+        <ul>
+          {checklistItems}
+        </ul>
+      </article>
+      </section>
   );
 };
 

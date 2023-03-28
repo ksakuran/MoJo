@@ -39,8 +39,8 @@ function Moodify(props) {
     return (
       <div className={moodifyClass}>
         <div className={moodifyContainer}>
-          <h3>
-            select how you're feeling today to get a playlist that matches your mood
+          <h3 id='moody'>
+            select how you're feeling today <br></br>to get a playlist that matches your mood
           </h3>
         </div>
       </div>

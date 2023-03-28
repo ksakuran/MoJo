@@ -2,32 +2,38 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  padding: 1rem;
+  padding: 1%;
   width: 100%;
 }
 
 .add-checklist {
+  font-family: 'Syne', sans-serif;
   display: flex;
   justify-content: center;
-  padding: 1rem;
+  padding: 0;
   width: 100%;
+
+
+
+
+  input {
+    font-family: 'Syne', sans-serif;
+    background-color: rgba(255, 255, 255, 0.657);
+    border-radius: 1.8rem;
+    border-style: solid;
+    border-width: 0.06rem;
+    border-color: rgba(255, 255, 255, 0.508);
+    width: 50%;
+    padding: 1rem;
+    margin: 1rem;
+    margin-bottom: 0rem;
+  }
 }
 
-.add-checklist>input {
-  background-color: rgba(255, 255, 255, 0.657);
-  border-radius: 1rem;
-  border-style: solid;
-  border-width: 0.1rem;
-  border-color: rgba(255, 255, 255, 0.508);
-  width: 50%;
-  padding: 1rem;
-  margin: 1rem;
-  margin-bottom: 0rem;
-}
 
 .add-checklist>.btn {
-  width: 10%;
-  padding-right: 2rem;
+  width: 5%;
+  // padding-right: 2rem;
   padding-top: 1rem;
 }
 
@@ -41,21 +47,60 @@
 .customize-checklist>section {
   display: flex;
   justify-content: space-evenly;
+  align-items: center;
   padding: 1rem;
   width: 100%;
+
 }
 
 .customize-checklist>section>article {
-  background-color: rgba(86, 83, 80, 0.215);
+  background-color: rgba(255, 255, 255, 0.215);
+  border-style: solid;
+    border-width: 0.06rem;
+    border-color: rgba(255, 255, 255, 0.508);
   border-radius: 1.9rem;
   padding: 1rem;
   margin: 1rem;
   width: 35%;
+  height: 40vh;
+  font-size: 80%;
+  overflow: scroll;
+
+  header {
+    font-size: 110%;
+    padding-left: 2%;
+    margin-bottom: 4%;
+  }
 }
 
 .item-container {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0.5rem;
+  padding: 2.5%;
+  margin-left: 1%;
+
 }
+
+
+button#back-checklist {
+  margin-left: 200%;
+  background-color: rgba(255, 255, 255, 0.097);
+  border-radius: 1.9rem;
+  border-style: solid;
+  border-width: 0.06rem;
+  border-color: rgba(255, 255, 255, 0.497);
+  padding: 9%;
+  width: 200%;
+  font-family: 'Syne', sans-serif;
+  font-size: 90%;
+  color: white;
+}
+
+.btn#back-checklist:hover {
+  background-color: rgba(255, 255, 255, 0.866);
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.736);
+  color:black;
+  cursor: pointer;
+}
+

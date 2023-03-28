@@ -133,7 +133,7 @@ function CustomizeChecklist(props) {
 
   return (
     <article className={CustomizeChecklist} >
-      <header> my checklist</header>
+   
       <div className="add-checklist">
         <input
           type="text"
@@ -170,8 +170,9 @@ function CustomizeChecklist(props) {
       <footer>
         <Button
           onClickHandler={() => setIsCustomize(false)}
+          btnId='back-checklist'
         >
-          <p>back</p>
+          back
         </Button>
       </footer>
     </article>

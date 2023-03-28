@@ -4,7 +4,7 @@
   font-family: 'Syne', sans-serif;
   font-size: 16px;
   font-weight: 400;
-  background-color: rgba(255, 255, 255, 0.618);
+  background-color: rgba(255, 255, 255, 0.506);
   border-radius: 1.5rem;
   border-style: solid;
   border-width: 0.06rem;
@@ -50,7 +50,7 @@
 }
 
 .RichEditor-editor .public-DraftEditor-content {
-  height: 18vw;
+  height: 21vw;
 
 }
 
@@ -60,8 +60,8 @@
 
 .RichEditor-editor .RichEditor-blockquote {
   border-left: 5px solid #eee;
-  color: rgb(49, 49, 49);
-  font-family: 'Fraunces', serif;
+  color: rgb(0, 0, 0);
+  font-family: 'Syne', sans-serif;
   font-style: italic;
   margin: 16px 0;
   padding: 10px 20px;
@@ -76,7 +76,7 @@
 
 .RichEditor-controls {
   font-family: 'Syne', sans-serif;
-  font-size: 70%;
+  font-size: 75%;
   margin-bottom: 5px;
   user-select: none;
 }

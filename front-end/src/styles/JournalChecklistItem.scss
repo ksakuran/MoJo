@@ -2,25 +2,40 @@
   display: flex;
   flex-direction: row;
   justify-content: left;
-  font: inherit;
+  align-items: center;
+  font-size: 85%;
+  margin-bottom: 3.5%;
+  padding: 1%;
+
 }
+
+
 
 //When un-checked
 .checkbox {
   appearance: none;
-  height: 1.3rem;
-  width: 1.3rem;
-
-  border: 0.15em solid currentColor;
-  border-radius: 0.15em;
+  height: 1vw;
+  width: 1vw;
+  margin-right: 5%;
+  margin-left: -2%;
+  border: 0.06rem solid white;
+  border-radius: 50%;
   border-color: white;
-  margin: 0 1rem 1rem 0;
+  // margin: 0 1rem 1rem 0;
 
   background-color: transparent;
   //opacity: 0;
 }
 
+input:hover {
+  cursor: pointer;
+}
+
 //When checked
-input[type="checkbox"]:checked {
+// input[type="checkbox"]:checked {
+//   background-color: white;
+// }
+
+.selected {
   background-color: white;
 }

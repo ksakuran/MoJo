@@ -10,9 +10,8 @@ import { appContext } from '../../providers/AppProvider';
 
 function UserInfoForm(props) {
 
-  const userInfoClass = classNames("formModal", "overlay");
   const buttonContainerClass = classNames("btn-container");
-  const { updateUser, firstName, lastName, userCity, userPicture, setFirstName, setLastName, setUserCity, setUserPicture } = useContext(appContext);
+  const { updateUser, firstName, lastName, userCity, userPicture } = useContext(appContext);
 
   const [formFirstName, setFormFirstName] = useState(firstName);
   const [formLastName, setFormLastName] = useState(lastName);

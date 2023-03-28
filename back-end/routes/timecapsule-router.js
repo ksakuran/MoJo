@@ -1,20 +1,20 @@
 const express = require('express');
 const router = express.Router();
-const timeCapQueries = require('../db/queries/timecapsule-queries')
+const timeCapQueries = require('../db/queries/timecapsule-queries');
 
 router.get(`/:userId/:sendDate`, (req, res) => {
   //get the time capsule messages for a user and day
   const userId = req.params.userId;
   const sendDate = req.params.sendDate;
-  
 
-  console.log("userId:", userId)
-  console.log("sendDate:", sendDate)
+
+  // console.log("userId:", userId)
+  // console.log("sendDate:", sendDate)
 
   timeCapQueries
     .getTimeCapsule(userId, sendDate)
     .then((capsule) => {
-      console.log("capsule results:",capsule)
+      // console.log("capsule results:",capsule)
       return res.json({ capsule });
     })
     .catch((err) => {
@@ -31,17 +31,17 @@ router.post('/new', (req, res) => {
 
 
   timeCapQueries
-  .newTimeCapsule(userId, entry, date)
-  .then((capsule) => {
-    console.log("capsule results:",capsule)
-    return res.json({ capsule });
-  })
-  .catch((err) => {
-    res.status(418).json({ error: err.message });
-  });
-  
+    .newTimeCapsule(userId, entry, date)
+    .then((capsule) => {
+      // console.log("capsule results:",capsule)
+      return res.json({ capsule });
+    })
+    .catch((err) => {
+      res.status(418).json({ error: err.message });
+    });
 
-})
+
+});
 
 
 module.exports = router;

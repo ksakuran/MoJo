@@ -3,8 +3,6 @@ import "../styles/LandingPage.scss";
 
 import Button from './Common/Button';
 
-import Icon from './Common/Icon'
-
 const LandingPage = (props) => {
 
   const { loginUrl } = props;
@@ -30,7 +28,7 @@ const LandingPage = (props) => {
 
         <Button
           btnType="" btnId="get-started">
-          <img id='spotify' src='images/spotify.png'></img>
+          <img id='spotify' src='images/spotify.png' alt="spotify-logo" />
           <a href={loginUrl}>sign in with spotify</a>
         </Button>
 

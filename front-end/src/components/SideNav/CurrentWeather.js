@@ -25,7 +25,7 @@ function CurrentWeather() {
         //if selected date is same as today date, don't fetch history data
         const formattedSelectedDate = new Date(selectedDate).toISOString().slice(0, 10);
         const todayDate = new Date().toISOString().slice(0, 10);
-        if (formattedSelectedDate == todayDate) {
+        if (formattedSelectedDate === todayDate) {
           needToFetchHistory = false;
         }
       }
@@ -60,11 +60,7 @@ function CurrentWeather() {
   return (
     <div className={currentWeatherClass}>
       <div className='second-box'>
-        <img
-          src={todayWeather.icon}
-        // iconSize='large'
-
-        />
+        <img src={todayWeather.icon} alt="weather-icon" />
         <p>{todayWeather.text}</p>
       </div>
 

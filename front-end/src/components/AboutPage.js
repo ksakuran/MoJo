@@ -1,7 +1,6 @@
 import classNames from "classnames";
 import React, { useState } from "react";
 import "../styles/AboutPage.scss";
-import Button from "./Common/Button";
 
 const AboutPage = () => {
   const [showFeatures, setShowFeatures] = useState(true);
@@ -54,37 +53,37 @@ const AboutPage = () => {
           <div id="features">
             <div class="feature-desc">
               <h3>checking in</h3>
-              <img src="images/mood-selection.png"></img>
+              <img src="images/mood-selection.png" alt="feature"></img>
               <p>Check in with yourself by selecting your daily moods, and keep track of how you are practicing self care.</p>
             </div>
             <div class="feature-desc">
               <h3>journaling</h3>
-              <img src="images/journal.png"></img>
+              <img src="images/journal.png" alt="feature"></img>
               <p>Build a daily journaling practice, or just come to this space whenever you need it. Get your thoughts out.</p>
             </div>
             <div class="feature-desc">
               <h3>moodscape</h3>
-              <img src="images/moodscape.png"></img>
+              <img src="images/moodscape.png" alt="feature"></img>
               <p>View the data. See how often you are experiencing specific emotions to deepen your emotional awareness.</p>
             </div>
             <div class="feature-desc">
               <h3>moodify</h3>
-              <img src="images/moodify.png"></img>
+              <img src="images/moodify.png" alt="feature"></img>
               <p>Listen to one of our recommended playlists based on your daily mood selection and connect with yourself.</p>
             </div>
             <div class="feature-desc">
               <h3>navigation calendar</h3>
-              <img src="images/calendar.png"></img>
+              <img src="images/calendar.png" alt="feature"></img>
               <p>See an overview of your activity, mood selections, and navigate through past days entries.</p>
             </div>
           </div>
-          
+
         )}
 
         {showTeam && (
           <div id="team">
             <div class="team-desc">
-              <img src="images/kat-headshot.jpg"></img>
+              <img src="images/kat-headshot.jpg" alt="team-headshot"></img>
               <h3>Katherine Nishimura</h3>
               <p>
                 Katherine is a full-stack web developer based in Vancouver.
@@ -97,7 +96,7 @@ const AboutPage = () => {
               </p>
             </div>
             <div class="team-desc">
-              <img src="images/mo-headshot.jpg"></img>
+              <img src="images/mo-headshot.jpg" alt="team-headshot"></img>
               <h3>Khin Mo Mo Zin</h3>
               <p>
                 Mo Mo is a Calgary-based software engineer with prior experience
@@ -110,7 +109,7 @@ const AboutPage = () => {
               </p>
             </div>
             <div class="team-desc">
-              <img src="images/charlie-headshot.png"></img>
+              <img src="images/charlie-headshot.png" alt="team-headshot"></img>
               <h3>Charlie Chandler</h3>
               <p>
                 Originally from the UK, Charlie is a full-stack developer based

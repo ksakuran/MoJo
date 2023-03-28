@@ -11,7 +11,6 @@ import { ToastContainer } from 'react-toastify';
 function UserInfo() {
 
   const nameDisplayClass = classNames("name-edit");
-  const editButtonClass = classNames("edit-btn");
   const modalContainerClass = classNames("modal-container");
 
   const { firstName, lastName, userPicture } = useContext(appContext);

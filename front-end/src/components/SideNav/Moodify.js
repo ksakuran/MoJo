@@ -25,17 +25,17 @@ function Moodify(props) {
       spotifyApi.setAccessToken(spotifyToken);
       spotifyApi.getMe()
         .then((user) => {
-          console.log('user', user);
+          // console.log('user', user);
         });
     };
   }, []);
-  
+
   //set playlist state
   useEffect(() => {
     setPlaylistUrl(selectPlaylistUrl(props.moods));
   }, [moodSelections]);
 
-  if (moodSelections.selectedMoods[0].name === "none"){
+  if (moodSelections.selectedMoods[0].name === "none") {
     return (
       <div className={moodifyClass}>
         <div className={moodifyContainer}>
@@ -45,16 +45,16 @@ function Moodify(props) {
         </div>
       </div>
     );
-    }
-  
-    else {
-      return (
-        <div className={moodifyClass}>
+  }
+
+  else {
+    return (
+      <div className={moodifyClass}>
         <iframe title="spotify-player" style={{ borderRadius: "12px" }} src={playlistUrl} width="100%" height="152" frameBorder="0" allowFullScreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
         <h3 id="listen" >moodify: listen to something that matches today's mood</h3>
       </div>
-      )
-    }
+    );
+  }
 };
 
 export default Moodify;

@@ -29,7 +29,7 @@ function CustomizeChecklist(props) {
     if (Object.keys(updateItem).length > 0) {
       axios
         .post(`/api/checklist/item/status`, updateItem)
-        .then(res => {
+        .then(() => {
           fetchData();
         });
     }
@@ -41,7 +41,7 @@ function CustomizeChecklist(props) {
       //add new item
       axios
         .post(`/api/checklist/item/new`, addItem)
-        .then(res => {
+        .then(() => {
           fetchData();
         });
     }
@@ -75,13 +75,13 @@ function CustomizeChecklist(props) {
 
     let isAdd = true;
     //check if existing item for this
-    activeChecklistItemList.map(item => {
+    activeChecklistItemList.forEach(item => {
       if (item.checklist_item_description.toLowerCase() === itemDesc.toLowerCase()) {
         setShowAlert(true);
         isAdd = false;
       }
     });
-    inActiveChecklistItemList.map(item => {
+    inActiveChecklistItemList.forEach(item => {
       if (item.checklist_item_description.toLowerCase() === itemDesc.toLowerCase()) {
         setUpdateItem({
           isActive: !item.active,
@@ -133,7 +133,7 @@ function CustomizeChecklist(props) {
 
   return (
     <article className={CustomizeChecklist} >
-   
+
       <div className="add-checklist">
         <input
           type="text"

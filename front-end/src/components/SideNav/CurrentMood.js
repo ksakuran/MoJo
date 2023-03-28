@@ -3,7 +3,6 @@ import classNames from "classnames";
 import "./../../styles/CurrentMood.scss";
 
 import Icon from '../Common/Icon';
-import { appContext } from '../../providers/AppProvider';
 import { moodSelectionContext } from '../../providers/MoodSelectionProvider';
 
 function CurrentMood(props) {

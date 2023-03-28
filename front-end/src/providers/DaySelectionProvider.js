@@ -1,5 +1,4 @@
-import React, { createContext, useState, useContext } from 'react';
-import { appContext } from './AppProvider';
+import React, { createContext, useState } from 'react';
 
 export const daySelectionContext = createContext();
 

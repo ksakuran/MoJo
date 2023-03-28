@@ -1,12 +1,10 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import classNames from "classnames";
 import "../../styles/Icon.scss";
 
 function Icon(props) {
   const { imgUrl, iconSize, children, iconStyle, onMouseEnter, onMouseLeave } = props;
 
-  // console.log("imgUrl: ", imgUrl);
-  // const [imageUrl, setImageUrl] = useState(imgUrl);
   const iconClass = classNames("icon", {
     'icon-small': iconSize === 'small',
     'icon-medium': iconSize === 'medium',

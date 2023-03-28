@@ -27,7 +27,7 @@ function JournalPage() {
               btnId="customize"
             >
               <Icon iconSize="small" imgUrl='images/icons/customize_checklist.png' iconStyle="padding" />
-              customize checklist
+              customize self care list
             </Button>
           </section>
         </>

@@ -30,15 +30,22 @@ div.fc-daygrid-day-top {
 }
 
 .alert {
-  width: 31%;
+  width: 35%;
   border-radius: 0.5rem;
-  padding: 0.5rem;
-  margin-bottom: 0.5rem;
+  padding: 1%;
+  z-index: 500;
+  position: fixed;
+  text-align: center;
+  margin-top: -1.95%;
+  font-size: 90%;
+
 }
 
 .alert-danger {
-  background-color: rgba(213, 11, 11, 0.314);
+  background-color: rgb(72, 122, 187);
+  box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.682);
   color: white;
+  text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.736);
 }
 
 .fc .fc-toolbar.fc-header-toolbar {

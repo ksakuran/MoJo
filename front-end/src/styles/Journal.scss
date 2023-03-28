@@ -6,3 +6,33 @@
   margin-top: -2%;
   // align-items: right;
 }
+
+
+#show-prompt {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+#hide-prompt {
+  margin-bottom: 4%;
+  margin-left: 1.7%;
+  margin-right: 1%;
+  background-color: rgba(255, 255, 255, 0.097);
+  border-radius: 1.9rem;
+  border-style: solid;
+  border-width: 0.06rem;
+  border-color: rgba(255, 255, 255, 0.497);
+  padding: 1.4%;
+  width: 20%;
+  font-family: 'Syne', sans-serif;
+  font-size: 80%;
+  color: white;
+}
+
+.btn#hide-prompt:hover {
+  background-color: rgba(255, 255, 255, 0.866);
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.736);
+  color:black;
+  cursor: pointer;
+}

@@ -30,7 +30,7 @@ function CurrentMood(props) {
 
   return (
     <div className={moodContainerClass}>
-      <h3 className={moodListClass}>current mood</h3>
+      <h3 className={moodListClass}>selected mood</h3>
       <ul className={moodListClass}>
         {moodList}
       </ul>

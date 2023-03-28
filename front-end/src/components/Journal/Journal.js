@@ -23,6 +23,7 @@ function Journal() {
   const [saveJournalEntry, setSaveJournalEntry] = useState(false);
   const [initialValue, setInitialValue] = useState("");
 
+
   const { setViewMode } = useContext(appContext);
   const { daySelectionId } = useContext(daySelectionContext);
 
@@ -61,13 +62,22 @@ function Journal() {
       });
   }, [initialValue]);
 
+  
+
+
   return (
     <article className={journalClass}>
       <header className={promptButtonClass}>
+        <div id="show-prompt">
         <Button btnId="prompt"
           onClickHandler={togglePrompt}>
           give me a prompt
         </Button>
+        { showPrompt &&(<Button btnId="hide-prompt"
+          onClickHandler={() => setShowPrompt(false)}>
+          hide
+        </Button>)}
+        </div>
             {showPrompt && (<JournalPrompt prompt={prompt} />)}
       </header>
       <br />

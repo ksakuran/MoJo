@@ -37,11 +37,16 @@
   padding-top: 1rem;
 }
 
-.alert {
+#item-alert.alert {
   width: 40%;
   border-radius: 0.5rem;
-  padding: 1rem;
-  margin-left: 1rem;
+  position: fixed;
+  margin-left: 11%;
+  padding: .5%;
+  padding-left: 1%;
+  margin-top: -2%;
+  z-index: 500;
+  
 }
 
 .customize-checklist>section {

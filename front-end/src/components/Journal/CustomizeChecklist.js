@@ -147,19 +147,19 @@ function CustomizeChecklist(props) {
             isLocal={true} iconSize="medium" imgUrl='images/icons/plus-1.png' iconStyle="padding" /> </Button>
       </div>
       {showAlert && (
-        <div className="alert alert-danger" role="alert">
-          item already exists in current checklist items!
+        <div id='item-alert' className="alert alert-danger" role="alert">
+          item already exists in current self care items!
         </div>
       )}
       <section>
         <article>
-          <header>current checklist items</header>
+          <header>current self care items</header>
           <div>
             {activeChecklistItems}
           </div>
         </article>
         <article>
-          <header>inactive checklist items</header>
+          <header>inactive self care items</header>
           <div>
             {inActiveChecklistItems}
           </div>

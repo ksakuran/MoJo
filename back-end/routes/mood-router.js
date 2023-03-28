@@ -9,7 +9,6 @@ router.get(`/`, (req, res) => {
   moodQueries
     .getAllMoods()
     .then((moods) => {
-      // console.log("moods:", moods);
       return res.json({ moods });
     })
     .catch((err) => {
@@ -27,7 +26,6 @@ router.get("/:dayId", (req, res) => {
   moodQueries
     .getMoodSelectionByDayId(dayId)
     .then((selectedMoods) => {
-      // console.log("selectedMoods:", selectedMoods);
       return res.json({ selectedMoods });
     })
     .catch((err) => {
@@ -35,6 +33,21 @@ router.get("/:dayId", (req, res) => {
     });
 });
 
+router.get("/today/:todayDate", (req, res) => {
+  const todayDate = req.params.todayDate;
+
+  // returns an array of selectedMood objects with name, mood_id,
+  // created_date and rating in order of created date DESC (most recent first)
+
+  moodQueries
+    .getMoodSelectionForToday(todayDate)
+    .then((selectedMoods) => {
+      return res.json({ selectedMoods });
+    })
+    .catch((err) => {
+      res.status(418).json({ error: err.message });
+    });
+});
 
 
 router.post("/selection/delete", (req, res) => {
@@ -44,12 +57,7 @@ router.post("/selection/delete", (req, res) => {
   moodQueries
     .getMoodSelectionId(moodId, dayId)
     .then((idToDelete) => {
-      // if(idToDelete) {
-      console.log("idToDelete:", idToDelete);
       return moodQueries.deleteMoodSelectionById(idToDelete);
-      // } else  {
-      //   return null
-      // }
     })
     .then((deletedSelection) => {
       return res.json({ deletedSelection });
@@ -57,8 +65,6 @@ router.post("/selection/delete", (req, res) => {
     .catch((err) => {
       res.status(418).json({ error: err.message });
     });
-
-  // moodQueries.deleteMoodSelectionById()
 });
 
 
@@ -83,20 +89,17 @@ router.post("/selection", (req, res) => {
       moodToDelete = id;
 
       if (count >= 3) {
-        // console.log("deleted old mood and inserted new mood");
         return moodQueries
           .deleteMoodSelectionById(moodToDelete)
           .then((result) => {
             return moodQueries.insertMoodSelection(newMoodId, dayId);
           });
       } else {
-        // console.log("inserted new mood");
         return moodQueries.insertMoodSelection(newMoodId, dayId);
       }
     })
     .then((result) => {
       //should be whichever mood selection was inserted
-      // console.log("result:", result);
       return res.json({ result });
     })
     .catch((err) => {

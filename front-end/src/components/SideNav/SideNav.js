@@ -19,13 +19,13 @@ function SideNav() {
   const sideNavClass = classNames("side-nav");
   //const { daySelectionId } = useContext(appContext);
   const { moodSelections } = useContext(moodSelectionContext);
-  
-  let moods = [];
-  console.log('moodSelectionsState', moodSelections)
-  console.log('mood names array', moods)
 
-  for (let moodSelection of moodSelections.selectedMoods){
-    moods.push(moodSelection.name)
+  let moods = [];
+  // console.log('moodSelectionsState', moodSelections)
+  // console.log('mood names array', moods)
+
+  for (let moodSelection of moodSelections.selectedMoods) {
+    moods.push(moodSelection.name);
   }
 
   return (
@@ -33,8 +33,8 @@ function SideNav() {
       <UserInfo />
       <CurrentWeather />
       <ChangeDate />
-      <CurrentMood moods={moods}/>
-      <Moodify moods={moods}/>
+      <CurrentMood moods={moods} />
+      <Moodify moods={moods} />
     </section>
   );
 };

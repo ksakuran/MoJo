@@ -28,13 +28,14 @@ router.post(`/new`, (req, res) => {
         .status(500)
         .json({ error: err.message });
     });
-  });
+});
 
 
 // Updates user's information
 router.post(`/:userId`, (req, res) => {
-  const body = req.body
-  userQueries.updateUserInfo(body)
+  const userId = req.params.userId;
+  const body = req.body;
+  userQueries.updateUserInfo(userId, body)
     .then(results => {
       return res.json(results);
     })
@@ -43,6 +44,6 @@ router.post(`/:userId`, (req, res) => {
         .status(500)
         .json({ error: err.message });
     });
-  });
+});
 
 module.exports = router;

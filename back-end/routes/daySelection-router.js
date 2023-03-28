@@ -30,8 +30,9 @@ router.get(`/calendar/:month/:year/:userId`, (req, res) => {
 
   const moodPromise = daySelectionQueries.getMoodSelectionByDay(startDate, endDate, userId);
   const journalPromise = daySelectionQueries.getJournalDaySelectionByDay(startDate, endDate, userId);
+  const checklistPromise = daySelectionQueries.getChecklistSelectionByDay(startDate, endDate, userId);
 
-  Promise.all([moodPromise, journalPromise])
+  Promise.all([moodPromise, journalPromise, checklistPromise])
     .then(calendarData => {
       res.json({ calendarData });
     })

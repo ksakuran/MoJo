@@ -5,5 +5,6 @@ CREATE TABLE user_checklist_items (
   id SERIAL PRIMARY KEY NOT NULL,
   checklist_item_description VARCHAR(255) NOT NULL,
   active BOOLEAN DEFAULT true,
-  user_id INTEGER REFERENCES users(id) ON DELETE CASCADE
+  user_id INTEGER REFERENCES users(id) ON DELETE CASCADE,  
+  updated_date_time TIMESTAMP DEFAULT NOW()
 )

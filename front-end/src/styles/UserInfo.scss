@@ -22,4 +22,12 @@ div.user-info {
     font-weight: 400;
     font-size: 85%;
   }
+
+  #profile-image {
+    object-fit: cover;
+    width: 3.5vw;
+    height: 3.5vw;
+    border-radius: 50%;
+    padding: 1rem;
+  }
 }

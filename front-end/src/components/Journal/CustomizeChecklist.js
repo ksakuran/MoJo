@@ -79,7 +79,6 @@ function CustomizeChecklist(props) {
       if (item.checklist_item_description.toLowerCase() === itemDesc.toLowerCase()) {
         setShowAlert(true);
         isAdd = false;
-        setItemDesc("");
       }
     });
     inActiveChecklistItemList.map(item => {
@@ -100,6 +99,7 @@ function CustomizeChecklist(props) {
         checklistItemDesc: itemDesc,
         userId: userId
       });
+      setItemDesc("");
     }
   };
 

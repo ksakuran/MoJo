@@ -38,13 +38,17 @@ function DaySelectionCalendar() {
         const { calendarData } = res.data;
         const moodList = calendarData[0];
         const journalList = calendarData[1];
+        const checklistSelectionList = calendarData[2];
         setCalendarEvents([]);
-        console.log("calendarData: ", calendarData);
         journalList.forEach(journal => {
           if (journal.journal_id) {
             const event = { title: '2.journal', date: format(new Date(journal.day_selection_created_date), 'yyyy-MM-dd') };
             setCalendarEvents(prev => [...prev, event]);
           }
+        });
+        checklistSelectionList.forEach(item => {
+          const event = { title: '3.checklist', date: format(new Date(item.created_date), 'yyyy-MM-dd') };
+          setCalendarEvents(prev => [...prev, event]);
         });
         moodList.forEach(mood => {
           const event = { title: mood.name, date: format(new Date(mood.day_selection_created_date), 'yyyy-MM-dd') };
@@ -88,13 +92,13 @@ function DaySelectionCalendar() {
   }, [selectedDate]);
 
   const onImgHover = (name) => {
-    if (name !== '2.journal' && name !== '1.checklist') {
+    if (name !== '2.journal' && name !== '3.checklist') {
       setShowHover(name);
       document.addEventListener("mouseover", function(e) {
         const hovreDiv = document.getElementById("img-hover");
         if (hovreDiv) {
-          hovreDiv.style.top = e.clientY + "px";
-          hovreDiv.style.left = e.clientX + "px";
+          hovreDiv.style.top = e.clientY + 10 + "px";
+          hovreDiv.style.left = e.clientX + 10 + "px";
         }
       });
     }

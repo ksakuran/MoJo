@@ -6,6 +6,7 @@ import classNames from "classnames";
 import DateSelectionForm from "./DateSelectionForm";
 import Button from "../Common/Button";
 import DoughnutChart from "./DoughnutChart";
+import { Chart } from "chart.js/auto";
 import getCurrentDate from "../../helpers/moodscape_date";
 import { summaryContext } from "../../providers/SummaryProvider";
 import { getDonutChartData } from "../../helpers/mood_summary";

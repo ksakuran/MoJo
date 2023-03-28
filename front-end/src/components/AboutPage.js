@@ -30,7 +30,7 @@ const AboutPage = () => {
       <section id="about">
         <h3 class="about-page">about mojo</h3>
         <h5>our mission</h5>
-        <p>to create a safe space for you to deepen your emotional awareness and connect to your thoughts, without the pressures of social media</p>
+        <p>to create a safe space for you to check-in with your mind and build emotional awareness, free from the pressure of strict routine or expectation</p>
         <span id="change-desc">
           <button
             className={featureButton}

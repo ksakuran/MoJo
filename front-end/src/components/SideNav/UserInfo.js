@@ -10,7 +10,6 @@ import { appContext } from '../../providers/AppProvider';
 function UserInfo() {
 
   const nameDisplayClass = classNames("name-edit");
-  const editButtonClass = classNames("edit-btn");
   const modalContainerClass = classNames("modal-container");
 
   const { firstName, lastName, userPicture } = useContext(appContext);

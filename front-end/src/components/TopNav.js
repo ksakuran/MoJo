@@ -3,7 +3,6 @@ import classNames from "classnames";
 import "../styles/TopNav.scss";
 import Button from './Common/Button';
 import { appContext } from '../providers/AppProvider';
-import Icon from './Common/Icon';
 
 function TopNav() {
 
@@ -33,10 +32,10 @@ function TopNav() {
         {userId && (<li><Button disabled={!isDaySelected || viewMode === 'HOME'} btnType="nav" onClickHandler={() => handleSetView('HOME')}>home</Button></li>)}
         {userId && (<li><Button disabled={!isDaySelected || viewMode === 'JOURNAL'} btnType="nav" onClickHandler={() => handleSetView('JOURNAL')}>journal</Button></li>)}
         {userId && (<li><Button disabled={!isDaySelected || viewMode === 'MOODSCAPE'} btnType="nav" onClickHandler={() => handleSetView('MOODSCAPE')}>moodscape</Button></li>)}
-        {!isDaySelected && !userId && ((<li><Button disabled={viewMode !== 'ABOUT' } btnType="nav" onClickHandler={() => setViewMode('LANDING')} >welcome</Button></li>))}
-        {!isDaySelected && !userId && ((<li><Button disabled={viewMode === 'ABOUT' } btnType="nav" onClickHandler={() => setViewMode('ABOUT')} >about</Button></li>))}
+        {!isDaySelected && !userId && ((<li><Button disabled={viewMode !== 'ABOUT'} btnType="nav" onClickHandler={() => setViewMode('LANDING')} >welcome</Button></li>))}
+        {!isDaySelected && !userId && ((<li><Button disabled={viewMode === 'ABOUT'} btnType="nav" onClickHandler={() => setViewMode('ABOUT')} >about</Button></li>))}
         {userId && ((<li><Button btnType="nav" onClickHandler={handleLogOut}>logout</Button></li>))}
-        <li><Button btnType="nav" onClickHandler={() => setDarkMode(!darkMode)}><img id='day-night' src="images/day-and-night.png"/></Button></li>
+        <li><Button btnType="nav" onClickHandler={() => setDarkMode(!darkMode)}><img id='day-night' alt='night-mode' src="images/day-and-night.png" /></Button></li>
       </ul>
     </nav >
   );

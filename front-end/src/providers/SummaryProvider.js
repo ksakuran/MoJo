@@ -9,7 +9,7 @@ export default function SummaryProvider(props) {
   const [updateDates, setUpdateDates] = useState(false);
 
   const submitDates = (start, end) => {
-    console.log("BUBBLE TEA");
+    // console.log("BUBBLE TEA");
     setSelectedStartDate(start);
     setSelectedEndDate(end);
     setUpdateDates(!updateDates);
@@ -26,7 +26,7 @@ export default function SummaryProvider(props) {
   };
 
 
-  
+
 
 
   return (

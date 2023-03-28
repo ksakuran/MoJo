@@ -48,7 +48,7 @@ export default function AppProvider(props) {
 
   useEffect(() => {
     if (needUpdate) {
-      console.log("here to update user!");
+      // console.log("here to update user!");
       let updateInfo = {
         first_name: firstName,
         last_name: lastName,
@@ -66,7 +66,7 @@ export default function AppProvider(props) {
           data: JSON.stringify(updateInfo)
         })
         .then(response => {
-          console.log("update user axios response:", response);
+          // console.log("update user axios response:", response);
           setNeedUpdate(false);
         })
         .catch(err => {

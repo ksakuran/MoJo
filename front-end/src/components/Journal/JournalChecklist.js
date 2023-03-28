@@ -15,7 +15,7 @@ function JournalCheckist(props) {
   const { daySelectionId, selectedDate } = useContext(daySelectionContext);
 
   const [activeChecklist, setActiveChecklist] = useState([]);
-  const [inactiveChecklist, setInactiveChecklist] = useState([]);
+  // const [inactiveChecklist, setInactiveChecklist] = useState([]);
   const [selectedItems, setSelectedItems] = useState([]);
   const [currentItem, setCurrentItemState] = useState({});
   const [newItem, setNewItem] = useState(false);
@@ -29,62 +29,62 @@ function JournalCheckist(props) {
 
   //find the index of checklist item that was clicked
   const findIndexById = (activeChecklist, itemId) => {
-    return activeChecklist.findIndex((item) => item.id === itemId)
-  }
+    return activeChecklist.findIndex((item) => item.id === itemId);
+  };
 
 
   const handleSelectItem = function(itemId) {
     //set current item
     let index = findIndexById(activeChecklist, itemId);
-    setCurrentItemState(activeChecklist[index].id)
+    setCurrentItemState(activeChecklist[index].id);
 
     //checks if item is in the selectedItems state
     const hasItemId = selectedItems.filter(selection => selection.user_checklist_item_id === itemId);
     hasItemId.length ? setRemovedSelection(true) : setNewSelection(true);
   };
 
-  
-    // if unselected, check off the item
-    useEffect(() => {
-      if (newSelection){
-        const body = {
+
+  // if unselected, check off the item
+  useEffect(() => {
+    if (newSelection) {
+      const body = {
+        daySelectionId: daySelectionId,
+        checklistItemId: currentItem,
+        createdDate: selectedDate,
+      };
+      axios
+        .post(`/api/checklist/selection/new`, body)
+        .then(response => {
+          setNewItem(true);
+          setNewSelection(false);
+          fetchSelections();
+        })
+        .catch(err => {
+          console.log("error", err);
+        });
+    };
+  }, [newSelection]);
+
+
+
+  // if selected, deselect the item
+  useEffect(() => {
+    if (removedSelection) {
+      axios
+        .post(`/api/checklist/selection/${currentItem}/delete`, {
           daySelectionId: daySelectionId,
-          checklistItemId: currentItem,
-          createdDate: selectedDate,
-        };
-        axios
-          .post(`/api/checklist/selection/new`, body ) 
-          .then(response => {
-            setNewItem(true);
-            setNewSelection(false);
-            fetchSelections();
-          })
-          .catch(err => {
-            console.log("error", err);
-          });
-        };
-    }, [newSelection]);
-  
-
-
-    // if selected, deselect the item
-    useEffect(() => {
-      if (removedSelection){
-        axios
-          .post(`/api/checklist/selection/${currentItem}/delete`, {
-            daySelectionId: daySelectionId,
-            checklistItemId: currentItem
-          })
-          .then(response => {
-            setNewItem(true);
-            setRemovedSelection(false);
-            fetchSelections();
-          })
-          .catch(err => {
-            console.log("error", err);
-          });
-        };
-    }, [removedSelection]);
+          checklistItemId: currentItem
+        })
+        .then(response => {
+          setNewItem(true);
+          setRemovedSelection(false);
+          fetchSelections();
+        })
+        .catch(err => {
+          console.log("error", err);
+        });
+    };
+  }, [removedSelection]);
 
 
 
@@ -94,7 +94,7 @@ function JournalCheckist(props) {
       .get(`/api/checklist/item/${userId}`)
       .then(res => {
         setActiveChecklist(res.data.checklistItems[0]);
-        setInactiveChecklist(res.data.checklistItems[1]);
+        // setInactiveChecklist(res.data.checklistItems[1]);
       })
       .catch(err => {
         console.log("error", err);
@@ -109,21 +109,21 @@ function JournalCheckist(props) {
 
   const fetchSelections = () => {
     axios
-    .get(`/api/checklist/selection/${daySelectionId}`)
-    .then(results => {
-      setSelectedItems(results.data.checklistSelections);
-    })
-    .catch(err => {
-      console.log("error", err);
-    });
-}
+      .get(`/api/checklist/selection/${daySelectionId}`)
+      .then(results => {
+        setSelectedItems(results.data.checklistSelections);
+      })
+      .catch(err => {
+        console.log("error", err);
+      });
+  };
 
   // goes through selectedItems, returns true if item is present, and false if not
   const determineIsSelected = (itemId) => {
     let result = false;
-    for (let item of selectedItems){
-      if (item.user_checklist_item_id === itemId){
-        result = true
+    for (let item of selectedItems) {
+      if (item.user_checklist_item_id === itemId) {
+        result = true;
       }
     }
     return result;

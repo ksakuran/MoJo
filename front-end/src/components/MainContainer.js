@@ -1,7 +1,6 @@
 import React, { useContext } from "react";
 import SideNav from "./SideNav/SideNav";
 import DaySelectionCalendar from "./DaySelectionCalendar";
-import AboutPage from "./AboutPage";
 import HomePage from "./Home/HomePage";
 import JournalPage from "./Journal/JournalPage";
 import Moodscape from "./Moodscape/Moodscape";

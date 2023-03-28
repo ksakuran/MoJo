@@ -19,8 +19,8 @@ const DateSelectionForm = (props) => {
     const s = event.target[0].value;
     const e = event.target[1].value;
 
-    console.log('start date from on submit', s);
-    console.log('end date from on submit', e);
+    // console.log('start date from on submit', s);
+    // console.log('end date from on submit', e);
 
     submitDates(s, e);
   };

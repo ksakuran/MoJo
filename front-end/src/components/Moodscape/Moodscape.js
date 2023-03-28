@@ -5,7 +5,6 @@ import "../../styles/Moodscape.scss";
 import classNames from "classnames";
 import DateSelectionForm from "./DateSelectionForm";
 import Button from "../Common/Button";
-import { Chart } from "chart.js/auto";
 import DoughnutChart from "./DoughnutChart";
 import getCurrentDate from "../../helpers/moodscape_date";
 import { summaryContext } from "../../providers/SummaryProvider";
@@ -74,7 +73,7 @@ const Moodscape = (props) => {
     ],
   };
 
-  const { userId, setViewMode } = useContext(appContext);
+  const { userId } = useContext(appContext);
   const { updateDates, selectedStartDate, selectedEndDate } =
     useContext(summaryContext);
 
@@ -88,7 +87,7 @@ const Moodscape = (props) => {
   useEffect(() => {
     let startDate = selectedStartDate ? selectedStartDate : currentDate;
     let endDate = selectedEndDate ? selectedEndDate : currentDate;
-    console.log("COFFEE CUP");
+    // console.log("COFFEE CUP");
     axios
       .get(`/api/moodscape/summary/${startDate}/${endDate}/${userId}`)
       .then((results) => {

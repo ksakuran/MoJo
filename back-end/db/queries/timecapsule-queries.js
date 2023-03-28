@@ -9,7 +9,7 @@ const getTimeCapsule = (userId, sendDate) => {
     AND send_date = $2
     LIMIT 1;
   `,
-    [userId, sendDate])
+      [userId, sendDate])
     .then((data) => {
       return data.rows[0];
     })
@@ -21,19 +21,19 @@ const getTimeCapsule = (userId, sendDate) => {
 const newTimeCapsule = (userId, body, sendDate) => {
 
   return db
-  .query(
-    ` INSERT INTO time_capsules (user_id, body, send_date)
+    .query(
+      ` INSERT INTO time_capsules (user_id, body, send_date)
     VALUES ($1, $2, $3)
     RETURNING *
     ;`, [userId, body, sendDate]
-  ).then((data) => {
-    console.log(data.rows[0])
-    return data.rows[0];
-  })
-  .catch((err) => {
-    return console.error(err);
-  });
-}
+    ).then((data) => {
+      // console.log(data.rows[0])
+      return data.rows[0];
+    })
+    .catch((err) => {
+      return console.error(err);
+    });
+};
 
 
 

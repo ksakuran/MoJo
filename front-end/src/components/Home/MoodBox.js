@@ -23,8 +23,8 @@ const MoodBox = (props) => {
 
   //on click handler for the mood box items
   const onSelect = (id, selected, name) => {
-    console.log(`clicked mood ${id} selected = ${selected} ${name}`);
-    console.log("moods selections length", moodSelections.length);
+    // console.log(`clicked mood ${id} selected = ${selected} ${name}`);
+    // console.log("moods selections length", moodSelections.length);
     if (selected === true) {
       setRemoveMoodId(id);
       setRemoveSelecion(!removeSelection);
@@ -48,7 +48,7 @@ const MoodBox = (props) => {
         const all = results[0].data;
         const selected = results[1].data;
 
-        console.log("mood selection BUBBLETEA",results[1].data)
+        // console.log("mood selection BUBBLETEA", results[1].data);
         if (selected.selectedMoods.length === 0 || !selected.selectedMoods) {
           setMoodSelections({
             selectedMoods: [
@@ -83,14 +83,14 @@ const MoodBox = (props) => {
     if (moodId === null) {
       return;
     }
-    console.log("new mood id for post req", moodId);
+    // console.log("new mood id for post req", moodId);
     axios
       .post(`/api/mood/selection`, {
         dayId,
         moodId,
       })
       .then((results) => {
-        console.log("results from axios post to update selection", results);
+        // console.log("results from axios post to update selection", results);
         setUpdateMoods(!updateMoods);
       })
       .catch((err) => {
@@ -107,14 +107,14 @@ const MoodBox = (props) => {
     if (moodId === null) {
       return;
     }
-    console.log("new mood id for post req", moodId);
+    // console.log("new mood id for post req", moodId);
     axios
       .post(`/api/mood/selection/delete`, {
         dayId,
         moodId,
       })
       .then((results) => {
-        console.log("results from axios post to remove selection", results);
+        // console.log("results from axios post to remove selection", results);
         setUpdateMoods(!updateMoods);
       })
       .catch((err) => {

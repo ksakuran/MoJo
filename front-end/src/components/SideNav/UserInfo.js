@@ -6,6 +6,7 @@ import UserInfoForm from "./UserInfoForm";
 import Button from "../Common/Button";
 import Icon from "../Common/Icon";
 import { appContext } from '../../providers/AppProvider';
+import { ToastContainer } from 'react-toastify';
 
 function UserInfo() {
 
@@ -33,6 +34,7 @@ function UserInfo() {
           {formModal && (<UserInfoForm toggle={toggleFormModal}></UserInfoForm>)}
         </div>
       </div>
+      <ToastContainer />
     </div>
   );
 };

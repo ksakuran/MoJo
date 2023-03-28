@@ -1,6 +1,6 @@
 #about{
   width: 90vw;
-  margin-top: 4%;
+  margin-top: -7%;
   margin-left: 5vw;
   position: relative;
   display: flex;
@@ -31,7 +31,7 @@ h3.about-page{
 
 h5 {
   font-size: 110%;
-  margin: 0;
+  margin: -.2%;
   font-weight: 400;
   text-shadow: 2px 5px 10px rgba(0, 0, 0, 0.284);
 }
@@ -39,6 +39,7 @@ h5 {
 span#change-desc{
   display: flex;
   flex-direction: row;
+  
 }
 // section#mojo-features {
 //   display: inline-flex;

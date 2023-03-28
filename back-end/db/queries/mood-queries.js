@@ -34,6 +34,27 @@ const getMoodSelectionByDayId = (dayId) => {
     });
 };
 
+const getMoodSelectionForToday = (todayDate) => {
+  return db
+    .query(
+      `
+        SELECT moods.name as name, mood_id, mood_selections.created_date, rating
+        FROM day_selections
+          JOIN mood_selections ON day_selections.id = mood_selections.day_selection_id
+          JOIN moods ON mood_selections.mood_id = moods.id
+        WHERE day_selections.created_date = $1
+          ORDER BY mood_selections.created_date DESC;
+      `,
+      [todayDate]
+    )
+    .then((data) => {
+      return data.rows;
+    })
+    .catch((err) => {
+      return console.error(err);
+    });
+};
+
 const oldestMoodSelectionByDayId = (dayId) => {
   return db
     .query(
@@ -104,26 +125,27 @@ const insertMoodSelection = (moodId, dayId) => {
 };
 
 
-const getMoodSelectionId = ( moodId, dayId) => {
+const getMoodSelectionId = (moodId, dayId) => {
 
   return db
-  .query(
-    `SELECT id FROM mood_selections WHERE day_selection_id = $1
-    AND mood_id = $2 LIMIT 1;`, 
-    [dayId, moodId]
-  )
-  .then((data) => {
-    return data.rows[0].id;
-  })
-  .catch((err) => {
-    return console.error(err);
-  });
-}
+    .query(
+      `SELECT id FROM mood_selections WHERE day_selection_id = $1
+    AND mood_id = $2 LIMIT 1;`,
+      [dayId, moodId]
+    )
+    .then((data) => {
+      return data.rows[0].id;
+    })
+    .catch((err) => {
+      return console.error(err);
+    });
+};
 
 
 module.exports = {
   getAllMoods,
   getMoodSelectionByDayId,
+  getMoodSelectionForToday,
   dailyMoodSelectionsCount,
   deleteMoodSelectionById,
   insertMoodSelection,

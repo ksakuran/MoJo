@@ -3,7 +3,7 @@ import classNames from "classnames";
 import "../../styles/CurrentWeather.scss";
 import axios from 'axios';
 import Icon from '../Common/Icon';
-import { format, addDays, isEqual } from 'date-fns';
+import { format } from 'date-fns';
 import { daySelectionContext } from './../../providers/DaySelectionProvider';
 import { appContext } from './../../providers/AppProvider';
 
@@ -17,7 +17,6 @@ function CurrentWeather() {
 
   useEffect(() => {
     if (userCity) {
-      console.log("here to fetch weather!", userCity);
       //make getCurrentWeather API call to backend and pass userID and date with it
 
       let needToFetchHistory = true;

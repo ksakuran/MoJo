@@ -2,6 +2,7 @@ import React from "react";
 import "../styles/LandingPage.scss";
 
 import Button from './Common/Button';
+import BreatheCircle from "../components/Home/BreatheCircle";
 
 const LandingPage = (props) => {
 
@@ -26,6 +27,7 @@ const LandingPage = (props) => {
           get started
         </Button> */}
 
+        <BreatheCircle ></BreatheCircle>
         <Button
           btnType="" btnId="get-started">
           <img id='spotify' src='images/spotify.png' alt="spotify-logo" />

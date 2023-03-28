@@ -51,7 +51,7 @@ function Moodify(props) {
       return (
         <div className={moodifyClass}>
         <iframe title="spotify-player" style={{ borderRadius: "12px" }} src={playlistUrl} width="100%" height="152" frameBorder="0" allowFullScreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-        <h4 id="listen" >moodify: listen to something that matches today's mood</h4>
+        <h3 id="listen" >moodify: listen to something that matches today's mood</h3>
       </div>
       )
     }

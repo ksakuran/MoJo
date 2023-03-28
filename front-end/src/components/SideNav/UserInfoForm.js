@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react';
-import { ToastContainer, toast } from 'react-toastify';
+import { toast } from 'react-toastify';
 
 import classNames from "classnames";
 import "./../../styles/UserInfoForm.scss";
@@ -34,12 +34,9 @@ function UserInfoForm(props) {
   const handleSaveClick = function(event) {
     event.preventDefault();
     updateUser(formFirstName, formLastName, formCity, formPicture); // POST request is made in AppProvider via updateUser function
-    props.toggle();
-    // saveAlert()
 
-    // setTimeout(() => {
-    //   props.toggle();
-    // }, 1000);
+    saveAlert() //save info
+    props.toggle() //close modal
   };
 
 
@@ -73,7 +70,6 @@ function UserInfoForm(props) {
           </div>
         </form>
       </div>
-      <ToastContainer />
     </>
   );
 };

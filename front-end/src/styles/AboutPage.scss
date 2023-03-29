@@ -114,7 +114,7 @@ div#team {
 div.team-desc {
   padding: 0.5%;
   margin: 0.6%;
-  margin-top: 1%;
+  margin-top: 2%;
   font-family: 'Syne', sans-serif;
   width: 25vw;
   display: flex;
@@ -133,13 +133,14 @@ div.team-desc {
 
    h3 {
     margin: 5%;
-    margin-bottom: 2%;
+    margin-bottom: 1%;
+    font-size: 100%;
     // font-family: 'Fraunces';
    }
 
   p {
- 
-    font-size: 85%;
+    width: 105%;
+    font-size: 90%;
     margin-left: 5%;
     
   }
@@ -164,6 +165,9 @@ div.feature-desc {
     height: 10vw;
     border-radius: 1.2rem;
     box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.273);
+   }
+   h3 {
+    font-size: 100%;
    }
 
    p {

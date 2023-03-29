@@ -43,7 +43,7 @@ function Journal() {
           body: journalEntry
         })
         .then(response => {
-          setViewMode('HOME');
+          setViewMode('JOURNAL');
         })
         .catch(err => {
           console.log("error", err);

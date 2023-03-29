@@ -17,7 +17,7 @@ section.checklist {
   border-width: 0.06rem;
   border-color: rgba(255, 255, 255, 0.508);
   margin-bottom: 7%;
-  height: 54.85vh;
+  max-height: 54.85vh;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -29,7 +29,7 @@ section.checklist {
 
 h3 {
   margin-top: 15%;
-  margin-bottom: 3%;
+  margin-bottom: 5%;
   display: flex;
   width: 110%;
   justify-content: center;

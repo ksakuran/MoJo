@@ -29,7 +29,7 @@ const AboutPage = () => {
       <section id="about">
         <h3 class="about-page">about mojo</h3>
         <h5>our mission</h5>
-        <p>to create a safe space for you to check-in with your mind and build emotional awareness, free from the pressure of strict routine or expectation</p>
+        <p>to create a comfortable space for you to check-in with your mind and build emotional awareness, free from the pressure of strict routine or expectation</p>
         <span id="change-desc">
           <button
             className={featureButton}
@@ -112,12 +112,7 @@ const AboutPage = () => {
               <img src="images/charlie-headshot.png" alt="team-headshot"></img>
               <h3>Charlie Chandler</h3>
               <p>
-                Originally from the UK, Charlie is a full-stack developer based
-                in Vancouver. He has a background in psychology so creating an
-                app related to emotional awareness was of particular interest to
-                him. His favourite part of this project was working with the
-                Spotify API to develop the Moodify feature, and diving deeper
-                into coding with React.{" "}
+                Charlie is a full-stack developer based in Vancouver, with a background in health-tech in psychology. He focused on developing the user info touch-points, the self-care checklist, and integrating Spotify for the Moodify feature. He is passionate about applying his skills at the intersections of his other interests: languages, mapping, and urban design.{" "}
               </p>
             </div>
           </div>

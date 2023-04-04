@@ -1,7 +1,21 @@
 # MoJo
 A digital mood journaling application, with a focus on increasing your emotional awareness and prioritizing self care, free from expecations.
 
+## Preview of the Application
+### Landing Page with Dark Mode
+[landing page](https://github.com/ksakuran/MoJo/blob/main/front-end/public/images/readme-files/mojo-landing-page.gif?raw=true)
 
+### Calendar Navigation and Home Page
+[calendar and home page](https://github.com/ksakuran/MoJo/blob/main/front-end/public/images/readme-files/mojo-calendar-home.gif?raw=true)
+
+### Journal Feature
+[journal page](https://github.com/ksakuran/MoJo/blob/main/front-end/public/images/readme-files/journal-page.png?raw=true)
+
+### Moodscape Feature
+[moodscape page](https://github.com/ksakuran/MoJo/blob/main/front-end/public/images/readme-files/moodscape.gif?raw=true)
+
+### About the Team
+[about page](https://github.com/ksakuran/MoJo/blob/main/front-end/public/images/readme-files/about-page.png?raw=true)
 
 
 ### TECH STACK

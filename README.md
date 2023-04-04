@@ -3,18 +3,18 @@ A digital mood journaling application, with a focus on increasing your emotional
 
 ## Preview of the Application
 ### Landing Page with Dark Mode
-[landing page](https://github.com/ksakuran/MoJo/blob/main/front-end/public/images/readme-files/mojo-landing-page.gif?)
+![landing page](https://github.com/ksakuran/MoJo/blob/main/front-end/public/images/readme-files/mojo-landing-page.gif?)
 
 ### Calendar Navigation and Home Page
-[calendar and home page](https://github.com/ksakuran/MoJo/blob/main/front-end/public/images/readme-files/mojo-calendar-home.gif?)
+![calendar and home page](https://github.com/ksakuran/MoJo/blob/main/front-end/public/images/readme-files/mojo-calendar-home.gif?)
 ### Journal Feature
-[journal page](https://github.com/ksakuran/MoJo/blob/main/front-end/public/images/readme-files/journal-page.png?)
+![journal page](https://github.com/ksakuran/MoJo/blob/main/front-end/public/images/readme-files/journal-page.png?)
 
 ### Moodscape Feature
-[moodscape page](https://github.com/ksakuran/MoJo/blob/main/front-end/public/images/readme-files/moodscape.gif?)
+![moodscape page](https://github.com/ksakuran/MoJo/blob/main/front-end/public/images/readme-files/moodscape.gif?)
 
 ### About the Team
-[about page](https://github.com/ksakuran/MoJo/blob/main/front-end/public/images/readme-files/about-page.png)
+![about page](https://github.com/ksakuran/MoJo/blob/main/front-end/public/images/readme-files/about-page.png)
 
 
 ### TECH STACK

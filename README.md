@@ -6,7 +6,7 @@ A digital mood journaling application, with a focus on increasing your emotional
 [landing page](https://github.com/ksakuran/MoJo/blob/main/front-end/public/images/readme-files/mojo-landing-page.gif?)
 
 ### Calendar Navigation and Home Page
-[calendar and home page](https://github.com/ksakuran/MoJo/blob/main/front-end/public/images/readme-files/mojo-calendar-home.gif?
+[calendar and home page](https://github.com/ksakuran/MoJo/blob/main/front-end/public/images/readme-files/mojo-calendar-home.gif?)
 ### Journal Feature
 [journal page](https://github.com/ksakuran/MoJo/blob/main/front-end/public/images/readme-files/journal-page.png?)
 
@@ -14,7 +14,7 @@ A digital mood journaling application, with a focus on increasing your emotional
 [moodscape page](https://github.com/ksakuran/MoJo/blob/main/front-end/public/images/readme-files/moodscape.gif?)
 
 ### About the Team
-[about page](https://github.com/ksakuran/MoJo/blob/main/front-end/public/images/readme-files/about-page.png?)
+[about page](https://github.com/ksakuran/MoJo/blob/main/front-end/public/images/readme-files/about-page.png)
 
 
 ### TECH STACK
